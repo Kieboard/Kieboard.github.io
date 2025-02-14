@@ -70,10 +70,12 @@ p {
 section {
     min-height: 100vh;
     display: flex;
+    justify-content: center;
     align-items: center;
     color: rgb(255, 255, 255);
     position: relative;
     overflow: hidden;
+    background-color: #030303;
 }
 
 /* Ensure other elements have a higher z-index than the canvas */
@@ -82,7 +84,6 @@ section {
     z-index: 2; /* Higher z-index for text and buttons to ensure they are on top of the canvas */
 }
 
-/* About Section Styling */
 /* About Me Section Styling */
 #about {
     padding: 50px 20px;
@@ -155,12 +156,22 @@ section {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    #about .content {
-        padding: 10px;
+    .about-container {
+        flex-direction: column;
+        text-align: center;
     }
 
-    #about .skills ul, #about .education ul {
-        padding-left: 20px;
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .content {
+        padding-left: 0;
+    }
+
+    .skills ul {
+        padding-left: 0;
     }
 }
 
@@ -228,6 +239,32 @@ section {
 .other-info p {
     margin: 0;
 }
+
+/* Sidebar container should use flex to push badge down */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Push badge to bottom */
+    align-items: center;
+    overflow: hidden; /* No scrollbars */
+}
+
+/* Badge container */
+.badge {
+    width: 100%; /* Full width of sidebar */
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px; /* Space at bottom */
+}
+
+/* TryHackMe Badge iframe */
+.badge iframe {
+    border: none;
+    width: 100%; /* Ensures it fully fits inside */
+    max-width: 260px; /* Prevents it from being too large */
+    height: auto; /* Keeps aspect ratio */
+}
+
 
 /* Main Content Area Styling */
 .content {
@@ -375,25 +412,6 @@ section {
     position: absolute; /* Absolute positioning within the contact section */
     bottom: 0; /* Position it at the bottom */
     left: 0; /* Align to the left edge */
-}
-
-.footer .social-icons {
-    margin-bottom: 10px; /* Margin below icons */
-}
-
-.social-icons a {
-    display: inline-block; /* Display links inline */
-    margin: 0 15px; /* Space between icons */
-}
-
-.social-icon {
-    width: 30px; /* Icon width */
-    height: 30px; /* Icon height */
-    transition: transform 0.3s; /* Smooth hover effect */
-}
-
-.social-icon:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
 }
 
 .footer-text {
