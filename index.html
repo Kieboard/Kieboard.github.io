@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kieboard</title>
+    <!-- Favicon Link -->
+    <link rel="icon" href="img/icon.png" type="image/png">
+    <!-- Alternative Favicon Links for Various Sizes -->
+    <link rel="icon" href="img/icon.png" type="image/png">
+    <!-- Google Fonts Link -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <!-- Landing Page Section -->
+    <section id="home">
+        <div class="container">
+            <h1>Kieboard</h1>
+            <p>Hello World! I'm Kieran</p>
+            <a href="#about" class="cta-button">About Me</a>
+            <a href="#contact" class="cta-button">Contact</a>
+            <a href="#projects" class="cta-button">Projects/CTF's</a>
+        </div>
+        <canvas id="background-canvas"></canvas>
+    </section>
+
+ <!-- About Me Section -->
+<section id="about">
+    <div class="sidebar">
+        <img src="img/kieboard.png" alt="logo" class="profile-image" />
+
+        <div class="badge">
+            <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1121615" style='border:none;'></iframe>
+        </div>
+    </div>
+    </div>
+    <div class="content">
+        <h2>About Me</h2>
+        <p>
+            I am a passionate and dedicated technical support professional currently pursuing a Bachelor of Cyber Security at the Open University. 
+            My goal is to combine my strong technical foundation with my customer service expertise to solve complex IT challenges and contribute 
+            to the ever-evolving field of cybersecurity. With a commitment to continuous learning, I aim to advance my skills in IT systems, 
+            networking, and cybersecurity to excel in the industry.
+        </p>
+        <p>
+            I am currently pursuing a Bachelor of Cyber Security at the Open University, where I have completed courses in Cisco networking, IT systems, 
+            web technologies, and systems penetration testing. With a strong foundation in technical support and a passion for cybersecurity, I strive to 
+            leverage my skills to provide effective solutions and foster strong relationships.
+        </p>
+
+        <div class="skills">
+            <h3>Skills</h3>
+            <ul>
+            </ul>
+        </div>
+    </div>
+</section>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+
+        <div class="content">
+            <h2>Projects/CTFs</h2>
+            <p>Details about your projects & CTF Writeups. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="content">
+            <p>If you’d like to work together or have any questions, feel free to get in touch using the form below or through my social channels.</p>
+            
+            <form>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+    
+            <div class="contact-social-icons">
+                <a href="https://www.linkedin.com/in/kieran-rorrison-358596113/nkedin.com" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://github.com/Kieboard" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:kiieboard@outlook.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        
+    </section>
+        <div class="footer-text">
+            &copy; <span id="year"></span> Kieboard. All Rights Reserved.
+        </div>
+    </footer>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Automatically update the copyright year
+            document.getElementById('year').textContent = new Date().getFullYear();
+    
+            // Initialize Swiper
+            const swiper = new Swiper(".card-swiper", {
+                centeredSlides: false,
+                spaceBetween: 0,
+                slidesPerView: 'auto'
+            });
+        });
+    </script>
+
+    <!-- JavaScript File -->
+    <script src="script.js"></script>
+
+</body>
+</html>
