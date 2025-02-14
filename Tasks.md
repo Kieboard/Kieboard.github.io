@@ -3,6 +3,7 @@ Main Webpage:
 Add icons for different skills such as Python, HTML, CSS, Cyber etc 
 fix the way the scrolling works as its buggy on laptops
 fix the way the stars go when shrinking the window size 
+figure out why the grey and clear colors are not showing on laptop or mobile
 
 
 About me page:
@@ -17,4 +18,4 @@ Projects Page:
 
 
 Contact me
-configure th send message button to send email to main email
+configure the send message button to send email to main email
