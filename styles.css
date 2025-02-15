@@ -253,7 +253,7 @@ p {
 #contact form {
     max-width: 600px;
     margin: 0 auto;
-    background: #222;
+    background: #111111;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -267,7 +267,7 @@ p {
     margin-bottom: 15px;
     border: none;
     border-radius: 5px;
-    background: #292929;
+    background: #131313;
     color: #fff;
     font-size: 1rem;
     box-sizing: border-box;
@@ -319,6 +319,12 @@ p {
     font-size: 14px;
     margin-top: 10px;
     color: #292929;
+}
+
+.badge {
+    margin-top: 20px;
+    width: 100%;
+    display: auto;
 }
 
 /* ========================== */
