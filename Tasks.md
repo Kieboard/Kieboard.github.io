@@ -7,10 +7,9 @@ figure out why the grey and clear colors are not showing on laptop or mobile
 
 
 About me page:
-Sort sidebar on about me page
-- Sidebar to be configured to be more smove and responsive to scrolls 
-fix the way the tryhackme badge is laid out or maybe remove sidebar possibly?
+fix the way the tryhackme badge is laid out
 Add icons for different skills such as Python, HTML, CSS, Cyber etc 
+add hover zoom for different skills and logo 
 
 Projects Page:
 - Make it so its like a tablet type design with different sections for HTML stuff/Python Stuff/Cyber Sec stuff

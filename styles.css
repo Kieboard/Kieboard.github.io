@@ -1,14 +1,33 @@
-/* General reset and body styling */
+/* ========================== */
+/* GLOBAL STYLES              */
+/* ========================== */
+
+/* Reset default margins and paddings */
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
-    scroll-behavior: smooth; /* Enable smooth scrolling */
-    background-color: #111; /* Default background color */
+    scroll-behavior: smooth;
+    background-color: #111; /* Default dark background */
 }
 
-/* Landing page styling */
+/* General section styling */
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    background-color: #030303;
+}
+
+/* ========================== */
+/* LANDING PAGE               */
+/* ========================== */
+
 #home {
     position: relative;
     height: 100vh;
@@ -16,14 +35,15 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
     text-align: center;
+    color: white;
     z-index: 10;
     padding: 0 20px;
-    background-color: #000; /* Black background for landing page */
-    overflow: hidden; /* Ensure elements don’t overflow */
+    background-color: #000;
+    overflow: hidden;
 }
 
+/* Heading */
 h1 {
     font-size: 3rem;
     margin-bottom: 20px;
@@ -32,14 +52,16 @@ h1 {
     font-weight: bold;
 }
 
+/* Paragraph text */
 p {
     font-size: 1rem;
     line-height: 1.6;
-    text-align: center; /* Center text horizontally */
+    text-align: center;
     margin-bottom: 40px;
     max-width: 600px;
 }
 
+/* CTA (Call to Action) Buttons */
 .cta-button {
     background-color: rgb(255, 0, 0);
     padding: 15px 30px;
@@ -55,7 +77,7 @@ p {
     transform: translateY(-3px);
 }
 
-/* Canvas styling */
+/* Background Canvas */
 #background-canvas {
     position: fixed;
     top: 0;
@@ -63,47 +85,34 @@ p {
     width: 100%;
     height: 100%;
     z-index: 0;
-    pointer-events: none; /* Prevent interactions with the canvas */
+    pointer-events: none;
 }
 
-/* Section Styling */
-section {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(255, 255, 255);
-    position: relative;
-    overflow: hidden;
-    background-color: #030303;
-}
+/* ========================== */
+/* ABOUT ME SECTION           */
+/* ========================== */
 
-/* Ensure other elements have a higher z-index than the canvas */
-.container, h1, p, .cta-button {
-    position: relative;
-    z-index: 2; /* Higher z-index for text and buttons to ensure they are on top of the canvas */
-}
-
-/* About Me Section Styling */
 #about {
     padding: 50px 20px;
     background-color: #030303;
-    color: #fff;
     text-align: center;
 }
 
+/* About Me Content Box */
 #about .content {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Section Title */
 #about h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
     color: #fff;
 }
 
+/* About Me Text */
 #about p {
     font-size: 1.2rem;
     line-height: 1.8;
@@ -111,191 +120,95 @@ section {
     color: #ddd;
 }
 
-#about .skills, #about .education, #about .work-experience {
+/* Profile Logo Styling */
+.logo {
+    width: 160px; /* Adjust size as needed */
+    height: 160px;
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover; /* Ensures it maintains aspect ratio */
+    display: block;
+    margin: 10px auto 20px auto; /* Centers it below the title */
+    border: 3px solid rgb(49, 49, 49); /* Optional: Red border for effect */
+}
+
+.badge {
+    margin-top: 20px; /* Adds spacing below the logo */
+}
+
+.logo {
+    display: block !important;
+}
+
+/* Skills & Education Sections */
+#about .skills, 
+#about .education, 
+#about .work-experience {
     margin-top: 40px;
     text-align: left;
 }
 
-#about .skills h3, #about .education h3, #about .work-experience h3 {
+/* Subsection Titles */
+#about .skills h3, 
+#about .education h3, 
+#about .work-experience h3 {
     font-size: 1.8rem;
     margin-bottom: 15px;
     color: #fff;
     text-align: center;
 }
 
-#about .skills ul, #about .education ul {
+/* Lists inside About Me */
+#about .skills ul, 
+#about .education ul {
     list-style-type: disc;
     padding-left: 40px;
 }
 
-#about .skills ul li, #about .education ul li {
+/* List Items */
+#about .skills ul li, 
+#about .education ul li {
     font-size: 1.1rem;
     margin-bottom: 10px;
     color: #bbb;
 }
 
-#about .skills ul li::marker, #about .education ul li::marker {
-    color: rgb(255, 0, 0); /* Custom bullet color */
+/* Custom Bullet Color */
+#about .skills ul li::marker, 
+#about .education ul li::marker {
+    color: rgb(255, 0, 0);
 }
 
+/* Work Experience */
 #about .work-experience .job {
     margin-bottom: 20px;
 }
 
+/* Job Title */
 #about .work-experience h4 {
     font-size: 1.5rem;
     margin-bottom: 10px;
     color: #fff;
 }
 
+/* Job Description */
 #about .work-experience p {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #bbb;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
+/* ========================== */
+/* PROJECTS SECTION           */
+/* ========================== */
 
-    .sidebar {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .content {
-        padding-left: 0;
-    }
-
-    .skills ul {
-        padding-left: 0;
-    }
-}
-
-/* Sidebar Styling */
-.sidebar {
-    width: 300px;
-    position: fixed;
-    top: 20px;
-    bottom: 40px;
-    left: -320px; /* Start fully offscreen to the left */
-    background-color: #070707;
-    color: #fff;
-    box-shadow: 2px 0 15px rgba(19, 19, 19, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border-radius: 20px;
-    height: calc(100vh - 80px);
-    transition: left 0.4s ease, opacity 0.4s ease; /* Synced slide-in and fade-out */
-    opacity: 0; /* Fully transparent by default */
-    pointer-events: none; /* Prevent interactions when hidden */
-}
-
-.sidebar.sidebar-visible {
-    left: 40px; /* Fully visible inside the viewport */
-    opacity: 1; /* Fully opaque */
-    pointer-events: auto; /* Enable interactions */
-}
-
-.sidebar.sidebar-hidden {
-    left: -320px; /* Slide back offscreen */
-    opacity: 0; /* Fade out in sync with left transition */
-    pointer-events: none; /* Prevent interactions */
-}
-
-.profile-image {
-    display: block;
-    margin: 0 auto;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.skills, .other-info {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.skills h3, .other-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-.skills ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.skills ul li {
-    margin-bottom: 5px;
-}
-
-.other-info p {
-    margin: 0;
-}
-
-/* Sidebar container should use flex to push badge down */
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* Push badge to bottom */
-    align-items: center;
-    overflow: hidden; /* No scrollbars */
-}
-
-/* Badge container */
-.badge {
-    width: 100%; /* Full width of sidebar */
-    display: flex;
-    justify-content: center;
-    padding-bottom: 10px; /* Space at bottom */
-}
-
-/* TryHackMe Badge iframe */
-.badge iframe {
-    border: none;
-    width: 100%; /* Ensures it fully fits inside */
-    max-width: 260px; /* Prevents it from being too large */
-    height: auto; /* Keeps aspect ratio */
-}
-
-
-/* Main Content Area Styling */
-.content {
-    flex: 1;
-    margin-left: 360px;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-.content h2 {
-    font-size: 2.5rem;
-    margin: 0 0 20px; /* Space below the header */
-}
-
-.content p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin: 0 auto;
-    max-width: 800px;
-}
-
-/* Projects Section Styling */
 #projects {
     background-color: #000;
     padding: 50px 20px;
     color: white;
+    text-align: center;
 }
 
-#projects h2, #contact h2, #about h2 {
-    text-align: center;
+#projects h2 {
     margin-bottom: 20px;
 }
 
@@ -303,120 +216,109 @@ section {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+}
+
+/* ========================== */
+/* CONTACT SECTION            */
+/* ========================== */
+
+#contact {
+    position: relative;
+    background-color: #030303;
+    padding: 50px 20px;
+    color: white;
     text-align: center;
 }
 
-
-/* Contact Section Styling */
-#contact {
-    position: relative;
-    background-color: #030303; /* Background for contact section */
-    padding: 50px 20px; /* Padding for spacing around the section */
-    color: white; /* Text color */
-}
-
-/* Content Box for the Form and Details */
+/* Contact Content Box */
 #contact .content {
-    max-width: 800px; /* Limit the width */
-    margin: 0 auto; /* Center-align the content box */
-    padding: 20px; /* Padding inside the box */
-    text-align: center; /* Center text in the section */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-/* Contact Form Styling */
+/* Contact Form */
 #contact form {
-    max-width: 600px; /* Limit the form width */
-    margin: 0 auto; /* Center the form inside the section */
-    background: #222; /* Darker background for the form */
-    padding: 20px; /* Padding inside the form */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for elevation */
+    max-width: 600px;
+    margin: 0 auto;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Input Fields */
 #contact form input, 
 #contact form textarea {
-    width: 100%; /* Full width for inputs */
-    padding: 10px; /* Inner padding for comfort */
-    margin-bottom: 15px; /* Space between form elements */
-    border: none; /* Remove default borders */
-    border-radius: 5px; /* Rounded corners */
-    background: #292929; /* Slightly lighter background for inputs */
-    color: #fff; /* Text color inside inputs */
-    font-size: 1rem; /* Comfortable font size */
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #292929;
+    color: #fff;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
+/* Textarea Styling */
 #contact form textarea {
-    resize: none; /* Prevent resizing */
-    height: 100px; /* Fixed height for the textarea */
+    resize: none;
+    height: 100px;
 }
 
+/* Submit Button */
 #contact form button {
-    display: block; /* Button displayed as a block */
-    width: 100%; /* Full width for the button */
-    padding: 10px; /* Padding inside the button */
-    border: none; /* No borders */
-    border-radius: 5px; /* Rounded corners */
-    background: rgb(255, 0, 0); /* Red background for the button */
-    color: #000; /* Black text for contrast */
-    font-size: 1rem; /* Comfortable font size */
-    font-weight: bold; /* Bold font for emphasis */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(255, 0, 0);
+    color: #000;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 #contact form button:hover {
-    background: #fff; /* Lighter background on hover */
-    transform: scale(1.05); /* Slight scaling for interactivity */
+    background: #fff;
+    transform: scale(1.05);
 }
 
-/* Social Icons Styling for Contact Section */
-.contact-social-icons {
-    display: flex; /* Flexbox for icon layout */
-    justify-content: center; /* Center the icons horizontally */
-    gap: 20px; /* Space between icons */
-    margin-top: 20px; /* Space above the icons */
-}
+/* ========================== */
+/* FOOTER                     */
+/* ========================== */
 
-.contact-social-icons a {
-    display: inline-block; /* Icons as inline blocks */
-    width: 40px; /* Icon width */
-    height: 40px; /* Icon height */
-    background: #333; /* Dark background for icons */
-    border-radius: 50%; /* Circular icons */
-    display: flex; /* Center align icon inside the circle */
-    justify-content: center; /* Horizontal centering */
-    align-items: center; /* Vertical centering */
-    transition: transform 0.3s, background-color 0.3s; /* Smooth hover effects */
-}
-
-.contact-social-icons a:hover {
-    background: rgb(255, 0, 0); /* Red background on hover */
-    transform: scale(1.1); /* Slight scaling on hover */
-}
-
-.contact-social-icons i {
-    color: white; /* White icon color */
-    font-size: 1.2rem; /* Icon size */
-}
-
-
-/* Footer Styling */
 .footer {
-    background-color: transparent; /* Transparent background */
-    color: #333; /* Text color */
-    text-align: center; /* Center-align text */
-    padding: 20px 0; /* Padding for spacing */
-    width: 100%; /* Full width */
-    display: none; /* Hidden by default */
-    position: absolute; /* Absolute positioning within the contact section */
-    bottom: 0; /* Position it at the bottom */
-    left: 0; /* Align to the left edge */
+    background-color: transparent;
+    color: #333;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    display: none; /* Initially hidden */
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 .footer-text {
-    text-align: center;
-    font-size: 14px; /* Smaller font size for copyright text */
-    margin-top: 10px; /* Space above copyright text */
-    color: #292929; /* Slightly lighter color for text */
+    font-size: 14px;
+    margin-top: 10px;
+    color: #292929;
+}
+
+/* ========================== */
+/* RESPONSIVE DESIGN          */
+/* ========================== */
+
+@media (max-width: 768px) {
+    #about .content {
+        text-align: center;
+    }
+
+    #about .skills ul {
+        padding-left: 0;
+    }
 }
