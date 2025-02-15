@@ -43,6 +43,18 @@ section {
     overflow: hidden;
 }
 
+/* Profile Logo Styling */
+.logo {
+    width: 160px; /* Adjust size as needed */
+    height: 160px;
+    border-radius: 50%; /* Makes it circular */
+    object-fit: cover; /* Ensures it maintains aspect ratio */
+    display: block;
+    margin: 10px auto 20px auto; /* Centers it below the title */
+    border: 3px solid rgb(44, 44, 44); /* Optional: Red border for effect */
+}
+
+
 /* Heading */
 h1 {
     font-size: 3rem;
@@ -120,15 +132,15 @@ p {
     color: #ddd;
 }
 
-/* Profile Logo Styling */
-.logo {
+/* Profile Picture Styling */
+.me {
     width: 160px; /* Adjust size as needed */
     height: 160px;
     border-radius: 50%; /* Makes it circular */
     object-fit: cover; /* Ensures it maintains aspect ratio */
     display: block;
     margin: 10px auto 20px auto; /* Centers it below the title */
-    border: 3px solid rgb(49, 49, 49); /* Optional: Red border for effect */
+    border: 3px solid rgb(255, 255, 255); /* Optional: Red border for effect */
 }
 
 .badge {
