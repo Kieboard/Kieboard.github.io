@@ -264,22 +264,52 @@ p {
 /* SKILLS ICON STYLING       */
 /* ========================== */
 
+.skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything inside */
+    text-align: center;
+}
+
+.skills-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center; /* Ensures text is centered */
+    position: relative;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.skills-title::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 3px;
+    background-color: #ff0000; /* Match with your theme */
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+.skills-title:hover::after {
+    width: 100%; /* Expands underline left & right evenly */
+}
+
 .skills-icons {
     display: flex;
-    gap: 15px; /* Space between icons */
-    justify-content: center; /* Centering */
-    align-items: center;
-    margin-top: 10px;
+    justify-content: center; /* Centers icons */
+    gap: 20px; /* Adds spacing between icons */
+    font-size: 2rem; /* Makes icons larger */
 }
 
 .skills-icons i {
-    font-size: 3rem; /* Icon size */
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth hover effect */
-    color: #ffffff; /* Default icon color */
+    transition: transform 0.3s ease-in-out;
 }
 
 .skills-icons i:hover {
-    transform: scale(1.2); /* Slight zoom on hover */
+    transform: scale(1.2); /* Makes icons slightly bigger on hover */
     color: #ff0000; /* Change color on hover */
 }
 
