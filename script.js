@@ -1,36 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
+    /*** 🎨 Canvas Setup ***/
     const canvas = document.getElementById('background-canvas');
     const ctx = canvas.getContext('2d');
-    const sections = document.querySelectorAll('section');
-    const homeSection = document.getElementById('home');
-    const aboutSection = document.getElementById('about');
-    const projectsSection = document.getElementById('projects');
-    const contactSection = document.getElementById('contact');
-    const sectionsArray = [homeSection, aboutSection, projectsSection, contactSection];
-
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
+    /*** 📌 Sections for Smooth Scrolling ***/
+    const sectionsArray = [
+        document.getElementById('home'),
+        document.getElementById('about'),
+        document.getElementById('projects'),
+        document.getElementById('contact')
+    ];
+
+    /*** ✨ Animation Settings ***/
     const stars = [];
     const smallRedStars = [];
-    const starCount = 200;
-    const smallRedStarCount = 200;
     const mainPoints = [];
     const backgroundPoints = [];
-    const mainPointCount = 175; // Controls how many points are shown to make the polygons //
-    const backgroundPointCount = 150; // Controls how many polygons are floating in the background // 
+
+    const starCount = 200;
+    const smallRedStarCount = 200;
+    const mainPointCount = 175;
+    const backgroundPointCount = 150;
+
     const maxDistance = 150;
-    const polygonLifetime = 2000; // 3 seconds for the polygon to stay visible
+    const polygonLifetime = 3000; // 3 seconds
     let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+
     let isStarryBackground = false;
     let isInteractive = true;
     let isScrolling = false;
     let lastMouseMoveTime = 0;
     let mouseMoved = false;
 
+    /*** 🎭 Create Points for Polygons ***/
     function createPoints() {
         mainPoints.length = 0;
         backgroundPoints.length = 0;
+
         for (let i = 0; i < mainPointCount; i++) {
             mainPoints.push({
                 x: Math.random() * canvas.width,
@@ -50,8 +58,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    /*** ⭐ Create Stars ***/
     function createStars() {
         stars.length = 0;
+        smallRedStars.length = 0;
+
         for (let i = 0; i < starCount; i++) {
             stars.push({
                 x: Math.random() * canvas.width,
@@ -62,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        smallRedStars.length = 0;
         for (let i = 0; i < smallRedStarCount; i++) {
             smallRedStars.push({
                 x: Math.random() * canvas.width,
@@ -74,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    /*** 🎨 Draw Stars & Points ***/
     function drawStars() {
         stars.forEach(star => {
             ctx.beginPath();
@@ -122,17 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         const mouseDy = mouse.y - point.y;
                         const mouseDistance = Math.sqrt(mouseDx * mouseDx + mouseDy * mouseDy);
 
-                        let opacity;
-                        if (mouseMoved) {
-                            opacity = 0.2 + (1 - mouseDistance / maxDistance) * 0.8;
-                        } else {
-                            // Calculate fading effect
+                        let opacity = (1 - mouseDistance / maxDistance) * 0.8;
+                        if (!mouseMoved) {
                             const fadeProgress = timeSinceLastMouseMove / polygonLifetime;
-                            opacity = (0.2 + (1 - mouseDistance / maxDistance) * 0.8) * (1 - fadeProgress);
+                            opacity *= (1 - fadeProgress);
                         }
 
                         ctx.lineWidth = isBackground ? 0.3 : 1 + (maxDistance - distance) / 50;
-                        ctx.strokeStyle = isBackground ? 'rgba(255, 0, 0, 0.2)' : `rgba(255, 0, 0, ${opacity})`;
+                        ctx.strokeStyle = `rgba(255, 0, 0, ${opacity})`;
                         ctx.stroke();
                     }
                 });
@@ -140,10 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (!mouseMoved && timeSinceLastMouseMove >= polygonLifetime) {
-            mouseMoved = false; // Reset flag after polygons have fully faded
+            mouseMoved = false;
         }
     }
 
+    /*** 🔄 Update Positions ***/
     function updatePoints(points) {
         points.forEach(point => {
             point.x += point.vx;
@@ -164,12 +173,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /*** 🎞️ Animation Loop ***/
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         if (isInteractive) {
-            drawPoints(mainPoints);
             drawPoints(backgroundPoints, true);
+            drawPoints(mainPoints);
             updatePoints(mainPoints);
             updatePoints(backgroundPoints);
         } else if (isStarryBackground) {
@@ -181,23 +191,21 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animate);
     }
 
+    /*** 🎯 Event Listeners ***/
     window.addEventListener('mousemove', (e) => {
         if (isInteractive) {
             mouse.x = e.clientX;
             mouse.y = e.clientY;
             lastMouseMoveTime = Date.now();
-            mouseMoved = true; // Set flag to true when mouse moves
+            mouseMoved = true;
         }
     });
 
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        if (isInteractive) {
-            createPoints();
-        } else if (isStarryBackground) {
-            createStars();
-        }
+        createPoints();
+        createStars();
     });
 
     document.querySelector('.cta-button').addEventListener('click', (e) => {
@@ -205,82 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
     });
 
-    window.addEventListener('wheel', (e) => {
-        if (isScrolling) return;
-
-        isScrolling = true;
-        const scrollDirection = e.deltaY > 0 ? 'down' : 'up';
-        const currentSectionIndex = sectionsArray.findIndex(section => section.getBoundingClientRect().top >= -10 && section.getBoundingClientRect().top <= 10);
-        let targetSection;
-
-        if (scrollDirection === 'down') {
-            targetSection = sectionsArray[Math.min(currentSectionIndex + 1, sectionsArray.length - 1)];
-        } else {
-            targetSection = sectionsArray[Math.max(currentSectionIndex - 1, 0)];
-        }
-
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        setTimeout(() => {
-            isScrolling = false;
-        }, 1000);
-    });
-
+    /*** 🚀 Initialize Everything ***/
     createPoints();
     createStars();
     animate();
-});
-
-// New Sidebar Scroll Logic (Integrating with Your Current Setup)
-document.addEventListener('DOMContentLoaded', () => {
-    const sidebar = document.querySelector('.sidebar');
-    const aboutSection = document.getElementById('about');
-    let lastScrollTop = 0;
-
-    window.addEventListener('scroll', () => {
-        const aboutSectionTop = aboutSection.getBoundingClientRect().top;
-        const aboutSectionBottom = aboutSection.getBoundingClientRect().bottom;
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (aboutSectionTop <= 0 && aboutSectionBottom >= window.innerHeight / 2) {
-            sidebar.classList.add('sidebar-visible');
-            sidebar.classList.remove('sidebar-hidden');
-        } else if (scrollTop < lastScrollTop) {
-            sidebar.classList.remove('sidebar-visible');
-            sidebar.classList.add('sidebar-hidden');
-        } else {
-            sidebar.classList.remove('sidebar-visible');
-            sidebar.classList.add('sidebar-hidden');
-        }
-
-        lastScrollTop = scrollTop;
-    });
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const footer = document.querySelector('.footer');
-    const contactSection = document.getElementById('contact');
-
-    window.addEventListener('scroll', () => {
-        const contactSectionTop = contactSection.getBoundingClientRect().top;
-        const contactSectionBottom = contactSection.getBoundingClientRect().bottom;
-
-        if (contactSectionTop <= window.innerHeight && contactSectionBottom >= 0) {
-            footer.style.display = 'block';
-        } else {
-            footer.style.display = 'none';
-        }
-    });
-});
-
-// Smooth scrolling for sidebar links
-document.querySelectorAll('.sidebar a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
 });

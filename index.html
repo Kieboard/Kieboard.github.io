@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,53 +13,79 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
+    <!-- ========================== -->
     <!-- Landing Page Section -->
+    <!-- ========================== -->
     <section id="home">
         <div class="container">
-            <img src="img/kieboard.png" alt="Profile Logo" class="logo" />
+            <img src="img/kieboard.png" alt="Profile Logo" class="logo">
             <h1>Kieboard</h1>
             <p>Hello World, I'm Kieran!</p>
+
+            <!-- Navigation Buttons -->
             <a href="#about" class="cta-button">About Me</a>
             <a href="#contact" class="cta-button">Contact</a>
             <a href="#projects" class="cta-button">Projects/CTFs</a>
         </div>
+
+        <!-- Background Animation -->
         <canvas id="background-canvas"></canvas>
     </section>
 
+    <!-- ========================== -->
     <!-- About Me Section -->
-    <section id="about">
-        <div class="about-container">
-            <!-- Main About Me Content -->
-            <div class="content">
-                <h2>About Me</h2>
-                <img src="img/moi.jpg" alt="Profile Logo" class="me" />
-                <p>
-                    Hey! I'm Kieran, a BSc Cyber Security student at the Open University with a knack for all things tech and cyber. 
-                    Whether it’s cracking codes or outsmarting threats, I love diving into the digital battlefield.
-                </p>
-                <p>
-                    When I’m not securing the cyber world, you’ll find me gaming, golfing, or strategizing in airsoft—because defense isn’t just for firewalls!
-                </p>
+    <!-- ========================== -->
+    <!-- About Me Section -->
+<section id="about">
+    <div class="about-container">
+        <div class="content">
+            <h2>About Me</h2>
+            <img src="img/moi.jpg" alt="Profile Picture" class="me">
+            
+            <p>
+                Hey! I'm Kieran, a BSc Cyber Security student at the Open University with a knack for all things tech and cyber. 
+                Whether it’s cracking codes or outsmarting threats, I love diving into the digital battlefield.
+            </p>
+            <p>
+                When I’m not securing the cyber world, you’ll find me gaming, golfing, or strategizing in airsoft—because defense isn’t just for firewalls!
+            </p>
 
-                <!-- Skills Section -->
-                <div class="skills">
-                    <h3>Skills</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>HTML5</li>
-                        <li>Network Security</li>
-                        <li>Python & Bash Scripting</li>
-                        <li>Cloud Security</li>
-                    </ul>
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://github.com/Kieboard" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/kieran-rorrison-358596113/" target="_blank" class="social-icon">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="skills">
+                <h2>Skills</h2> <!-- Changed from h3 to h2 for consistency -->
+                <div class="skills-icons">
+                    <i class="fa-brands fa-python" title="Python"></i>
+                    <i class="fa-brands fa-html5" title="HTML5"></i>
+                    <i class="fa-brands fa-css3-alt" title="CSS3"></i>
+                    <i class="fa-solid fa-network-wired" title="Network Security"></i>
+                    <i class="fa-solid fa-terminal" title="Bash & Python Scripting"></i>
+                    <i class="fa-solid fa-cloud" title="Cloud Security"></i>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+
+    <!-- ========================== -->
     <!-- Projects Section -->
+    <!-- ========================== -->
     <section id="projects">
         <div class="content">
             <h2>Projects/CTFs</h2>
@@ -66,55 +93,64 @@
         </div>
     </section>
 
+    <!-- ========================== -->
     <!-- Contact Section -->
+    <!-- ========================== -->
     <section id="contact">
         <div class="content">
             <h2>Leave a Message!</h2>
             <p>If you’d like to work together, have any questions, or have any feedback, feel free to get in touch using the form below.</p>
             
             <!-- Contact Form -->
-            <form>
+            <form action="https://formspree.io/f/xvgzwwdz" method="POST">
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <textarea name="message" placeholder="Your Message" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
 
+            <!-- TryHackMe Badge -->
             <div class="badge">
                 <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1121615"></iframe>
             </div>
-
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ========================== -->
+    <!-- Footer Section -->
+    <!-- ========================== -->
     <footer class="footer">
         <div class="footer-text">
             &copy; <span id="year"></span> Kieboard. All Rights Reserved.
         </div>
     </footer>
 
- <!-- JavaScript for Copyright Year and Swiper -->
- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
- <script>
-     document.addEventListener("DOMContentLoaded", function () {
-         // Update copyright year dynamically
-         document.getElementById('year').textContent = new Date().getFullYear();
- 
-         // Initialize Swiper for any future use
-         const swiper = new Swiper(".card-swiper", {
-             centeredSlides: false,
-             spaceBetween: 0,
-             slidesPerView: 'auto'
-         });
-     });
- </script>
+    <!-- ========================== -->
+    <!-- JavaScript Section -->
+    <!-- ========================== -->
 
- <!-- FontAwesome for Icons -->
- <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <!-- Swiper.js for any potential use -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
- <!-- External JavaScript File -->
- <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Update copyright year dynamically
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Initialize Swiper for any future use
+            const swiper = new Swiper(".card-swiper", {
+                centeredSlides: false,
+                spaceBetween: 0,
+                slidesPerView: 'auto'
+            });
+        });
+    </script>
+
+    <!-- FontAwesome for Icons -->
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
 
 </body>
 </html>

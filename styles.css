@@ -25,6 +25,84 @@ section {
 }
 
 /* ========================== */
+/* IMAGE ZOOM ON HOVER        */
+/* ========================== */
+
+img {
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+img:hover {
+    transform: scale(1.1); /* Zoom in effect */
+}
+
+/* ========================== */
+/* HEADINGS STYLING          */
+/* ========================== */
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    text-align: center;
+}
+
+/* 🔥 Main Heading (h1) - Strong & Clean */
+h1 {
+    font-size: 4rem;
+    background: linear-gradient(90deg, #ff0000, #ff7300);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 🔥 Section Headings (h2) - Bold Underline */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 3px;
+    background-color: rgb(255, 0, 0); /* Match with your theme */
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-in-out;
+}
+
+/* Hover Effect: Expanding Underline Symmetrically */
+h2:hover::after {
+    width: 100%;
+    background: #ff7300;
+}
+
+/* 🔥 Subheadings (h3) - Stronger Glow */
+h3 {
+    font-size: 2.2rem;
+    color: #ffffff;
+    text-shadow: 3px 3px 10px rgba(255, 0, 0, 0.9);
+    transition: text-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Hover Effect: Bigger Glow & Slight Lift */
+h3:hover {
+    text-shadow: 5px 5px 15px rgba(255, 0, 0, 1);
+    transform: scale(1.05);
+}
+
+
+
+/* ========================== */
 /* LANDING PAGE               */
 /* ========================== */
 
@@ -151,6 +229,29 @@ p {
     display: block !important;
 }
 
+/* ========================== */
+/* SOCIAL ICONS STYLING       */
+/* ========================== */
+
+.social-links {
+    margin-top: 20px; /* Adds space between the text and icons */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    font-size: 2rem;
+    color: #fff; /* Default white */
+    transition: transform 0.2s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.social-icon:hover {
+    color: rgb(255, 0, 0); /* Red glow effect on hover */
+    transform: scale(1.2);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
 /* Skills & Education Sections */
 #about .skills, 
 #about .education, 
@@ -158,6 +259,30 @@ p {
     margin-top: 40px;
     text-align: left;
 }
+
+/* ========================== */
+/* SKILLS ICON STYLING       */
+/* ========================== */
+
+.skills-icons {
+    display: flex;
+    gap: 15px; /* Space between icons */
+    justify-content: center; /* Centering */
+    align-items: center;
+    margin-top: 10px;
+}
+
+.skills-icons i {
+    font-size: 3rem; /* Icon size */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth hover effect */
+    color: #ffffff; /* Default icon color */
+}
+
+.skills-icons i:hover {
+    transform: scale(1.2); /* Slight zoom on hover */
+    color: #ff0000; /* Change color on hover */
+}
+
 
 /* Subsection Titles */
 #about .skills h3, 
@@ -321,11 +446,21 @@ p {
     color: #292929;
 }
 
+/* TryHackMe Badge Styling */
 .badge {
-    margin-top: 20px;
-    width: 100%;
-    display: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adjust spacing under the button */
 }
+
+.badge iframe {
+    width: 100%; /* Full width inside the container */
+    max-width: 350px; /* Prevent it from getting too large */
+    height: 120px; /* Adjust height for a perfect fit */
+    border: none; /* Remove iframe border */
+    overflow: hidden; /* Hide any scrollbars */
+}
+
 
 /* ========================== */
 /* RESPONSIVE DESIGN          */
