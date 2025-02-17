@@ -35,6 +35,15 @@ section {
     background: rgba(0, 0, 0, 0.8); /* Optional: adds a semi-transparent background */
 }
 
+/* ========================== */
+/* RESPONSIVE DESIGN FIXES    */
+/* ========================== */
+
+@media (max-width: 768px) {
+    section {
+        background-color: #030303 !important;
+    }
+}
 
 /* ========================== */
 /* IMAGE ZOOM ON HOVER        */
@@ -47,6 +56,59 @@ img {
 img:hover {
     transform: scale(1.1); /* Zoom in effect */
 }
+
+/* ========================== */
+/* BUTTON STYLING FIXES       */
+/* ========================== */
+
+/* CTA (Call to Action) Buttons */
+.cta-button {
+    background-color: rgb(255, 0, 0);
+    padding: 15px 30px;
+    color: #000;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap; /* Prevents text from breaking */
+    margin: 0px; /* Adds spacing between buttons */
+}
+
+/* Hover Effect */
+.cta-button:hover {
+    background-color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* ========================== */
+/* RESPONSIVE FIXES (MOBILE)  */
+/* ========================== */
+
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column; /* Stacks buttons vertically on small screens */
+        align-items: center; /* Centers them */
+        gap: 10px; /* Adjust spacing */
+    }
+
+    .cta-button {
+        width: 80%; /* Ensures buttons are properly sized on mobile */
+        max-width: 300px; /* Prevents them from being too wide */
+    }
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    flex-wrap: wrap; /* Ensures buttons wrap instead of overlapping */
+    justify-content: center; /* Centers buttons */
+    gap: 15px; /* Adds spacing */
+    width: 100%;
+    margin-top: 20px;
+}
+
 
 /* ========================== */
 /* HEADINGS STYLING          */
