@@ -470,21 +470,26 @@ p {
 /* ========================== */
 
 .footer {
-    background-color: transparent;
-    color: #333;
-    text-align: center;
-    padding: 20px 0;
-    width: 100%;
-    display: none ; /* Initially hidden */
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Fully transparent */
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000; /* Ensures it's above other elements */
+}
+
+.footer {
+    background-color: rgba(0, 0, 0, 0) !important;
 }
 
 .footer-text {
     font-size: 14px;
     margin-top: 10px;
-    color: #292929;
+    color: #ff0000;
+    margin: 0 !important;
+    padding: 10px 0 !important;
 }
 
 /* TryHackMe Badge Styling */
