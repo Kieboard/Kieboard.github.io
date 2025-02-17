@@ -24,6 +24,16 @@ section {
     background-color: #030303;
 }
 
+.text-content, 
+.image, 
+.send-message-box, 
+.footer, 
+.header, 
+.sidebar {
+    position: relative;
+    z-index: 10; /* Adjust if still overlapped */
+    background: rgba(0, 0, 0, 0.8); /* Optional: adds a semi-transparent background */
+}
 /* ========================== */
 /* IMAGE ZOOM ON HOVER        */
 /* ========================== */
@@ -174,7 +184,7 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 0;
+    z-index: -9999;
     pointer-events: none;
 }
 
