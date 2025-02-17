@@ -85,17 +85,19 @@ img:hover {
 /* ========================== */
 /* RESPONSIVE FIXES (MOBILE)  */
 /* ========================== */
-
 @media (max-width: 768px) {
     .button-container {
-        flex-direction: column; /* Stacks buttons vertically on small screens */
-        align-items: center; /* Centers them */
-        gap: 10px; /* Adjust spacing */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px; /* Adds space between buttons */
     }
 
     .cta-button {
-        width: 80%; /* Ensures buttons are properly sized on mobile */
-        max-width: 300px; /* Prevents them from being too wide */
+        width: 85%;
+        max-width: 320px;
+        padding: 18px 35px;
+        margin: 5px 0; /* Ensures space between buttons */
     }
 }
 
