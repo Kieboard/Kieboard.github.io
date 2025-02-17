@@ -248,8 +248,8 @@ p {
 
 .social-icon:hover {
     color: rgb(255, 0, 0); /* Red glow effect on hover */
-    transform: scale(1.2);
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+    transform: scale(1.2); /* zooms in  */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* add glow effect */
 }
 
 /* Skills & Education Sections */
@@ -311,6 +311,7 @@ p {
 .skills-icons i:hover {
     transform: scale(1.2); /* Makes icons slightly bigger on hover */
     color: #ff0000; /* Change color on hover */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Adds glow around icons */
 }
 
 
@@ -481,6 +482,7 @@ p {
     display: flex;
     justify-content: center;
     margin-top: 20px; /* Adjust spacing under the button */
+    background: transparent !important;
 }
 
 .badge iframe {
@@ -489,6 +491,7 @@ p {
     height: 120px; /* Adjust height for a perfect fit */
     border: none; /* Remove iframe border */
     overflow: hidden; /* Hide any scrollbars */
+    background: transparent !important;
 }
 
 
