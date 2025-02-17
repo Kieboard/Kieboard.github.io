@@ -34,6 +34,8 @@ section {
     z-index: 10; /* Adjust if still overlapped */
     background: rgba(0, 0, 0, 0.8); /* Optional: adds a semi-transparent background */
 }
+
+
 /* ========================== */
 /* IMAGE ZOOM ON HOVER        */
 /* ========================== */
@@ -466,22 +468,17 @@ p {
 }
 
 /* ========================== */
-/* FOOTER                     */
+/* FOOTER FIX                 */
 /* ========================== */
 
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0); /* Fully transparent */
+    background-color: #000; /* Ensure visible background */
     text-align: center;
     padding: 10px 0;
-    z-index: 1000; /* Ensures it's above other elements */
-}
-
-.footer {
-    background-color: rgba(0, 0, 0, 0) !important;
+    z-index: 1000; /* Keeps it above other elements */
+    color: #ff0000;
 }
 
 .footer-text {
@@ -491,6 +488,18 @@ p {
     margin: 0 !important;
     padding: 10px 0 !important;
 }
+
+/* Show footer only on the last page */
+.last-section .footer {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        position: relative; /* Ensure it's positioned correctly on mobile */
+    }
+}
+
 
 /* TryHackMe Badge Styling */
 .badge {
@@ -508,7 +517,6 @@ p {
     overflow: hidden; /* Hide any scrollbars */
     background: transparent !important;
 }
-
 
 /* ========================== */
 /* RESPONSIVE DESIGN          */
