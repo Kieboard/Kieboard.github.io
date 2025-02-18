@@ -41,7 +41,7 @@ section {
 
 @media (max-width: 768px) {
     section {
-        background-color: #030303 !important;
+        background-color: #030303;
     }
 }
 
