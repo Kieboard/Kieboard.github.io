@@ -536,7 +536,7 @@ p {
 /* ========================== */
 
 .footer {
-    position: relative;
+    position: fixed;
     width: 100%;
     background-color: #000; /* Ensure visible background */
     text-align: center;
@@ -594,4 +594,114 @@ p {
     #about .skills ul {
         padding-left: 0;
     }
+}
+
+
+/* Category Icons/Images for selecting different categories */
+.category-selection {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.category-icon {
+    width: 80px; /* Adjust the size */
+    height: 80px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.category-icon:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* ========================== */
+/* PROJECT TITLE STYLING      */
+/* ========================== */
+
+.project-card h3 {
+    font-size: 2rem; /* Same font size as your h2 headings */
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    text-transform: uppercase; /* Same uppercase style as other headings */
+    letter-spacing: 2px; /* Same spacing as h2 and h3 headings */
+    color: #fff; /* White text color */
+}
+
+/* Make the title clickable */
+.project-card h3 a {
+    color: inherit;  /* Inherits the color of the heading */
+    text-decoration: none; /* Remove default underline */
+}
+
+/* Underline effect (same as h2) */
+.project-card h3 a::after {
+    content: "";
+    position: absolute;
+    width: 50%;  /* Matches your h2 underline width */
+    height: 3px;
+    background-color: rgb(255, 0, 0);  /* Red underline */
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);  /* Centers the underline */
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-out; /* Smooth transition */
+}
+
+/* Hover effect to expand underline (same as h2 hover effect) */
+.project-card h3 a:hover::after {
+    width: 100%;  /* Expands underline on hover */
+    background-color: #ff7300;  /* Orange hover color */
+}
+
+/* No glow effect applied */
+.project-card h3, .project-card h3 a {
+    text-shadow: none; /* Removes any text glow */
+}
+
+/* Initially hide all projects */
+.project-category {
+    display: none; /* Hidden by default */
+}
+
+/* Category icon styles */
+.category-selection {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.category-icon {
+    cursor: pointer;  /* Makes the category clickable */
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.category-icon img {
+    width: 60px; /* Adjust icon size */
+    height: 60px; /* Adjust icon size */
+    border-radius: 10px; /* Optional: round corners */
+}
+
+.category-icon:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Project Cards Styling */
+.project-card {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* Add some margin to separate the project categories */
+.projects {
+    margin-top: 30px;
 }

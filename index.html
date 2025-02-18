@@ -30,8 +30,8 @@
 
             <!-- Navigation Buttons -->
             <a href="#about" class="cta-button">About Me</a>
-            <a href="#contact" class="cta-button">Contact</a>
             <a href="#projects" class="cta-button">Projects/CTFs</a>
+            <a href="#contact" class="cta-button">Contact</a>
         </div>
 
         <!-- Background Animation -->
@@ -40,7 +40,7 @@
 
     <!-- ========================== -->
     <!-- About Me Section -->
-<section id="about">
+    <section id="about">
     <div class="about-container">
         <div class="content">
             <h2>About Me</h2>
@@ -74,18 +74,43 @@
                     <i class="fa-solid fa-network-wired" title="Network Security"></i>
                 </div>
             </div>
+            
         </div>
     </div>
-</section>
+    </section>
 
     <!-- ========================== -->
     <!-- Projects Section -->
     <!-- ========================== -->
+    <!-- Projects Section -->
     <section id="projects">
-        <div class="content">
-            <h2>Projects/CTFs</h2>
-            <p>Details about your projects & CTF Writeups. This will be for writeups from THM/HTB etc.</p>
-        </div>
+    <div class="content">
+        <h2>Projects/CTFs</h2>
+        <p>Click on the category to explore different projects related to THM, Open University, and Personal Projects.</p>
+        <!-- Category Selection (Icons/Images) -->
+    <div class="category-selection">
+    <div id="tryhackme-icon" class="category-icon">
+        <img src="img/thm-logo.webp" alt="TryHackMe" />
+    </div>
+    <div id="university-icon" class="category-icon">
+        <img src="img/ou-logo.jpg" alt="University" />
+    </div>
+    </div>
+
+<!-- Project Categories -->
+    <div id="tryhackme-projects" class="project-category" style="display: none;">
+    <!-- TryHackMe Projects -->
+        <div class="project-card">Project 1</div>
+        <div class="project-card">Project 2</div>
+    </div>
+
+    <div id="university-projects" class="project-category" style="display: none;">
+    <!-- University Projects -->
+        <div class="project-card">University Project 1</div>
+        <div class="project-card">University Project 2</div>
+    </div>
+
+    </div>
     </section>
 
     <!-- ========================== -->
@@ -137,6 +162,36 @@
                 centeredSlides: false,
                 spaceBetween: 0,
                 slidesPerView: 'auto'
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function filterProjects(category) {
+                var allProjects = document.querySelectorAll('.project-card');
+                
+                // Hide all projects first
+                allProjects.forEach(function(project) {
+                    project.style.display = 'none';
+                });
+    
+                // Show only the selected category projects
+                var filteredProjects = document.querySelectorAll('.' + category);
+                filteredProjects.forEach(function(project) {
+                    project.style.display = 'block';
+                });
+            }
+    
+            // Attach the filter function to each category icon
+            document.querySelector('.tryhackme-icon').addEventListener('click', function() {
+                filterProjects('tryhackme');
+            });
+            document.querySelector('.ou-icon').addEventListener('click', function() {
+                filterProjects('ou');
+            });
+            document.querySelector('.personal-icon').addEventListener('click', function() {
+                filterProjects('personal');
             });
         });
     </script>

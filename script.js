@@ -292,6 +292,35 @@ function animate() {
         document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
     });
 
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get category icons
+        const tryhackmeIcon = document.getElementById('tryhackme-icon');
+        const universityIcon = document.getElementById('university-icon');
+        
+        // Get project categories
+        const tryhackmeProjects = document.getElementById('tryhackme-projects');
+        const universityProjects = document.getElementById('university-projects');
+    
+        // Function to hide all project categories
+        function hideAllProjects() {
+            tryhackmeProjects.style.display = 'none';
+            universityProjects.style.display = 'none';
+        }
+    
+        // Show TryHackMe projects
+        tryhackmeIcon.addEventListener('click', function() {
+            hideAllProjects(); // Hide all projects
+            tryhackmeProjects.style.display = 'block'; // Show TryHackMe projects
+        });
+    
+        // Show University projects
+        universityIcon.addEventListener('click', function() {
+            hideAllProjects(); // Hide all projects
+            universityProjects.style.display = 'block'; // Show University projects
+        });
+    });
+    
+    
     /*** 🚀 Initialize Everything ***/
     createPoints();
     createStars();
