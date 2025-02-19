@@ -13,10 +13,9 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="styles.css">
-    
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
 <body>
 
@@ -84,37 +83,32 @@
     <!-- Projects & CTFs Section -->
     <!-- ========================== -->
     <section id="projects">
-        <div class="contentproject">
+        <div class="content" style="height: 500px;">
             <h2>Projects/CTFs</h2>
             <p>Click on a category to explore different projects related to TryHackMe, university work, and personal projects.</p>
-    
+
             <!-- Category Selection (Icons/Images) -->
-            <body>
-                <div class="category-selection">
-                    <div class="category-icon" data-target="tryhackme-projects">
-                        <img src="img/thm-logo.webp" alt="TryHackMe" onclick="gay()">
-                    </div>
-                    <div class="category-icon" data-target="university-projects">
-                        <img src="img/ou-logo.jpg" alt="University">
-                    </div>
+            <div class="category-selection">
+                <div class="category-icon" data-target="tryhackme-projects">
+                    <img src="img/thm-logo.webp" alt="TryHackMe">
                 </div>
-        
-            </body>
-            
-    
+                <div class="category-icon" data-target="university-projects">
+                    <img src="img/ou-logo.jpg" alt="University">
+                </div>
+            </div>
+
             <!-- Project Categories (Hidden by Default) -->
             <div id="tryhackme-projects" class="project-category">
                 <div class="project-card">Project 1</div>
                 <div class="project-card">Project 2</div>
             </div>
-    
+
             <div id="university-projects" class="project-category">
                 <div class="project-card">University Project 1</div>
                 <div class="project-card">University Project 2</div>
             </div>
         </div>
     </section>
-    
 
     <!-- ========================== -->
     <!-- Contact Section -->
@@ -169,6 +163,11 @@
         });
     </script>
 
-<script src="script.js" defer></script>
+    <!-- FontAwesome Kit -->
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+
 </body>
 </html>
