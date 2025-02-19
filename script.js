@@ -292,33 +292,68 @@ function animate() {
         document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-        // Get category icons
-        const tryhackmeIcon = document.getElementById('tryhackme-icon');
-        const universityIcon = document.getElementById('university-icon');
-        
-        // Get project categories
-        const tryhackmeProjects = document.getElementById('tryhackme-projects');
-        const universityProjects = document.getElementById('university-projects');
     
-        // Function to hide all project categories
-        function hideAllProjects() {
-            tryhackmeProjects.style.display = 'none';
-            universityProjects.style.display = 'none';
+
+    /*** 📌 PROJECTS SECTION LOGIC ***/
+    document.addEventListener('DOMContentLoaded', function () {
+        console.log("✅ Projects Section Loaded");
+    
+        /*** 🎯 Select Category Icons & Project Sections ***/
+        const categoryIcons = document.querySelectorAll('.category-icon');
+        const projectSections = document.querySelectorAll('.project-category');
+    
+        if (categoryIcons.length === 0 || projectSections.length === 0) {
+            console.warn("🚨 Category icons or project sections not found! Check HTML structure.");
+            return; // Stop execution if elements are missing
         }
     
-        // Show TryHackMe projects
-        tryhackmeIcon.addEventListener('click', function() {
-            hideAllProjects(); // Hide all projects
-            tryhackmeProjects.style.display = 'block'; // Show TryHackMe projects
-        });
+        /*** 🔄 Function to Hide All Project Sections ***/
+        function hideAllProjects() {
+            projectSections.forEach(section => {
+                section.style.opacity = '0';
+                setTimeout(() => {
+                    section.style.display = 'none';
+                }, 300); // Match transition time
+            });
+        }
     
-        // Show University projects
-        universityIcon.addEventListener('click', function() {
-            hideAllProjects(); // Hide all projects
-            universityProjects.style.display = 'block'; // Show University projects
-        });
+        /*** 🚀 Function to Show Selected Project Section ***/
+        function showProjectSection(targetId) {
+            const targetSection = document.getElementById(targetId);
+            if (!targetSection) {
+                console.error(`❌ No section found with ID: ${targetId}`);
+                return;
+            }
+    
+            hideAllProjects();
+            setTimeout(() => {
+                targetSection.style.display = 'block';
+                setTimeout(() => {
+                    targetSection.style.opacity = '1';
+                }, 10); // Ensure smooth fade-in
+            }, 300);
+        }
+    
+        /*** 🖱️ Event Listener for Category Icons ***/
+        categoryIcons.forEach(icon => {
+    icon.addEventListener('click', function () {
+        console.log("Icon clicked!"); // Test if the click is being detected
+        const targetCategory = this.dataset.target;
+        showProjectSection(targetCategory);
     });
+});
+    
+        /*** 🚀 Initialize: Hide All Except First ***/
+        hideAllProjects();
+        if (projectSections.length > 0) {
+            projectSections[0].style.display = 'block';
+            projectSections[0].style.opacity = '1';
+        }
+    });
+    
+    
+    
+
     
     
     /*** 🚀 Initialize Everything ***/

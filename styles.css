@@ -9,7 +9,7 @@ body, html {
     font-family: 'Montserrat', sans-serif;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    background-color: #111; /* Default dark background */
+    background-color: #111; /* Default dark background/
 }
 
 /* General section styling */
@@ -31,8 +31,8 @@ section {
 .header, 
 .sidebar {
     position: relative;
-    z-index: 10; /* Adjust if still overlapped */
-    background: rgba(0, 0, 0, 0.8); /* Optional: adds a semi-transparent background */
+    z-index: 10; /*Adjust if still overlapped */
+    background: rgba(0, 0, 0, 0.8); /*adds a semi-transparent background */
 }
 
 /* ========================== */
@@ -133,7 +133,7 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
-/* 🔥 Section Headings (h2) - Bold Underline */
+/* Section Headings (h2) - Bold Underline */
 h2 {
     font-size: 2rem;
     font-weight: bold;
@@ -162,7 +162,7 @@ h2:hover::after {
     background: #ff7300;
 }
 
-/* 🔥 Subheadings (h3) - Stronger Glow */
+/* Subheadings (h3) - Stronger Glow */
 h3 {
     font-size: 2.2rem;
     color: #ffffff;
@@ -201,11 +201,11 @@ h3:hover {
 .logo {
     width: 160px; /* Adjust size as needed */
     height: 160px;
-    border-radius: 50%; /* Makes it circular */
+    border-radius: 50%; /*circular */
     object-fit: cover; /* Ensures it maintains aspect ratio */
     display: block;
     margin: 10px auto 20px auto; /* Centers it below the title */
-    border: 3px solid rgb(44, 44, 44); /* Optional: Red border for effect */
+    border: 3px solid rgb(44, 44, 44); /*Red border for effect */
 }
 
 
@@ -291,10 +291,10 @@ p {
     width: 160px; /* Adjust size as needed */
     height: 160px;
     border-radius: 50%; /* Makes it circular */
-    object-fit: cover; /* Ensures it maintains aspect ratio */
+    object-fit: cover; /* Ensures it maintais aspect ratio */
     display: block;
     margin: 10px auto 20px auto; /* Centers it below the title */
-    border: 3px solid rgb(255, 255, 255); /* Optional: Red border for effect */
+    border: 3px solid rgb(255, 255, 255); /*Red border for effect */
 }
 
 .badge {
@@ -385,9 +385,9 @@ p {
 }
 
 .skills-icons i:hover {
-    transform: scale(1.2); /* Makes icons slightly bigger on hover */
+    transform: scale(1.2); /* Makes icons bigger on hover */
     color: #ff0000; /* Change color on hover */
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Adds glow around icons */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /*Adds glow around icons*/
 }
 
 
@@ -538,10 +538,10 @@ p {
 .footer {
     position: fixed;
     width: 100%;
-    background-color: #000; /* Ensure visible background */
+    background-color: #000; /*visible background */
     text-align: center;
     padding: 10px 0;
-    z-index: 1000; /* Keeps it above other elements */
+    z-index: 1000; /*above other elements */
     color: #ff0000;
 }
 
@@ -560,7 +560,7 @@ p {
 
 @media (max-width: 768px) {
     .footer {
-        position: relative; /* Ensure it's positioned correctly on mobile */
+        position: relative; /*positioned correctly on mobile */
     }
 }
 
@@ -569,16 +569,16 @@ p {
 .badge {
     display: flex;
     justify-content: center;
-    margin-top: 20px; /* Adjust spacing under the button */
+    margin-top: 20px;
     background: transparent !important;
 }
 
 .badge iframe {
     width: 100%; /* Full width inside the container */
-    max-width: 350px; /* Prevent it from getting too large */
-    height: 120px; /* Adjust height for a perfect fit */
-    border: none; /* Remove iframe border */
-    overflow: hidden; /* Hide any scrollbars */
+    max-width: 350px; /* Prevent it from getting to large */
+    height: 120px; /*Adjust height*/
+    border: none; /*Remove iframe border*/
+    overflow: hidden; /*Hide scrollbars*/
     background: transparent !important;
 }
 
@@ -605,7 +605,7 @@ p {
 }
 
 .category-icon {
-    width: 80px; /* Adjust the size */
+    width: 80px;
     height: 80px;
     margin: 0 10px;
     cursor: pointer;
@@ -621,14 +621,14 @@ p {
 /* ========================== */
 
 .project-card h3 {
-    font-size: 2rem; /* Same font size as your h2 headings */
+    font-size: 2rem; /* Same font size as h2 headings */
     font-weight: bold;
     text-align: center;
     position: relative;
     display: inline-block;
     text-transform: uppercase; /* Same uppercase style as other headings */
     letter-spacing: 2px; /* Same spacing as h2 and h3 headings */
-    color: #fff; /* White text color */
+    color: #fff;
 }
 
 /* Make the title clickable */
@@ -652,13 +652,13 @@ p {
 
 /* Hover effect to expand underline (same as h2 hover effect) */
 .project-card h3 a:hover::after {
-    width: 100%;  /* Expands underline on hover */
-    background-color: #ff7300;  /* Orange hover color */
+    width: 100%; 
+    background-color: #ff7300;
 }
 
-/* No glow effect applied */
+/* No glow effect */
 .project-card h3, .project-card h3 a {
-    text-shadow: none; /* Removes any text glow */
+    text-shadow: none;
 }
 
 /* Initially hide all projects */
@@ -675,19 +675,19 @@ p {
 }
 
 .category-icon {
-    cursor: pointer;  /* Makes the category clickable */
+    cursor: pointer;  /* category clickable */
     transition: transform 0.3s ease;
     display: inline-block;
 }
 
 .category-icon img {
-    width: 60px; /* Adjust icon size */
-    height: 60px; /* Adjust icon size */
-    border-radius: 10px; /* Optional: round corners */
+    width: 60px; 
+    height: 60px; 
+    border-radius: 10px; /* round corners */
 }
 
 .category-icon:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
+    transform: scale(1.1);
 }
 
 /* Project Cards Styling */
@@ -701,7 +701,8 @@ p {
     text-align: center;
 }
 
-/* Add some margin to separate the project categories */
+/*separates the project categories */
 .projects {
     margin-top: 30px;
+}
 }

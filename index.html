@@ -8,10 +8,10 @@
     <!-- Favicon -->
     <link rel="icon" href="img/favicon.png" type="image/png">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Montserrat for a clean, modern look) -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Stylesheet -->
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 
     <!-- Font Awesome Icons -->
@@ -20,7 +20,7 @@
 <body>
 
     <!-- ========================== -->
-    <!-- Landing Page Section -->
+    <!-- Landing Page / Hero Section -->
     <!-- ========================== -->
     <section id="home">
         <div class="container">
@@ -34,83 +34,80 @@
             <a href="#contact" class="cta-button">Contact</a>
         </div>
 
-        <!-- Background Animation -->
+        <!-- Background Animation Canvas -->
         <canvas id="background-canvas"></canvas>
     </section>
 
     <!-- ========================== -->
     <!-- About Me Section -->
+    <!-- ========================== -->
     <section id="about">
-    <div class="about-container">
-        <div class="content">
-            <h2>About Me</h2>
-            <img src="img/moi.jpg" alt="Profile Picture" class="me">
-            
-            <p>
-                Hey! I'm Kieran, a BSc Cyber Security student at the Open University with a knack for all things tech and cyber. 
-                Whether it’s cracking codes or outsmarting threats, I love diving into the digital battlefield.
-            </p>
-            <p>
-                When I’m not securing the cyber world, you’ll find me gaming, golfing, or strategizing in airsoft—because defense isn’t just for firewalls!
-            </p>
+        <div class="about-container">
+            <div class="content">
+                <h2>About Me</h2>
+                <img src="img/moi.jpg" alt="Profile Picture" class="me">
+                
+                <p>
+                    Hey! I'm Kieran, a BSc Cyber Security student at the Open University with a passion for all things tech and cyber. 
+                    Whether it’s cracking codes or outsmarting threats, I love diving into the digital battlefield.
+                </p>
+                <p>
+                    When I’m not securing the cyber world, you’ll find me gaming, golfing, or strategizing in airsoft—because defense isn’t just for firewalls!
+                </p>
 
-            <!-- Social Links -->
-            <div class="social-links">
-                <a href="https://github.com/Kieboard" target="_blank" class="social-icon">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/kieran-rorrison-358596113/" target="_blank" class="social-icon">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-            </div>
+                <!-- Social Media Links -->
+                <div class="social-links">
+                    <a href="https://github.com/Kieboard" target="_blank" class="social-icon">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kieran-rorrison-358596113/" target="_blank" class="social-icon">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
 
-            <!-- Skills Section -->
-            <div class="skills">
-                <h2 class="skills-title">Skills</h2> <!-- Added a class to specifically target this heading -->
+                <!-- Skills Section -->
+                <div class="skills">
+                    <h2 class="skills-title">Skills</h2>
                     <div class="skills-icons">
-                    <i class="fa-brands fa-python" title="Python"></i>
-                    <i class="fa-brands fa-html5" title="HTML5"></i>
-                    <i class="fa-brands fa-css3-alt" title="CSS3"></i>
-                    <i class="fa-solid fa-network-wired" title="Network Security"></i>
+                        <i class="fa-brands fa-python" title="Python"></i>
+                        <i class="fa-brands fa-html5" title="HTML5"></i>
+                        <i class="fa-brands fa-css3-alt" title="CSS3"></i>
+                        <i class="fa-solid fa-network-wired" title="Network Security"></i>
+                    </div>
                 </div>
             </div>
-            
         </div>
-    </div>
     </section>
 
     <!-- ========================== -->
-    <!-- Projects Section -->
+    <!-- Projects & CTFs Section -->
     <!-- ========================== -->
-    <!-- Projects Section -->
     <section id="projects">
-    <div class="content">
-        <h2>Projects/CTFs</h2>
-        <p>Click on the category to explore different projects related to THM, Open University, and Personal Projects.</p>
-        <!-- Category Selection (Icons/Images) -->
-    <div class="category-selection">
-    <div id="tryhackme-icon" class="category-icon">
-        <img src="img/thm-logo.webp" alt="TryHackMe" />
-    </div>
-    <div id="university-icon" class="category-icon">
-        <img src="img/ou-logo.jpg" alt="University" />
-    </div>
-    </div>
+        <div class="content">
+            <h2>Projects/CTFs</h2>
+            <p>Click on a category to explore different projects related to TryHackMe, university work, and personal projects.</p>
 
-<!-- Project Categories -->
-    <div id="tryhackme-projects" class="project-category" style="display: none;">
-    <!-- TryHackMe Projects -->
-        <div class="project-card">Project 1</div>
-        <div class="project-card">Project 2</div>
-    </div>
+            <!-- Category Selection (Icons/Images) -->
+            <div class="category-selection">
+                <div class="category-icon" data-target="tryhackme-projects">
+                    <img src="img/thm-logo.webp" alt="TryHackMe">
+                </div>
+                <div class="category-icon" data-target="university-projects">
+                    <img src="img/ou-logo.jpg" alt="University">
+                </div>
+            </div>
 
-    <div id="university-projects" class="project-category" style="display: none;">
-    <!-- University Projects -->
-        <div class="project-card">University Project 1</div>
-        <div class="project-card">University Project 2</div>
-    </div>
+            <!-- Project Categories (Hidden by Default) -->
+            <div id="tryhackme-projects" class="project-category">
+                <div class="project-card">Project 1</div>
+                <div class="project-card">Project 2</div>
+            </div>
 
-    </div>
+            <div id="university-projects" class="project-category">
+                <div class="project-card">University Project 1</div>
+                <div class="project-card">University Project 2</div>
+            </div>
+        </div>
     </section>
 
     <!-- ========================== -->
@@ -119,7 +116,7 @@
     <section id="contact">
         <div class="content">
             <h2>Leave a Message!</h2>
-            <p>If you’d like to work together, have any questions, or have any feedback, feel free to get in touch using the form below.</p>
+            <p>Want to collaborate, ask a question, or just say hi? Fill out the form below!</p>
             
             <!-- Contact Form -->
             <form action="https://formspree.io/f/xvgzwwdz" method="POST">
@@ -149,16 +146,16 @@
     <!-- JavaScript Section -->
     <!-- ========================== -->
 
-    <!-- Swiper.js for any potential use -->
+    <!-- Swiper.js (for potential future use) -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Update copyright year dynamically
+            // Dynamically update copyright year
             document.getElementById('year').textContent = new Date().getFullYear();
 
-            // Initialize Swiper for any future use
-            const swiper = new Swiper(".card-swiper", {
+            // Initialize Swiper (if needed in the future)
+            new Swiper(".card-swiper", {
                 centeredSlides: false,
                 spaceBetween: 0,
                 slidesPerView: 'auto'
@@ -168,35 +165,27 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            function filterProjects(category) {
-                var allProjects = document.querySelectorAll('.project-card');
-                
-                // Hide all projects first
-                allProjects.forEach(function(project) {
-                    project.style.display = 'none';
+            const categoryIcons = document.querySelectorAll('.category-icon');
+            const projectSections = document.querySelectorAll('.project-category');
+
+            // Hide all project sections initially
+            projectSections.forEach(section => section.style.display = 'none');
+
+            // Event listener for category clicks
+            categoryIcons.forEach(icon => {
+                icon.addEventListener('click', function () {
+                    // Hide all projects before showing the selected one
+                    projectSections.forEach(section => section.style.display = 'none');
+
+                    // Get the target category and display it
+                    const targetId = this.dataset.target;
+                    document.getElementById(targetId).style.display = 'block';
                 });
-    
-                // Show only the selected category projects
-                var filteredProjects = document.querySelectorAll('.' + category);
-                filteredProjects.forEach(function(project) {
-                    project.style.display = 'block';
-                });
-            }
-    
-            // Attach the filter function to each category icon
-            document.querySelector('.tryhackme-icon').addEventListener('click', function() {
-                filterProjects('tryhackme');
-            });
-            document.querySelector('.ou-icon').addEventListener('click', function() {
-                filterProjects('ou');
-            });
-            document.querySelector('.personal-icon').addEventListener('click', function() {
-                filterProjects('personal');
             });
         });
     </script>
 
-    <!-- FontAwesome for Icons -->
+    <!-- FontAwesome Kit -->
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 
     <!-- External JavaScript File -->
