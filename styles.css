@@ -22,6 +22,7 @@ section {
     position: relative;
     overflow: hidden;
     background-color: #030303;
+    max-height: 1000px;
 }
 
 .text-content, 
@@ -461,6 +462,20 @@ p {
     margin: 0 auto;
     padding: 20px;
 }
+.contentproject{
+    height: 700px;
+
+
+}
+.project-card{
+    width: 160px;
+    height: 200px;
+    display:inline-block;
+    padding: 10px;
+    margin: 10px;
+    transition: width 2s, height 4s;    
+}
+
 
 /* ========================== */
 /* CONTACT SECTION            */
@@ -536,9 +551,8 @@ p {
 /* ========================== */
 
 .footer {
-    position: fixed;
+    position: relative;
     width: 100%;
-    background-color: #000; /*visible background */
     text-align: center;
     padding: 10px 0;
     z-index: 1000; /*above other elements */
@@ -549,8 +563,8 @@ p {
     font-size: 14px;
     margin-top: 10px;
     color: #ff0000;
-    margin: 0 !important;
-    padding: 10px 0 !important;
+    margin: 0;
+    padding: 10px 0;
 }
 
 /* Show footer only on the last page */

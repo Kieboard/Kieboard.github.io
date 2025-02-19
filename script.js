@@ -1,3 +1,64 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const categoryIcons = document.querySelectorAll('.category-icon');
+    const projectSections = document.querySelectorAll('.project-category');
+    let activeSection = null; 
+
+    // Hide only project sections initially, not icons
+    projectSections.forEach(section => section.style.display = 'none');
+
+    categoryIcons.forEach(icon => {
+        icon.addEventListener('click', function () {
+            const targetId = this.dataset.target;
+            const targetSection = document.getElementById(targetId);
+
+            if (activeSection === targetSection) {
+                // Toggle off if the same section is clicked again
+                targetSection.style.display = 'none';
+                activeSection = null;
+            } else {
+                // Hide all sections and show the clicked section
+                projectSections.forEach(section => section.style.display = 'none');
+                targetSection.style.display = 'block';
+                activeSection = targetSection;
+            }
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     /*** 🎨 Canvas Setup ***/
     const canvas = document.getElementById('background-canvas');
@@ -278,6 +339,8 @@ function animate() {
         });
     }
     
+
+
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -291,70 +354,7 @@ function animate() {
         e.preventDefault();
         document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
     });
-
-    
-
-    /*** 📌 PROJECTS SECTION LOGIC ***/
-    document.addEventListener('DOMContentLoaded', function () {
-        console.log("✅ Projects Section Loaded");
-    
-        /*** 🎯 Select Category Icons & Project Sections ***/
-        const categoryIcons = document.querySelectorAll('.category-icon');
-        const projectSections = document.querySelectorAll('.project-category');
-    
-        if (categoryIcons.length === 0 || projectSections.length === 0) {
-            console.warn("🚨 Category icons or project sections not found! Check HTML structure.");
-            return; // Stop execution if elements are missing
-        }
-    
-        /*** 🔄 Function to Hide All Project Sections ***/
-        function hideAllProjects() {
-            projectSections.forEach(section => {
-                section.style.opacity = '0';
-                setTimeout(() => {
-                    section.style.display = 'none';
-                }, 300); // Match transition time
-            });
-        }
-    
-        /*** 🚀 Function to Show Selected Project Section ***/
-        function showProjectSection(targetId) {
-            const targetSection = document.getElementById(targetId);
-            if (!targetSection) {
-                console.error(`❌ No section found with ID: ${targetId}`);
-                return;
-            }
-    
-            hideAllProjects();
-            setTimeout(() => {
-                targetSection.style.display = 'block';
-                setTimeout(() => {
-                    targetSection.style.opacity = '1';
-                }, 10); // Ensure smooth fade-in
-            }, 300);
-        }
-    
-        /*** 🖱️ Event Listener for Category Icons ***/
-        categoryIcons.forEach(icon => {
-    icon.addEventListener('click', function () {
-        console.log("Icon clicked!"); // Test if the click is being detected
-        const targetCategory = this.dataset.target;
-        showProjectSection(targetCategory);
-    });
-});
-    
-        /*** 🚀 Initialize: Hide All Except First ***/
-        hideAllProjects();
-        if (projectSections.length > 0) {
-            projectSections[0].style.display = 'block';
-            projectSections[0].style.opacity = '1';
-        }
-    });
-    
-    
-    
-
-    
+ 
     
     /*** 🚀 Initialize Everything ***/
     createPoints();
