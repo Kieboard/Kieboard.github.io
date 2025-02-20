@@ -17,5 +17,5 @@ Projects Page:
 - format images to the same style as the website
 
 Footer:-
-Fix footer not staying in the bottom section while being transparent. 
+COMPLETED!
 
