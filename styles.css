@@ -460,7 +460,7 @@ p {
 #projects .content {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0px
 }
 .contentproject{
     height: 700px;
@@ -469,14 +469,25 @@ p {
 }
 .project-card{
     width: 160px;
-    height: 200px;
+    height: 230px;
     display:inline-block;
-    padding: 10px;
+    padding: 0px;
     margin: 10px;
-    transition: width 2s, height 4s;    
+    transition: width 2s, height 0.5s;    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
 }
 
-
+.project-card:hover {
+    height: 235px;
+    
+}
 /* ========================== */
 /* CONTACT SECTION            */
 /* ========================== */
@@ -635,7 +646,7 @@ p {
 /* ========================== */
 
 .project-card h3 {
-    font-size: 1.5rem; /* Adjusted font size */
+    font-size: medium;
     font-weight: bold;
     text-align: center;
     margin-bottom: 10px; /* Space between title and image */
@@ -714,6 +725,7 @@ p {
     background-color: #222;
     color: #fff;
     padding: 20px;
+    padding-top: 0px;
     margin-bottom: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
