@@ -36,6 +36,8 @@ section {
     background: rgba(0, 0, 0, 0.8); /*adds a semi-transparent background */
 }
 
+
+
 /* ========================== */
 /* RESPONSIVE DESIGN FIXES    */
 /* ========================== */
@@ -45,6 +47,18 @@ section {
         background-color: #030303;
     }
 }
+
+
+@media (max-width: 768px) {
+    #about .content {
+        text-align: center;
+    }
+
+    #about .skills ul {
+        padding-left: 0;
+    }
+}
+
 
 /* ========================== */
 /* IMAGE ZOOM ON HOVER        */
@@ -126,7 +140,7 @@ h1, h2, h3 {
     text-align: center;
 }
 
-/* 🔥 Main Heading (h1) - Strong & Clean */
+/* Main Heading (h1) - Strong & Clean */
 h1 {
     font-size: 4rem;
     background: linear-gradient(90deg, #ff0000, #ff7300);
@@ -177,7 +191,7 @@ h3:hover {
     transform: scale(1.05);
 }
 
-
+/* ========================================================================================== */
 
 /* ========================== */
 /* LANDING PAGE               */
@@ -255,6 +269,8 @@ p {
     pointer-events: none;
 }
 
+/* ========================================================================================== */
+
 /* ========================== */
 /* ABOUT ME SECTION           */
 /* ========================== */
@@ -298,13 +314,11 @@ p {
     border: 3px solid rgb(255, 255, 255); /*Red border for effect */
 }
 
-.badge {
-    margin-top: 20px; /* Adds spacing below the logo */
-}
-
 .logo {
     display: block !important;
 }
+
+/* ========================================================================================== */
 
 /* ========================== */
 /* SOCIAL ICONS STYLING       */
@@ -327,14 +341,6 @@ p {
     color: rgb(255, 0, 0); /* Red glow effect on hover */
     transform: scale(1.2); /* zooms in  */
     text-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* add glow effect */
-}
-
-/* Skills & Education Sections */
-#about .skills, 
-#about .education, 
-#about .work-experience {
-    margin-top: 40px;
-    text-align: left;
 }
 
 /* ========================== */
@@ -423,24 +429,7 @@ p {
     color: rgb(255, 0, 0);
 }
 
-/* Work Experience */
-#about .work-experience .job {
-    margin-bottom: 20px;
-}
-
-/* Job Title */
-#about .work-experience h4 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-/* Job Description */
-#about .work-experience p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #bbb;
-}
+/* ========================================================================================== */
 
 /* ========================== */
 /* PROJECTS SECTION           */
@@ -488,139 +477,6 @@ p {
     height: 235px;
     
 }
-/* ========================== */
-/* CONTACT SECTION            */
-/* ========================== */
-
-#contact {
-    position: relative;
-    background-color: #030303;
-    padding: 50px 20px;
-    color: white;
-    text-align: center;
-}
-
-/* Contact Content Box */
-#contact .content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Contact Form */
-#contact form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #111111;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Input Fields */
-#contact form input, 
-#contact form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-    background: #131313;
-    color: #fff;
-    font-size: 1rem;
-    box-sizing: border-box;
-}
-
-/* Textarea Styling */
-#contact form textarea {
-    resize: none;
-    height: 100px;
-}
-
-/* Submit Button */
-#contact form button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background: rgb(255, 0, 0);
-    color: #000;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-#contact form button:hover {
-    background: #fff;
-    transform: scale(1.05);
-}
-
-/* ========================== */
-/* FOOTER FIX                 */
-/* ========================== */
-
-.footer {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    z-index: 1000; /*above other elements */
-    color: #ff0000;
-}
-
-.footer-text {
-    font-size: 14px;
-    margin-top: 10px;
-    color: #ff0000;
-    margin: 0;
-    padding: 10px 0;
-}
-
-/* Show footer only on the last page */
-.last-section .footer {
-    display: block;
-}
-
-@media (max-width: 768px) {
-    .footer {
-        position: relative; /*positioned correctly on mobile */
-    }
-}
-
-
-/* TryHackMe Badge Styling */
-.badge {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    background: transparent !important;
-}
-
-.badge iframe {
-    width: 100%; /* Full width inside the container */
-    max-width: 350px; /* Prevent it from getting to large */
-    height: 120px; /*Adjust height*/
-    border: none; /*Remove iframe border*/
-    overflow: hidden; /*Hide scrollbars*/
-    background: transparent !important;
-}
-
-/* ========================== */
-/* RESPONSIVE DESIGN          */
-/* ========================== */
-
-@media (max-width: 768px) {
-    #about .content {
-        text-align: center;
-    }
-
-    #about .skills ul {
-        padding-left: 0;
-    }
-}
-
 
 /* Category Icons/Images for selecting different categories */
 .category-selection {
@@ -721,6 +577,7 @@ p {
 /* PROJECT CARD STYLING       */
 /* ========================== */
 
+
 .project-card {
     background-color: #222;
     color: #fff;
@@ -753,4 +610,128 @@ p {
     text-decoration: none;
     color: inherit;
 }
+}
+
+/* ========================================================================================== */
+
+
+/* ========================== */
+/* CONTACT SECTION            */
+/* ========================== */
+
+#contact {
+    position: relative;
+    background-color: #030303;
+    padding: 50px 20px;
+    color: white;
+    text-align: center;
+}
+
+/* Contact Content Box */
+#contact .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Contact Form */
+#contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #111111;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Input Fields */
+#contact form input, 
+#contact form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background: #131313;
+    color: #fff;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+/* Textarea Styling */
+#contact form textarea {
+    resize: none;
+    height: 100px;
+}
+
+/* Submit Button */
+#contact form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgb(255, 0, 0);
+    color: #000;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#contact form button:hover {
+    background: #fff;
+    transform: scale(1.05);
+}
+
+/* ========================================================================================== */
+
+/* ========================== */
+/* FOOTER FIX                 */
+/* ========================== */
+
+.footer {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000; /*above other elements */
+    color: #ff0000;
+}
+
+.footer-text {
+    font-size: 14px;
+    margin-top: 10px;
+    color: #ff0000;
+    margin: 0;
+    padding: 10px 0;
+}
+
+/* Show footer only on the last page */
+.last-section .footer {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        position: relative; /*positioned correctly on mobile */
+    }
+}
+
+
+/* TryHackMe Badge Styling */
+.badge {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    background: transparent !important;
+}
+
+.badge iframe {
+    width: 100%; /* Full width inside the container */
+    max-width: 350px; /* Prevent it from getting to large */
+    height: 120px; /*Adjust height*/
+    border: none; /*Remove iframe border*/
+    overflow: hidden; /*Hide scrollbars*/
+    background: transparent !important;
 }

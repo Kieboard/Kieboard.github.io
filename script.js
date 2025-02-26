@@ -25,6 +25,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Dynamically update copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Initialize Swiper (might be needed idk)
+    new Swiper(".card-swiper", {
+        centeredSlides: false,
+        spaceBetween: 0,
+        slidesPerView: 'auto'
+    });
+});
+
+
 
 
 

@@ -19,9 +19,9 @@
 </head>
 <body>
 
-    <!-- ========================== -->
-    <!-- Landing Page -->
-    <!-- ========================== -->
+<!-- ========================== -->
+<!-- Landing Page -->
+<!-- ========================== -->
     <section id="home">
         <div class="container">
             <img src="img/kieboard.png" alt="Profile Logo" class="logo">
@@ -38,9 +38,9 @@
         <canvas id="background-canvas"></canvas>
     </section>
 
-    <!-- ========================== -->
-    <!-- About Me Section -->
-    <!-- ========================== -->
+<!-- ========================== -->
+<!-- About Me Section -->
+<!-- ========================== -->
     <section id="about">
         <div class="about-container">
             <div class="content">
@@ -96,7 +96,7 @@
                 <img src="img/ou-logo.jpg" alt="University">
             </div>
             <div class="category-icon" data-target="personal-projects">
-                <img src="img/ou-logo.jpg" alt="Personal">
+                <img src="img/favicon.png" alt="Personal">
             </div>
         </div>
 
@@ -138,13 +138,30 @@
                 </a>
             </div>
         </div>
+
+        <div id="personal-projects" class="project-category">
+            <div class="project-card">
+                <h3><a href="project1.html">Password Generator</a></h3>
+                <a href="project1.html">
+                    <img src="img/pwgen.png" alt="Project 1 Thumbnail" class="project-thumbnail">
+                    <p style="font-size: small;">Python</p>
+                </a>
+            </div>
+
+            <div class="project-card">
+                <h3><a href="project2.html">PW Gen</a></h3>
+                <a href="project2.html">
+                    <img src="img/pwgen.png" alt="Project 2 Thumbnail" class="project-thumbnail">
+                    <p style="font-size: small;">c# </p>
+                </a>
+            </div>
     </div>
 </section>
 
 
-    <!-- ========================== -->
-    <!-- Contact Section -->
-    <!-- ========================== -->
+<!-- ========================== -->
+<!-- Contact Section -->
+<!-- ========================== -->
     <section id="contact">
         <div class="content">
             <h2>Leave a Message!</h2>
@@ -165,35 +182,21 @@
         </div>
     </section>
 
-    <!-- ========================== -->
-    <!-- Footer Section -->
-    <!-- ========================== -->
+<!-- ========================== -->
+<!-- Footer Section -->
+<!-- ========================== -->
     <footer class="footer">
         <div class="footer-text">
             &copy; <span id="year"></span> Kieboard. All Rights Reserved.
         </div>
     </footer>
 
-    <!-- ========================== -->
-    <!-- JavaScript Section -->
-    <!-- ========================== -->
+<!-- ========================== -->
+<!-- JavaScript Section -->
+<!-- ========================== -->
 
     <!-- Swiper.js (potential future use) -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Dynamically update copyright year
-            document.getElementById('year').textContent = new Date().getFullYear();
-
-            // Initialize Swiper (might be needed idk)
-            new Swiper(".card-swiper", {
-                centeredSlides: false,
-                spaceBetween: 0,
-                slidesPerView: 'auto'
-            });
-        });
-    </script>
 
     <!-- FontAwesome Kit -->
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
