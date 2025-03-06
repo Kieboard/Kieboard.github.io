@@ -461,7 +461,7 @@ p {
 /* Certifications Section (Right) */
 .certifications {
     position: absolute;
-    right: -00px; /* Moves it further to the right */
+    right: -190px; /* Moves it further to the right */
     top: 16px; /* Adjusts alignment with About Me heading */
     width: 250px; /* Keeps it contained */
     text-align: center;
