@@ -7,7 +7,10 @@ add arrows for going down and up from the about me section
 Fix smooth scrolling
 
 About me page:
-TBC
+- Certifications Section.
+- Add something to the left side?
+- add line seperction each section left and right????
+
 
 Skills:- Make pop up each skill when clicked which can show different things and information about that skill
 

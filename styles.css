@@ -432,6 +432,62 @@ p {
 /* ========================================================================================== */
 
 /* ========================== */
+/* CERT SECTION               */
+/* ========================== */
+/* Ensures the section takes full width */
+#about {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centers the container */
+}
+
+/* Main container: Holds About Me & Certifications */
+.about-container {
+    display: flex;
+    justify-content: center; /* Centers the About Me section */
+    align-items: flex-start; /* Aligns items to the top */
+    width: 90%;
+    max-width: 1200px;
+    position: relative; /* Allows finer control */
+}
+
+/* About Me Section (Centered) */
+.content {
+    max-width: 700px; /* Keeps the text readable */
+    text-align: center; /* Centers text inside */
+    margin: 0 auto; /* Ensures it stays centered */
+}
+
+/* Certifications Section (Right) */
+.certifications {
+    position: absolute;
+    right: -00px; /* Moves it further to the right */
+    top: 16px; /* Adjusts alignment with About Me heading */
+    width: 250px; /* Keeps it contained */
+    text-align: center;
+}
+
+/* Certification Images */
+.certification-list a {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.certification-list img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.certification-list img:hover {
+    transform: scale(1.1);
+}
+
+/* ========================================================================================== */
+
+/* ========================== */
 /* PROJECTS SECTION           */
 /* ========================== */
 
