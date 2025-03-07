@@ -37,12 +37,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-
-
-
-
-
+document.addEventListener("DOMContentLoaded", function () {
+    var swiper = new Swiper(".certification-slider", {
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+            768: { slidesPerView: 2 }, /* Show 2 cards on tablets */
+            1024: { slidesPerView: 3 }, /* Show 3 cards on desktops */
+        },
+    });
+});
 
 
 

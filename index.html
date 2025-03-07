@@ -78,20 +78,49 @@
             </div>
         </div>
 
-        <!-- Certifications -->
+        <!-- Certifications (Styled Cards) -->
         <div class="certifications">
             <h2>Certifications</h2>
-            <div class="certification-list">
-                <a href="https://www.credly.com/badges/example" target="_blank">
-                    <img src="img/cert1.png" alt="Certification 1">
-                </a>
-                <a href="https://www.credly.com/badges/example2" target="_blank">
-                    <img src="img/cert2.png" alt="Certification 2">
-                </a>
+            <div class="swiper certification-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="cert-card">
+                            <a href="https://www.credly.com/badges/example" target="_blank">
+                                <img src="img/cert1.png" alt="Certification 1">
+                                <h3>Certified Ethical Hacker</h3>
+                                <p>EC-Council</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="cert-card">
+                            <a href="https://www.credly.com/badges/example2" target="_blank">
+                                <img src="img/cert2.png" alt="Certification 2">
+                                <h3>CompTIA Security+</h3>
+                                <p>CompTIA</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="cert-card">
+                            <a href="https://www.credly.com/badges/example3" target="_blank">
+                                <img src="img/cert3.png" alt="Certification 3">
+                                <h3>CCNA Cyber Ops</h3>
+                                <p>Cisco</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Swiper Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </div>
 </section>
+
 <!-- ========================== -->
 <!-- Projects & CTFs Section-->
 <!-- ========================== -->
@@ -182,9 +211,9 @@
             
             <!-- Contact Form -->
             <form action="https://formspree.io/f/xvgzwwdz" method="POST">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Hey Kieran, love the website! I'd like to chat about some opportunities you might like! 🎊" required></textarea>
                 <button type="submit">Send Message</button>
             </form>
 
@@ -208,9 +237,8 @@
 <!-- JavaScript Section -->
 <!-- ========================== -->
 
-    <!-- Swiper.js (potential future use) -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+    <!-- Swiper.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <!-- FontAwesome Kit -->
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 

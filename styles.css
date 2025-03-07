@@ -220,7 +220,7 @@ h3:hover {
     object-fit: cover; /* Ensures it maintains aspect ratio */
     display: block;
     margin: 10px auto 20px auto; /* Centers it below the title */
-    border: 3px solid rgb(44, 44, 44); /*Red border for effect */
+    border: 3px solid rgb(73, 73, 73); /*Red border for effect */
 }
 
 
@@ -308,10 +308,11 @@ p {
     width: 160px; /* Adjust size as needed */
     height: 160px;
     border-radius: 50%; /* Makes it circular */
-    object-fit: cover; /* Ensures it maintais aspect ratio */
+    object-fit: cover; /* Ensures it maintains aspect ratio */
     display: block;
     margin: 10px auto 20px auto; /* Centers it below the title */
-    border: 3px solid rgb(255, 255, 255); /*Red border for effect */
+    border: 3px solid rgb(255, 255, 255); /* White border */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
 }
 
 .logo {
@@ -483,6 +484,160 @@ p {
 
 .certification-list img:hover {
     transform: scale(1.1);
+}
+/* ========================== */
+/* CERTIFICATIONS SECTION - CARD DESIGN */
+/* ========================== */
+
+.certifications {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Swiper Container */
+.certification-slider {
+    width: 100%;
+    max-width: 850px; /* Slightly wider */
+    margin: 0 auto;
+    padding: 20px 0;
+    position: relative;
+}
+
+/* Swiper Wrapper */
+.swiper-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Cards even closer */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Certification Card */
+.cert-card {
+    background: #0b0b0b;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    max-width: 320px; /* Wider for more content */
+    min-width: 320px;
+    height: 400px; /* Slightly taller */
+    border: 2px solid rgba(255, 0, 0, 0.7);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.4); /* Minimal glow by default */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+}
+
+/* Center Card - Fully Visible with Strong Glow */
+.swiper-slide:nth-child(2) .cert-card {
+    opacity: 1;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 1); /* Strong glow on main card */
+    z-index: 3;
+}
+
+/* Side Cards - Half Visible & Angled */
+.swiper-slide:first-child .cert-card,
+.swiper-slide:last-child .cert-card {
+    opacity: 0.2; /* More fade */
+    transform: scale(0.9);
+    z-index: 2;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.2); /* Minimal glow */
+}
+
+/* Left Card - Angled */
+.swiper-slide:first-child .cert-card {
+    transform: rotateY(15deg) scale(0.9) translateX(50px);
+}
+
+/* Right Card - Angled */
+.swiper-slide:last-child .cert-card {
+    transform: rotateY(-15deg) scale(0.9) translateX(-50px);
+}
+
+/* FADE EFFECT - Fixing Transparency Issues */
+.certification-slider::before,
+.certification-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 150px; /* Wider fade for smoother transition */
+    height: 100%;
+    z-index: 4;
+    pointer-events: none;
+}
+
+/* Left Fade - Blends with Background */
+.certification-slider::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(11, 11, 11, 1), rgba(11, 11, 11, 0));
+}
+
+/* Right Fade - Blends with Background */
+.certification-slider::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(11, 11, 11, 1), rgba(11, 11, 11, 0));
+}
+
+/* Certification Images */
+.cert-card img {
+    width: 100%;
+    max-width: 250px; /* Larger image */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Certification Title */
+.cert-card h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+/* Certification Issuer */
+.cert-card p {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .certification-slider {
+        width: 95%;
+    }
+
+    .swiper-wrapper {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .cert-card {
+        min-width: 270px;
+        height: 360px;
+    }
+
+    .swiper-slide:first-child .cert-card {
+        transform: rotateY(10deg) scale(0.85) translateX(35px);
+        opacity: 0.3;
+    }
+
+    .swiper-slide:last-child .cert-card {
+        transform: rotateY(-10deg) scale(0.85) translateX(-35px);
+        opacity: 0.3;
+    }
+
+    /* Adjust fade effect for mobile */
+    .certification-slider::before,
+    .certification-slider::after {
+        width: 80px;
+    }
 }
 
 /* ========================================================================================== */
