@@ -38,10 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    var swiper = new Swiper(".certification-slider", {
-        loop: true,
-        slidesPerView: 1,
-        spaceBetween: 20,
+    var swiper = new Swiper(".swiper", {
+        loop: true, // Stops infinite looping issue
+        slidesPerView: 1, // One card at a time
+        spaceBetween: 0, // No gaps
+        effect: "fade", // Ensure normal sliding (not fade)
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
@@ -50,18 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
-        breakpoints: {
-            768: { slidesPerView: 2 }, /* Show 2 cards on tablets */
-            1024: { slidesPerView: 3 }, /* Show 3 cards on desktops */
-        },
     });
 });
-
-
-
-
-
-
 
 
 
