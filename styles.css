@@ -25,46 +25,10 @@ section {
     max-height: 1000px;
 }
 
-.text-content, 
-.image, 
-.send-message-box, 
-.footer, 
-.header, 
-.sidebar {
-    position: relative;
-    z-index: 10; /*Adjust if still overlapped */
-    background: rgba(0, 0, 0, 0.8); /*adds a semi-transparent background */
-}
-
 /* ======================================= */
 /* RESPONSIVE DESIGN FIXES/MOBILE FIXES    */
 /* ======================================= */
-
-@media (max-width: 768px) {
-    section {
-        background-color: #030303;
-    }
-}
-
-@media (max-width: 768px) {
-    #about .content {
-        text-align: center;
-    }
-
-    #about .skills ul {
-        padding-left: 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .button-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px; /* Adds space between buttons */
-    }
-
-    .cta-button {
+.cta-button {
         width: 85%;
         max-width: 320px;
         padding: 18px 35px;
@@ -303,9 +267,6 @@ p {
 }
 
 /* ========================== */
-/* CERT SECTION               */
-/* ========================== */
-/* ========================== */
 /* ABOUT SECTION              */
 /* ========================== */
 
@@ -429,22 +390,25 @@ p {
 }
 
 /* Certification Card */
-.cert-card {
-    background: rgba(11, 11, 11, 0.5); /* Make background semi-transparent */
-    border-radius: 12px;
+.glass-card {
+    backdrop-filter: blur(12px);
+    background: rgba(10, 10, 10, 0.4);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
     padding: 20px;
     text-align: center;
-    max-width: 320px; /* Wider for more content */
-    min-width: 280px;
-    height: 320px; /* Matching image height */
-    border: 1px solid rgba(255, 0, 0, 0.7);
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Softer red glow */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    z-index: 1;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+}
+
+  .glass-card:hover {
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+    transform: scale(1.02);
 }
 
 /* Center Card - Fully Visible with Strong Glow */
@@ -474,7 +438,7 @@ p {
 /* Certification Title */
 .cert-card h3 {
     font-size: 1.2rem;
-    color: #fff;
+    color: #ffffff;
     margin-bottom: 8px;
     text-transform: uppercase;
 }
@@ -488,9 +452,59 @@ p {
 /* Certification Logo/Image */
 .cert-card img {
     width: 200px;
-    height: 200px;
-    margin-bottom: 10px;
-    display: inline-block;
+    height: 170px;
+    object-fit: contain;
+    margin: 0 auto 10px;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Image */
+.cert-img {
+  width: 160px;
+  height: auto;
+  margin: 0 auto 15px;
+  border-radius: 10px;
+}
+
+/* Title */
+.cert-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+/* Dates */
+.cert-date {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.cert-desc {
+  font-size: 0.9rem;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.cert-btn {
+  background: linear-gradient(to right, #2e2e2e, #1a1a1a);
+  color: #d0cbe1;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.cert-btn:hover {
+  background: linear-gradient(to right, #3b3b3b, #1f1f1f);
+  transform: translateY(-2px);
 }
 
 /* Swiper Navigation */
@@ -502,6 +516,28 @@ p {
     background: red;
 }
 
+.swiper-pagination {
+    display: block;
+    justify-content: center;
+    position: relative;
+    margin-top: 450px;
+    z-index: 5;
+}
+
+.swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.6;
+    margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block
+}
+
+.swiper-pagination-bullet-active {
+    background: red;
+    opacity: 1;
+}
 /* ========================== */
 /* SKILLS SECTION             */
 /* ========================== */
@@ -619,22 +655,14 @@ p {
     text-align: center;
 }
 
-#projects h2 {
-    margin-bottom: 20px;
-}
-
 #projects .content {
     max-width: 800px;
     margin: 0 auto;
     padding: 0px
 }
 
-.contentproject{
-    height: 700px;
-}
-
 .project-card{
-    width: 160px;
+    width: 160px; /*POSSIBLY MAKING THE PROJECT CARDS GO DOWN */
     height: 230px;
     display:inline-block;
     padding: 0px;
@@ -647,19 +675,10 @@ p {
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #fff;
 }
 
 .project-card:hover {
-    height: 235px;
-    
-}
-
-/* Category Icons/Images for selecting different categories */
-.category-selection {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    height: 235px;  
 }
 
 .category-icon {
@@ -670,14 +689,26 @@ p {
     transition: transform 0.3s ease;
 }
 
+.category-selection {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.category-icon img {
+    width: 60px; 
+    height: 60px; 
+    border-radius: 10px;
+}
+
 .category-icon:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
+    transform: scale(1.1);
 }
 
 /* ========================== */
-/* PROJECT TITLE STYLING      */
+/* PROJECT CARD STYLING       */
 /* ========================== */
-
 .project-card h3 {
     font-size: medium;
     font-weight: bold;
@@ -686,12 +717,6 @@ p {
     text-transform: uppercase; /* Keeps consistent uppercase style */
     letter-spacing: 2px; /* Matches heading spacing */
     color: #fff;
-}
-
-/* Make the title clickable */
-.project-card h3 a {
-    color: inherit;  /* Inherits the color of the heading */
-    text-decoration: none; /* Remove default underline */
 }
 
 /* Underline effect */
@@ -712,47 +737,6 @@ p {
     width: 100%;
     background-color: #ff7300;
 }
-
-/* No glow effect */
-.project-card h3, .project-card h3 a {
-    text-shadow: none;
-}
-
-/* Initially hide all projects */
-.project-category {
-    display: none;
-    flex-wrap: wrap;
-    justify-content: center;
-    display: flex;
-}
-
-/* Category icon styles */
-.category-selection {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-.category-icon {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    display: inline-block;
-}
-
-.category-icon img {
-    width: 60px; 
-    height: 60px; 
-    border-radius: 10px;
-}
-
-.category-icon:hover {
-    transform: scale(1.1);
-}
-
-/* ========================== */
-/* PROJECT CARD STYLING       */
-/* ========================== */
 
 .project-card {
     background-color: #222;
@@ -787,19 +771,7 @@ p {
     color: inherit;
 }
 }
-
-/* ========================== */
-/* CONTACT SECTION            */
-/* ========================== */
-
-#contact {
-    position: relative;
-    background-color: #030303;
-    padding: 50px 20px;
-    color: white;
-    text-align: center;
-}
-
+/*--------------------Leave A Message!--------------------------*/
 /* Contact Content Box */
 #contact .content {
     max-width: 800px;
@@ -853,21 +825,17 @@ p {
 }
 
 #contact form button:hover {
-    background: #fff;
-    transform: scale(1.05);
+    background: #ff0000;
+    transform: scale(1.02);
 }
-
-/* ========================== */
-/* FOOTER FIX                 */
-/* ========================== */
-
+ 
+/*--------------------Footer--------------------------*/
 .footer {
     position: relative;
-    width: 100%;
+    z-index: 10; /*Adjust if still overlapped */
+    background: rgba(0, 0, 0, 0.8); /*adds a semi-transparent background */
     text-align: center;
     padding: 10px 0;
-    z-index: 1000; /*above other elements */
-    color: #ff0000;
 }
 
 .footer-text {
@@ -878,17 +846,7 @@ p {
     padding: 10px 0;
 }
 
-/* Show footer only on the last page */
-.last-section .footer {
-    display: block;
-}
-
-@media (max-width: 768px) {
-    .footer {
-        position: relative; /*positioned correctly on mobile */
-    }
-}
-
+/*---------------------------THM Badge-----------------------*\
 /* TryHackMe Badge Styling */
 .badge {
     display: flex;
@@ -905,3 +863,7 @@ p {
     overflow: hidden; /*Hide scrollbars*/
     background: transparent !important;
 }
+/*---------------------------THM Badge-----------------------*\
+
+
+
