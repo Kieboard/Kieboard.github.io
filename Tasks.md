@@ -7,9 +7,10 @@ add arrows for going down and up from the about me section
 Fix smooth scrolling
 
 About me page:
-- Certifications Section.
-- Add something to the left side?
-- add line seperction each section left and right????
+- Fix about container on html
+- fix image size within certs 
+- fix text size and fix resizing with the cert cards so they stay consistent
+
 
 
 Skills:- Make pop up each skill when clicked which can show different things and information about that skill
