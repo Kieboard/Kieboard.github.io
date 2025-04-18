@@ -19,7 +19,7 @@ Projects Page:
 - Fix the way it changes layout of project tiles when altering the text/images
 
 Footer:-
-COMPLETED!
+COMPLETED! ✅☑️
 
 Mobile:
 - Fix the way the canvas overlaps everything and the star distribution as well 

@@ -22,21 +22,21 @@
 <!-- ========================== -->
 <!-- Landing Page -->
 <!-- ========================== -->
-    <section id="home">
-        <div class="container">
-            <img src="img/kieboard.png" alt="Profile Logo" class="logo">
-            <h1>Kieboard</h1>
-            <p>Hello World, I'm Kieran!</p>
+<section id="home">
+    <div class="container">
+        <img src="img/kieboard.png" alt="Profile Logo" class="logo">
+        <h1>Kieboard</h1>
+        <p>Hello World, I'm Kieran!</p>
 
-            <!-- Navigation Buttons -->
-            <a href="#about" class="cta-button">About Me</a>
-            <a href="#projects" class="cta-button">Projects/CTFs</a>
-            <a href="#contact" class="cta-button">Contact</a>
-        </div>
+        <!-- Navigation Buttons -->
+        <a href="#about" class="cta-button">About Me</a>
+        <a href="#projects" class="cta-button">Projects/CTFs</a>
+        <a href="#contact" class="cta-button">Contact</a>
+    </div>
 
         <!-- Background Animation Canvas -->
-        <canvas id="background-canvas"></canvas>
-    </section>
+    <canvas id="background-canvas"></canvas>
+</section>
 
 <!-- ========================== -->
 <!-- About Me Section -->
@@ -100,7 +100,7 @@
                                 <img src="img/git.png" class="git" alt="Git Foundations" />
                                 <h3>Git Foundations</h3>
                                 <div class="cert-date">Date TBC</div>
-                                <p>Testing, Testing, Testing</p>
+                                <p>Version Control, Git, Actions, CI/CD, Repository Management, SAP Workflow</p>
                                 <a href="https://www.credly.com/badges/example2" target="_blank" class="cert-btn">View Certification</a>
                             </a>
                         </div>
@@ -131,7 +131,8 @@
 <!-- Projects & CTFs Section-->
 <!-- ========================== -->
 <section id="projects">
-    <div class="content" style="height: 500px;">
+    <div class="project-container">
+        <div class="content" style="height: 500px;">
         <h2>Projects/CTFs</h2>
         <p>Click on a category to explore different projects related to TryHackMe, university work, and personal projects.</p>
 
@@ -193,6 +194,7 @@
                     <p style="font-size: small;">c# </p>
                 </a>
             </div>
+        </div>
     </div>
 </section>
 
@@ -200,7 +202,8 @@
 <!-- ========================== -->
 <!-- Contact Section -->
 <!-- ========================== -->
-    <section id="contact">
+<section id="contact">
+    <div class="contact-container">
         <div class="content">
             <h2>Leave a Message!</h2>
             <p>Want to collaborate, ask a question, or just say hi? Fill out the form below!</p>
@@ -218,28 +221,29 @@
                 <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1121615"></iframe>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <!-- ========================== -->
 <!-- Footer Section -->
 <!-- ========================== -->
-    <footer class="footer">
-        <div class="footer-text">
-            &copy; <span id="year"></span> Kieboard. All Rights Reserved.
-        </div>
-    </footer>
+<footer class="footer">
+    <div class="footer-text">
+        &copy; <span id="year"></span> Kieboard. All Rights Reserved.
+    </div>
+</footer>
 
 <!-- ========================== -->
 <!-- JavaScript Section -->
 <!-- ========================== -->
 
-    <!-- Swiper.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <!-- FontAwesome Kit -->
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+<!-- Swiper.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<!-- FontAwesome Kit -->
+<script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 
-    <!-- External JavaScript File -->
-    <script src="script.js"></script>
+<!-- External JavaScript File -->
+<script src="script.js"></script>
 
 </body>
 </html>
