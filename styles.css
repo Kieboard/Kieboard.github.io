@@ -24,15 +24,12 @@ section {
 /*--------------------Global Styles--------------------------*/
 
 /*--------------------Overlapping Fix--------------------------*/
-
 .about-container {
     z-index: 10;
 }
-
 .project-container {
     z-index: 10;
 }
-
 .contact-container {
     z-index: 10;
 }
@@ -420,7 +417,7 @@ p {
     display: block;
     justify-content: center;
     position: relative;
-    margin-top: 450px;
+    margin-top: 520px;
     z-index: 5;
 }
 
