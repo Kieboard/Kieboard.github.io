@@ -583,13 +583,13 @@ p {
     justify-content: center;
     flex-direction: column; /* Ensures vertical layout */
     align-items: center;
-    
 }
 
 /* Project Thumbnail Styling */
 .project-thumbnail {
     width: 100%; /* Ensures it fits inside the card */
     max-height: 150px; /* Prevents overly large images */
+    max-width: 150px; 
     border-radius: 8px; /* Keeps rounded corners */
     margin-top: 10px; /* Adds space between text and image */
 }
