@@ -191,9 +191,11 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -9999;
+    z-index: -1;
     pointer-events: none;
 }
+
+
 /*--------------------Landing Page--------------------------*/
 
 /*----------------------------------------About Me----------------------------------------*/
@@ -323,19 +325,20 @@ p {
     background: rgba(10, 10, 10, 0.4);
     border-radius: 16px;
     border: 1px solid rgba(255, 0, 0, 0.4);
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
     padding: 20px;
     text-align: center;
-    width: 100%;
-    height: 100%;
+    width: 350px;
+    height: 465px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: all 0.3s ease-in-out;
+    position: relative;
 }
 
   .glass-card:hover {
-    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 px rgba(255, 0, 0, 0.8);
     transform: scale(1.02);
 }
 
@@ -372,9 +375,8 @@ p {
 }
 
 /* Certification Issuer */
-.cert-card p {
-    font-size: 0.9rem;
-    color: #ffffff;
+.glass-card p {
+    font-size: 1rem !important;
 }
 
 /* Certification Logo/Image */
@@ -394,6 +396,7 @@ p {
   margin-bottom: 10px;
 }
 
+
 /*--------------------Button----------------------*/
 .cert-btn {
   background: linear-gradient(to right, #2e2e2e, #1a1a1a);
@@ -404,6 +407,8 @@ p {
   border-radius: 8px;
   transition: background 0.3s ease, transform 0.2s ease;
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  margin-top: auto;
+
 }
 
 .cert-btn:hover {
@@ -435,6 +440,7 @@ p {
     background: red;
     opacity: 1;
 }
+
 /*------------------Bullet Nav--------------------*/
 
 /*--------------------Skills----------------------*/
