@@ -1,381 +1,309 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const categoryIcons = document.querySelectorAll('.category-icon');
-    const projectSections = document.querySelectorAll('.project-category');
-    let activeSection = null; 
+/* ============================================================
+   KIEBOARD PORTFOLIO — script.js
+   ============================================================ */
 
-    // Hide only project sections initially, not icons
-    projectSections.forEach(section => section.style.display = 'none');
+document.addEventListener('DOMContentLoaded', () => {
 
-    categoryIcons.forEach(icon => {
-        icon.addEventListener('click', function () {
-            const targetId = this.dataset.target;
-            const targetSection = document.getElementById(targetId);
+    /* ========================== */
+    /* Footer Year                */
+    /* ========================== */
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-            if (activeSection === targetSection) {
-                // Toggle off if the same section is clicked again
-                targetSection.style.display = 'none';
-                activeSection = null;
-            } else {
-                // Hide all sections and show the clicked section
-                projectSections.forEach(section => section.style.display = 'none');
-                targetSection.style.display = 'block';
-                activeSection = targetSection;
+
+    /* ========================== */
+    /* Hamburger Toggle           */
+    /* ========================== */
+    const hamburger = document.getElementById('hamburger');
+
+    if (hamburger && navbar) {
+        hamburger.addEventListener('click', () => {
+            const isOpen = navbar.classList.toggle('visible');
+            hamburger.classList.toggle('open', isOpen);
+        });
+
+        // Close navbar when a link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('visible');
+                hamburger.classList.remove('open');
+            });
+        });
+
+        // Close on click outside
+        document.addEventListener('click', (e) => {
+            if (!navbar.contains(e.target) && !hamburger.contains(e.target)) {
+                navbar.classList.remove('visible');
+                hamburger.classList.remove('open');
+            }
+        });
+    }
+
+
+    /* ========================== */
+    /* Active nav link on scroll  */
+    /* ========================== */
+    const sections    = document.querySelectorAll('section[id]');
+    const allNavLinks = document.querySelectorAll('.nav-link');
+
+    function setActiveNav() {
+        const scrollPos = window.scrollY + 100;
+        sections.forEach(section => {
+            const top    = section.offsetTop;
+            const height = section.offsetHeight;
+            if (scrollPos >= top && scrollPos < top + height) {
+                allNavLinks.forEach(l => l.classList.remove('active'));
+                const active = document.querySelector(`.nav-link[href="#${section.id}"]`);
+                if (active) active.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', setActiveNav, { passive: true });
+    setActiveNav();
+
+
+    /* ========================== */
+    /* Smooth scroll for ALL CTAs */
+    /* ========================== */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Dynamically update copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Initialize Swiper (might be needed idk)
-    new Swiper(".card-swiper", {
-        centeredSlides: false,
+    /* ========================== */
+    /* Swiper — Cert Slider       */
+    /* ========================== */
+    new Swiper('.cert-swiper', {
+        loop: true,
+        slidesPerView: 1,
         spaceBetween: 0,
-        slidesPerView: 'auto'
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    var swiper = new Swiper(".swiper", {
-        loop: true, // Stops infinite looping issue
-        slidesPerView: 1, // One card at a time
-        spaceBetween: 0, // No gaps
-        effect: "fade", // Ensure normal sliding (not fade)
         pagination: {
-            el: ".swiper-pagination",
+            el: '.swiper-pagination',
             clickable: true,
         },
         navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: true,
         },
     });
-});
 
 
+    /* ========================== */
+    /* Project Tab Switcher       */
+    /* ========================== */
+    const tabBtns   = document.querySelectorAll('.tab-btn');
+    const panels    = document.querySelectorAll('.project-panel');
 
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.dataset.target;
 
+            tabBtns.forEach(b => b.classList.remove('active'));
+            panels.forEach(p => p.classList.remove('active'));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    /*** 🎨 Canvas Setup ***/
-    const canvas = document.getElementById('background-canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    /*** 📌 Sections for Smooth Scrolling ***/
-    const sectionsArray = [
-        document.getElementById('home'),
-        document.getElementById('about'),
-        document.getElementById('projects'),
-        document.getElementById('contact')
-    ];
-
-    /*** ✨ Animation Settings ***/
-    const stars = [];
-    const smallRedStars = [];
-    const mainPoints = [];
-    const backgroundPoints = [];
-const polygons = [];
-    const starCount = 100;
-    const smallRedStarCount = 100;
-    const mainPointCount = 175;
-    const backgroundPointCount = 150;
-
-    const maxDistance = 125;
-    const polygonLifetime = 3000; // 3 seconds
-    let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
-
-    let isStarryBackground = false;
-    let isInteractive = true;
-    let isScrolling = false;
-    let lastMouseMoveTime = 0;
-    let mouseMoved = false;
-    const polygonCount = 100;
-    const ignoredElements = document.querySelectorAll(
-        '.text-content, .image, .send-message-box, .footer, .sidebar, .header'
-    );
-    function isInsideIgnoredElement(x, y) {
-        return Array.from(ignoredElements).some(element => {
-            const rect = element.getBoundingClientRect();
-            const scrollX = window.scrollX || document.documentElement.scrollLeft;
-            const scrollY = window.scrollY || document.documentElement.scrollTop;
-            return x > rect.left + scrollX && x < rect.right + scrollX &&
-                   y > rect.top + scrollY && y < rect.bottom + scrollY;
+            btn.classList.add('active');
+            const target = document.getElementById(targetId);
+            if (target) target.classList.add('active');
         });
-    }
-
-    /*** 🎭 Create Points for Polygons ***/
-    function createPoints() {
-        mainPoints.length = 0;
-        backgroundPoints.length = 0;
-
-        for (let i = 0; i < mainPointCount; i++) {
-            mainPoints.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5
-            });
-        }
-
-        for (let i = 0; i < backgroundPointCount; i++) {
-            backgroundPoints.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.2,
-                vy: (Math.random() - 0.5) * 0.2
-            });
-        }
-    }
-
-    /*** ⭐ Create Stars ***/
-    function createStars() {
-        stars.length = 0;
-        smallRedStars.length = 0;
-
-        for (let i = 0; i < starCount; i++) {
-            stars.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                radius: Math.random() * 1.5 + 0.5,
-                vx: (Math.random() - 0.5) * 0.1,
-                vy: (Math.random() - 0.5) * 0.1
-            });
-        }
-
-        for (let i = 0; i < smallRedStarCount; i++) {
-            smallRedStars.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                radius: Math.random() * 0.5 + 0.2,
-                vx: 0,
-                vy: 0
-            });
-        }
-    }
-
-    /*** 🎨 Draw Stars & Points ***/
-    function drawStars() {
-        stars.forEach(star => {
-            ctx.beginPath();
-            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(169, 169, 169, 0.8)';
-            ctx.shadowBlur = 5;
-            ctx.shadowColor = 'grey';
-            ctx.fill();
-        });
-    }
-
-    function drawSmallRedStars() {
-        smallRedStars.forEach(star => {
-            ctx.beginPath();
-            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255, 0, 0, 0.8)';
-            ctx.shadowBlur = 5;
-            ctx.shadowColor = 'red';
-            ctx.fill();
-        });
-    }
-
-    function drawPoints(points, isBackground = false) {
-        const currentTime = Date.now();
-        const timeSinceLastMouseMove = currentTime - lastMouseMoveTime;
-        const shouldDrawPolygons = mouseMoved || timeSinceLastMouseMove < polygonLifetime;
-
-        points.forEach(point => {
-            ctx.beginPath();
-            ctx.arc(point.x, point.y, isBackground ? 1.5 : 2, 0, Math.PI * 2);
-            ctx.fillStyle = isBackground ? 'rgba(255, 255, 255, 0.3)' : 'rgba(255, 255, 255, 0.8)';
-            ctx.fill();
-
-            if (shouldDrawPolygons) {
-                points.forEach(otherPoint => {
-                    const dx = point.x - otherPoint.x;
-                    const dy = point.y - otherPoint.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-
-                    if (distance < maxDistance) {
-                        ctx.beginPath();
-                        ctx.moveTo(point.x, point.y);
-                        ctx.lineTo(otherPoint.x, otherPoint.y);
-
-                        const mouseDx = mouse.x - point.x;
-                        const mouseDy = mouse.y - point.y;
-                        const mouseDistance = Math.sqrt(mouseDx * mouseDx + mouseDy * mouseDy);
-
-                        let opacity = (1 - mouseDistance / maxDistance) * 0.8;
-                        if (!mouseMoved) {
-                            const fadeProgress = timeSinceLastMouseMove / polygonLifetime;
-                            opacity *= (1 - fadeProgress);
-                        }
-
-                        ctx.lineWidth = isBackground ? 0.3 : 1 + (maxDistance - distance) / 50;
-                        ctx.strokeStyle = `rgba(255, 0, 0, ${opacity})`;
-                        ctx.stroke();
-                    }
-                });
-            }
-        });
-
-        if (!mouseMoved && timeSinceLastMouseMove >= polygonLifetime) {
-            mouseMoved = false;
-        }
-    }
-
-    /*** 🔄 Update Positions ***/
-    function updatePoints(points) {
-        points.forEach(point => {
-            point.x += point.vx;
-            point.y += point.vy;
-
-            if (point.x < 0 || point.x > canvas.width) point.vx *= -1;
-            if (point.y < 0 || point.y > canvas.height) point.vy *= -1;
-        });
-    }
-
-    function updateStars() {
-        stars.forEach(star => {
-            star.x += star.vx;
-            star.y += star.vy;
-
-            if (star.x < 0 || star.x > canvas.width) star.vx *= -1;
-            if (star.y < 0 || star.y > canvas.height) star.vy *= -1;
-        });
-    }
-
-
-  /*** 🎞️ Animation Loop ***/
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    if (isInteractive) {
-        drawPoints(backgroundPoints, true);
-        drawPoints(mainPoints);
-        updatePoints(mainPoints);
-        updatePoints(backgroundPoints);
-    } else if (isStarryBackground) {
-        drawStars();
-        drawSmallRedStars();
-        updateStars();
-    }
-
-    // Add drawing and updating of polygons to the animation loop
-    drawPolygons();
-    updatePolygons();
-
-    requestAnimationFrame(animate);
-}
-
-    function createPolygons() {
-        polygons.length = 0;
-
-        for (let i = 0; i < polygonCount; i++) {
-            let x, y;
-            do {
-                x = Math.random() * canvas.width;
-                y = Math.random() * canvas.height;
-            } while (isInsideIgnoredElement(x, y));
-
-            polygons.push({ x, y, vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4 });
-        }
-    }
-
-    function updatePolygons() {
-        polygons.forEach(polygon => {
-            let newX = polygon.x + polygon.vx;
-            let newY = polygon.y + polygon.vy;
-
-            if (!isInsideIgnoredElement(newX, newY)) {
-                polygon.x = newX;
-                polygon.y = newY;
-            } else {
-                polygon.vx *= -1;
-                polygon.vy *= -1;
-            }
-        });
-    }
-    /*** 🎯 Event Listeners ***/
-    window.addEventListener('mousemove', (e) => {
-        if (isInteractive) {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-            lastMouseMoveTime = Date.now();
-            mouseMoved = true;
-        }
-    });
-    function drawPolygons() {
-        polygons.forEach(polygon => {
-            // Draw the individual polygon point
-            ctx.beginPath();
-            ctx.arc(polygon.x, polygon.y, 2, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
-            ctx.fill();
-    
-            polygons.forEach(other => {
-                const dx = polygon.x - other.x;
-                const dy = polygon.y - other.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-    
-                // If the distance between the points is less than the maxDistance, draw a line
-                if (distance < maxDistance) {
-                    ctx.beginPath();
-                    ctx.moveTo(polygon.x, polygon.y);
-                    ctx.lineTo(other.x, other.y);
-    
-                    // Calculate opacity based on the distance between the points
-                    const opacity = 1 - distance / maxDistance;
-                    ctx.strokeStyle = `rgba(255, 0, 0, ${opacity})`;
-    
-                    // Calculate line width based on distance
-                    ctx.lineWidth = 1 + (maxDistance - distance) / 50;
-    
-                    ctx.stroke();
-                }
-            });
-        });
-    }
-    
-
-
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        createPoints();
-        createStars();
-        drawPolygons()
-        updatePolygons();
     });
 
-    document.querySelector('.cta-button').addEventListener('click', (e) => {
+
+    /* ========================== */
+    /* Scroll Snapping            */
+    /* ========================== */
+    const snapSections = Array.from(document.querySelectorAll('section[id]'));
+    let isSnapping = false;
+    let touchStartY = 0;
+
+    function snapToSection(index) {
+        if (index < 0 || index >= snapSections.length) return;
+        isSnapping = true;
+        snapSections[index].scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => { isSnapping = false; }, 800);
+    }
+
+    function getCurrentIndex() {
+        const mid = window.scrollY + window.innerHeight / 2;
+        let closest = 0;
+        let closestDist = Infinity;
+        snapSections.forEach((sec, i) => {
+            const dist = Math.abs(sec.offsetTop + sec.offsetHeight / 2 - mid);
+            if (dist < closestDist) { closestDist = dist; closest = i; }
+        });
+        return closest;
+    }
+
+    window.addEventListener('wheel', (e) => {
+        if (isSnapping) { e.preventDefault(); return; }
         e.preventDefault();
-        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
-    });
- 
-    
-    /*** 🚀 Initialize Everything ***/
-    createPoints();
-    createStars();
-    createPolygons();
+        const dir = e.deltaY > 0 ? 1 : -1;
+        snapToSection(getCurrentIndex() + dir);
+    }, { passive: false });
+
+    window.addEventListener('touchstart', (e) => {
+        touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+        if (isSnapping) return;
+        const diff = touchStartY - e.changedTouches[0].clientY;
+        if (Math.abs(diff) < 30) return;
+        const dir = diff > 0 ? 1 : -1;
+        snapToSection(getCurrentIndex() + dir);
+    }, { passive: true });
+
+
+    const animEls = document.querySelectorAll('[data-animate]');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    animEls.forEach(el => observer.observe(el));
+
+
+    /* ========================== */
+    /* Canvas Background          */
+    /* ========================== */
+    const canvas = document.getElementById('background-canvas');
+    if (!canvas) return;
+
+    // Skip canvas on mobile to prevent layout issues
+    if (window.innerWidth < 600) return;
+
+    const ctx = canvas.getContext('2d');
+
+    function resizeCanvas() {
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas, { passive: true });
+
+    // --- Config ---
+    const POINT_COUNT  = 80;
+    const BG_COUNT     = 60;
+    const MAX_DIST     = 160;
+    const FADE_TIME    = 3000;
+
+    // --- State ---
+    let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+    let lastMove = 0;
+    let mouseMoved = false;
+
+    // --- Points ---
+    function makePoint(slow = false) {
+        return {
+            x:  Math.random() * canvas.width,
+            y:  Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * (slow ? 0.2 : 0.5),
+            vy: (Math.random() - 0.5) * (slow ? 0.2 : 0.5),
+        };
+    }
+
+    let points   = Array.from({ length: POINT_COUNT }, () => makePoint(false));
+    let bgPoints = Array.from({ length: BG_COUNT },    () => makePoint(true));
+
+    function rebuildPoints() {
+        points   = Array.from({ length: POINT_COUNT }, () => makePoint(false));
+        bgPoints = Array.from({ length: BG_COUNT },    () => makePoint(true));
+    }
+
+    window.addEventListener('resize', rebuildPoints, { passive: true });
+
+    // --- Mouse ---
+    window.addEventListener('mousemove', (e) => {
+        mouse.x   = e.clientX;
+        mouse.y   = e.clientY;
+        lastMove  = Date.now();
+        mouseMoved = true;
+    }, { passive: true });
+
+    // --- Update ---
+    function updatePoints(pts) {
+        pts.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+            if (p.y < 0 || p.y > canvas.height)  p.vy *= -1;
+        });
+    }
+
+    // --- Draw ---
+    function drawPoints(pts, isBg) {
+        const now          = Date.now();
+        const timeSince    = now - lastMove;
+        const shouldLines  = mouseMoved || timeSince < FADE_TIME;
+        const fadeRatio    = mouseMoved ? 1 : Math.max(0, 1 - timeSince / FADE_TIME);
+
+        pts.forEach(p => {
+            // Dot
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, isBg ? 1 : 1.5, 0, Math.PI * 2);
+            ctx.fillStyle = isBg ? 'rgba(255,255,255,0.2)' : 'rgba(255,255,255,0.7)';
+            ctx.fill();
+
+            if (!shouldLines) return;
+
+            pts.forEach(o => {
+                if (o === p) return;
+                const dx   = p.x - o.x;
+                const dy   = p.y - o.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist >= MAX_DIST) return;
+
+                // Opacity based on proximity of points to each other (not mouse distance)
+                // Mouse adds a boost effect when nearby
+                const baseOpacity = (1 - dist / MAX_DIST) * (isBg ? 0.25 : 0.5);
+
+                const mdx   = mouse.x - p.x;
+                const mdy   = mouse.y - p.y;
+                const mDist = Math.sqrt(mdx * mdx + mdy * mdy);
+                const mouseBoost = Math.max(0, 1 - mDist / 300) * 0.4;
+
+                const opacity = (baseOpacity + mouseBoost) * fadeRatio;
+                if (opacity <= 0.01) return;
+
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(o.x, o.y);
+                ctx.lineWidth   = isBg ? 0.3 : 0.6 + (1 - dist / MAX_DIST) * 0.6;
+                ctx.strokeStyle = `rgba(255,0,0,${opacity})`;
+                ctx.stroke();
+            });
+        });
+
+        if (!mouseMoved && timeSince >= FADE_TIME) mouseMoved = false;
+    }
+
+    // --- Animation Loop ---
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        drawPoints(bgPoints, true);
+        drawPoints(points,   false);
+        updatePoints(points);
+        updatePoints(bgPoints);
+
+        requestAnimationFrame(animate);
+    }
+
     animate();
+
 });

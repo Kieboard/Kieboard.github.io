@@ -3,243 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kieboard</title>
+    <title>Kieboard | Cyber Security</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/favicon.png" type="image/png">
 
-    <!-- Google Fonts (Montserrat for a clean, modern look) -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="styles.css">
-
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
 <!-- ========================== -->
-<!-- Landing Page -->
+<!-- Navigation                 -->
+<!-- ========================== -->
+<button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<!-- Navbar - links only -->
+<nav class="navbar" id="navbar">
+    <ul class="nav-links">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- ========================== -->
+<!-- Landing Page               -->
 <!-- ========================== -->
 <section id="home">
-    <div class="container">
-        <img src="img/kieboard.png" alt="Profile Logo" class="logo">
-        <h1>Kieboard</h1>
-        <p>Hello World, I'm Kieran!</p>
+    <canvas id="background-canvas"></canvas>
 
-        <!-- Navigation Buttons -->
-        <a href="#about" class="cta-button">About Me</a>
-        <a href="#projects" class="cta-button">Projects/CTFs</a>
-        <a href="#contact" class="cta-button">Contact</a>
+    <div class="home-content">
+        <div class="home-logo-wrap">
+            <img src="img/kieboard.png" alt="Kieboard Logo" class="home-logo">
+        </div>
+        <div class="home-text">
+            <div class="terminal-line"><span class="terminal-prefix">~/</span><span class="terminal-blink">▮</span></div>
+            <h1>Kieboard</h1>
+            <p class="home-subtitle">Cyber Security Student <span class="divider">|</span> IT Analyst <span class="divider">|</span> CTF Player</p>
+        </div>
+        <div class="home-buttons">
+            <a href="#about" class="cta-button secondary">About Me</a>
+            <a href="#projects" class="cta-button secondary">Projects / CTFs</a>
+            <a href="#contact" class="cta-button secondary">Contact</a>
+        </div>
     </div>
 
-        <!-- Background Animation Canvas -->
-    <canvas id="background-canvas"></canvas>
+    <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-arrow"></div>
+    </div>
 </section>
 
 <!-- ========================== -->
-<!-- About Me Section -->
+<!-- About Me Section           -->
 <!-- ========================== -->
 <section id="about">
-    <div class="about-container">
-        <!-- Middle: About Me -->
-        <div class="content">
+    <div class="section-container about-grid">
+
+        <!-- Left: Bio -->
+        <div class="about-bio">
+            <div class="section-label">01 / About</div>
             <h2>About Me</h2>
-            <img src="img/moi.jpg" alt="Profile Picture" class="me">
-            
+
+            <div class="profile-pic-wrap">
+                <img src="img/moi.jpg" alt="Kieran Rorrison" class="profile-pic">
+                <div class="profile-glow"></div>
+            </div>
+
             <p>
-                Hey! I'm Kieran, a BSc Cyber Security student at the Open University with a passion for all things tech and cyber. 
-                Whether it’s cracking codes or outsmarting threats, I love diving into the digital battlefield.
+                Hey! I'm Kieran — a BSc Cyber Security student at the Open University with a passion for all things tech and cyber.
+                Whether it's cracking codes or outsmarting threats, I love diving into the digital battlefield.
             </p>
             <p>
-                When I’m not securing the cyber world, you’ll find me gaming, golfing, learning guitar or strategizing in airsoft—because defense isn’t just for firewalls!
+                When I'm not securing the cyber world, you'll find me gaming, golfing, learning guitar, or strategising in airsoft — because defence isn't just for firewalls!
             </p>
 
-            <!-- Social Media Links -->
             <div class="social-links">
-                <a href="https://github.com/Kieboard" target="_blank" class="social-icon" aria-label="GitHub Profile">
+                <a href="https://github.com/Kieboard" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
                     <i class="fa-brands fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com target="_blank" class="social-icon" aria-label="LinkedIn Profile">
+                <a href="https://www.linkedin.com/in/kieran-rorrison" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
                     <i class="fa-brands fa-linkedin"></i>
                 </a>
+                <a href="https://tryhackme.com/p/Kieboard" target="_blank" rel="noopener" class="social-icon" aria-label="TryHackMe">
+                    <i class="fa-solid fa-skull-crossbones"></i>
+                </a>
             </div>
 
-            <!-- Skills Section -->
-            <div class="skills">
-                <h2 class="skills-title">Skills</h2>
-                <div class="skills-icons">
-                    <i class="fa-brands fa-python" title="Python"></i>
-                    <i class="fa-brands fa-html5" title="HTML5"></i>
-                    <i class="fa-brands fa-css3-alt" title="CSS3"></i>
-                    <i class="fa-solid fa-network-wired" title="Network Security"></i>
+            <!-- Skills -->
+            <div class="skills-section">
+                <h3 class="skills-heading">Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item" data-tooltip="Python">
+                        <i class="fa-brands fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item" data-tooltip="HTML5">
+                        <i class="fa-brands fa-html5"></i>
+                        <span>HTML5</span>
+                    </div>
+                    <div class="skill-item" data-tooltip="CSS3">
+                        <i class="fa-brands fa-css3-alt"></i>
+                        <span>CSS3</span>
+                    </div>
+                    <div class="skill-item" data-tooltip="Networking">
+                        <i class="fa-solid fa-network-wired"></i>
+                        <span>Networking</span>
+                    </div>
+                    <div class="skill-item" data-tooltip="Linux">
+                        <i class="fa-brands fa-linux"></i>
+                        <span>Linux</span>
+                    </div>
+                    <div class="skill-item" data-tooltip="Git">
+                        <i class="fa-brands fa-git-alt"></i>
+                        <span>Git</span>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Certifications -->
-        <div class="certifications">
+
+        <!-- Right: Certifications -->
+        <div class="about-certs">
+            <div class="section-label">02 / Certs</div>
             <h2>Certifications</h2>
-            <div class="swiper certification-slider">
+
+            <div class="swiper cert-swiper">
                 <div class="swiper-wrapper">
+
                     <!-- ITIL4 -->
                     <div class="swiper-slide">
-                        <div class="cert-card glass-card">
-                                <img src="img/itil4.png" class="itil" alt="ITIL 4 Foundation" />
-                                <h3>ITIL 4 Foundation</h3>
-                                <div class="cert-date">Date TBC</div>
+                        <div class="cert-card">
+                            <div class="cert-img-wrap">
+                                <img src="img/itil4.png" alt="ITIL 4 Foundation">
+                            </div>
+                            <div class="cert-info">
+                                <h4>ITIL 4 Foundation</h4>
+                                <div class="cert-date"><i class="fa-regular fa-calendar"></i> 2024</div>
                                 <p>Service Management, Value Co-Creation, Service Value System, ITIL Practices, Incident Management, Change Enablement</p>
-                                <a href="https://www.credly.com/badges/example" class="cert-btn">View Certification</a>
+                                <a href="https://www.credly.com/badges/example" target="_blank" rel="noopener" class="cert-btn">
+                                    <i class="fa-solid fa-award"></i> View Badge
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <!-- Git -->
+
+                    <!-- Git Foundations -->
                     <div class="swiper-slide">
-                        <div class="cert-card glass-card">
-                                <img src="img/git.png" class="git" alt="Git Foundations" />
-                                <h3>Git Foundations</h3>
-                                <div class="cert-date">Date TBC</div>
-                                <p>Version Control, Git, Actions, CI/CD, Repository Management, SAP Workflow</p>
-                                <a href="https://www.credly.com/badges/example2" target="_blank" class="cert-btn">View Certification</a>
+                        <div class="cert-card">
+                            <div class="cert-img-wrap">
+                                <img src="img/git.png" alt="Git Foundations">
+                            </div>
+                            <div class="cert-info">
+                                <h4>Git Foundations</h4>
+                                <div class="cert-date"><i class="fa-regular fa-calendar"></i> 2025</div>
+                                <p>Version Control, Git, GitHub Actions, CI/CD, Repository Management, Workflow Automation</p>
+                                <a href="https://www.credly.com/badges/example2" target="_blank" rel="noopener" class="cert-btn">
+                                    <i class="fa-solid fa-award"></i> View Badge
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <!-- CySa-->
+
+                    <!-- CySA+ -->
                     <div class="swiper-slide">
-                        <div class="cert-card glass-card">
-                                <img src="img/cysa1.png" class="cysa" alt="Certification 3"/>
-                                <h3>CySA+</h3>
-                                <div class="cert-date">Date TBC</div>                              
-                                <p>Threat Detection, Vulnerability Management, Security Operations, Incident Response, SIEM, Risk Mitigation, and Compliance Monitoring</p>
-                                <a href="https://www.credly.com/badges/example3" target="_blank" class="cert-btn">View Certification</a>
+                        <div class="cert-card">
+                            <div class="cert-img-wrap">
+                                <img src="img/cysa1.png" alt="CompTIA CySA+">
+                            </div>
+                            <div class="cert-info">
+                                <h4>CompTIA CySA+</h4>
+                                <div class="cert-date"><i class="fa-regular fa-calendar"></i> In Progress</div>
+                                <p>Threat Detection, Vulnerability Management, Security Operations, Incident Response, SIEM, Risk Mitigation</p>
+                                <a href="https://www.credly.com/badges/example3" target="_blank" rel="noopener" class="cert-btn">
+                                    <i class="fa-solid fa-award"></i> View Badge
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ========================== -->
+<!-- Projects & CTFs Section    -->
+<!-- ========================== -->
+<section id="projects">
+    <div class="section-container">
+        <div class="section-label">03 / Work</div>
+        <h2 data-animate="fade-up">Projects / CTFs</h2>
+        <p class="section-desc" data-animate="fade-up">Select a category to explore my work across CTFs, university, and personal projects.</p>
+
+        <!-- Category Tabs -->
+        <div class="project-tabs" data-animate="fade-up">
+            <button class="tab-btn active" data-target="tryhackme-projects">
+                <img src="img/project/thm-logo.webp" alt="TryHackMe">
+                <span>TryHackMe</span>
+            </button>
+            <button class="tab-btn" data-target="university-projects">
+                <img src="img/project/ou-logo.jpg" alt="Open University">
+                <span>University</span>
+            </button>
+            <button class="tab-btn" data-target="personal-projects">
+                <img src="img/project/favicon.png" alt="Personal">
+                <span>Personal</span>
+            </button>
+        </div>
+
+        <!-- Project Grids -->
+        <div class="project-panels">
+
+            <div id="tryhackme-projects" class="project-panel active">
+                <div class="project-grid">
+                    <a href="https://github.com/Kieboard/CTF-Hub" target="_blank" rel="noopener" class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/favicon.png" alt="CTF Hub" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fa-solid fa-skull-crossbones\'></i>'">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>CTF Hub</h4>
+                            <p>Collection of TryHackMe, HackTheBox and VulnHub writeups and challenge solutions</p>
+                            <div class="project-tags">
+                                <span class="tag">CTF</span>
+                                <span class="tag">Writeups</span>
+                                <span class="tag">Markdown</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div id="university-projects" class="project-panel">
+                <div class="project-grid">
+                    <div class="project-card coming-soon">
+                        <div class="project-card-img">
+                            <div class="placeholder-img">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                        </div>
+                        <div class="project-card-body">
+                            <h4>Coming Soon</h4>
+                            <p>University projects will be added here</p>
+                            <div class="project-tags">
+                                <span class="tag">C#</span>
+                                <span class="tag">Python</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Swiper Navigation -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
             </div>
+
+            <div id="personal-projects" class="project-panel">
+                <div class="project-grid">
+                    <a href="https://github.com/Kieboard" target="_blank" rel="noopener" class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/pwgen.png" alt="Password Generator">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>Password Generator</h4>
+                            <p>CLI password generator with customisable complexity</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">CLI</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://github.com/Kieboard/Kieboard.github.io" target="_blank" rel="noopener" class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/portfolio.png" alt="Portfolio">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>Portfolio Site</h4>
+                            <p>This portfolio — built with HTML, CSS and vanilla JS</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JS</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
 
 <!-- ========================== -->
-<!-- Projects & CTFs Section-->
-<!-- ========================== -->
-<section id="projects">
-    <div class="project-container">
-        <div class="content" style="height: 500px;">
-        <h2>Projects/CTFs</h2>
-        <p>Click on a category to explore different projects related to TryHackMe, university work, and personal projects.</p>
-
-        <!-- Category Selection (Icons/Images) -->
-        <div class="category-selection">
-            <div class="category-icon" data-target="tryhackme-projects">
-                <img src="img/project/thm-logo.webp" alt="TryHackMe">
-            </div>
-            <div class="category-icon" data-target="university-projects">
-                <img src="img/project/ou-logo.jpg" alt="University">
-            </div>
-            <div class="category-icon" data-target="personal-projects">
-                <img src="img/project/favicon.png" alt="Personal">
-            </div>
-        </div>
-
-        <!-- Project Categories-->
-        <div id="tryhackme-projects" class="project-category">
-            <div class="project-card">
-                <h3><a href="https://github.com/Kieboard/THM-Write-Ups">Write Ups</a></h3>
-                <a href="https://github.com/Kieboard/THM-Write-Ups">
-                    <img src="img/project/thm-logo.webp" alt="THM Write Up's" class="project-thumbnail">
-                    <p style="font-size: small;">THM Write Up's </p>
-                </a>
-            </div>
-        </div>
-
-        <div id="university-projects" class="project-category">
-            <div class="project-card">
-                <h3><a href="project2.html">Project 2</a></h3>
-                <a href="project2.html">
-                    <img src="next.jpeg" alt="Project 2 Thumbnail" class="project-thumbnail">
-                    <p style="font-size: small;">c# </p>
-                </a>
-            </div>
-
-            <div class="project-card">
-                <h3><a href="project2.html">Project 2</a></h3>
-                <a href="project2.html">
-                    <img src="next.jpeg" alt="Project 2 Thumbnail" class="project-thumbnail">
-                    <p style="font-size: small;">c# </p>
-                </a>
-            </div>
-        </div>
-
-        <div id="personal-projects" class="project-category">
-            <div class="project-card">
-                <h3><a href="project1.html">Password Generator</a></h3>
-                <a href="project1.html">
-                    <img src="img/project/pwgen.png" alt="Project 1 Thumbnail" class="project-thumbnail">
-                    <p style="font-size: small;">Python</p>
-                </a>
-            </div>
-
-            <div class="project-card">
-                <h3><a href="https://github.com/Kieboard/Kieboard.github.io">Portfolio</a></h3>
-                <a href="https://github.com/Kieboard/Kieboard.github.io">
-                    <img src="img/project/portfolio.png" alt="Project 2 Thumbnail" class="project-thumbnail">
-                    <p style="font-size: small;">HTML/CSS/JS</p>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- ========================== -->
-<!-- Contact Section -->
+<!-- Contact Section            -->
 <!-- ========================== -->
 <section id="contact">
-    <div class="contact-container">
-        <div class="content">
-            <h2>Leave a Message!</h2>
-            <p>Want to collaborate, ask a question, or just say hi? Fill out the form below!</p>
-            
-            <!-- Contact Form -->
-            <form action="https://formspree.io/f/xvgzwwdz" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Hey Kieran, love the website! I'd like to chat about some opportunities you might like! 🎊" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+    <div class="section-container contact-grid">
 
-            <!-- TryHackMe Badge -->
-            <div class="badge">
-                <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1121615"></iframe>
+        <div class="contact-info">
+            <div class="section-label">04 / Contact</div>
+            <h2>Get In Touch</h2>
+            <p>Want to collaborate, ask a question, or just say hi? Fill out the form or find me on the platforms below.</p>
+
+            <div class="contact-links">
+                <a href="mailto:kieran.rorrison@outlook.com" class="contact-link">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>kieran.rorrison@outlook.com</span>
+                </a>
+                <a href="https://github.com/Kieboard" target="_blank" rel="noopener" class="contact-link">
+                    <i class="fa-brands fa-github"></i>
+                    <span>github.com/Kieboard</span>
+                </a>
+                <a href="https://www.linkedin.com/in/kieran-rorrison" target="_blank" rel="noopener" class="contact-link">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>linkedin.com/in/kieran-rorrison</span>
+                </a>
+            </div>
+
+            <!-- Platform Badges -->
+            <div class="platform-badges">
+                <!-- TryHackMe Badge -->
+                <a href="https://tryhackme.com/p/Kieboard" target="_blank" rel="noopener" class="badge-link" title="View TryHackMe Profile">
+                    <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=1121615" title="TryHackMe Badge" scrolling="no"></iframe>
+                </a>
+
+                <!-- HackTheBox Badge -->
+                <a href="https://app.hackthebox.com/users/1030668" target="_blank" rel="noopener" class="badge-link" title="View HackTheBox Profile">
+                    <img src="https://www.hackthebox.eu/badge/image/1030668" alt="HackTheBox Badge" class="htb-badge-img">
+                </a>
             </div>
         </div>
+
+        <div class="contact-form-wrap" data-animate="fade-up" data-delay="200">
+            <form action="https://formspree.io/f/xvgzwwdz" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Hey Kieran, I'd love to chat about..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <span>Send Message</span>
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+
     </div>
+
+    <!-- Footer inside contact section so scroll snap includes it -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <img src="img/favicon.png" alt="Kieboard">
+                <span>Kieboard</span>
+            </div>
+            <p class="footer-text">&copy; <span id="year"></span> Kieboard — All Rights Reserved</p>
+            <div class="footer-links">
+                <a href="https://github.com/Kieboard" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/kieran-rorrison" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
 </section>
 
-<!-- ========================== -->
-<!-- Footer Section -->
-<!-- ========================== -->
-<footer class="footer">
-    <div class="footer-text">
-        &copy; <span id="year"></span> Kieboard - All Rights Reserved.
-    </div>
-</footer>
-
-<!-- ========================== -->
-<!-- JavaScript Section -->
-<!-- ========================== -->
-
-<!-- Swiper.js CDN -->
+<!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<!-- FontAwesome Kit -->
-<script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
-
-<!-- External JavaScript File -->
+<!-- Main Script -->
 <script src="script.js"></script>
 
 </body>

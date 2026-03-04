@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Page Not Found | Kieboard</title>
+    <meta name="description" content="Oops — this page doesn't exist. Head back to Kieboard's portfolio.">
+
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@700&family=Exo+2:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --red: #ff0000;
+            --red-dim: rgba(255,0,0,0.15);
+            --bg: #050505;
+            --bg-2: #0a0a0a;
+            --surface: #181818;
+            --border-dim: rgba(255,255,255,0.06);
+            --text: #e8e8e8;
+            --text-dim: #888;
+            --font-display: 'Rajdhani', sans-serif;
+            --font-mono: 'Share Tech Mono', monospace;
+            --font-body: 'Exo 2', sans-serif;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            height: 100%;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+            overflow: hidden;
+        }
+
+        canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            gap: 16px;
+        }
+
+        .glitch {
+            font-family: var(--font-display);
+            font-size: clamp(6rem, 20vw, 14rem);
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            animation: glitch 3s infinite;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: '404';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            color: var(--red);
+            animation: glitch-r 3s infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+        }
+
+        .glitch::after {
+            color: #00ffff;
+            animation: glitch-b 3s infinite;
+            clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+        }
+
+        @keyframes glitch {
+            0%, 92%, 100% { transform: none; }
+            93% { transform: skewX(-1deg); }
+            95% { transform: skewX(1deg); }
+        }
+
+        @keyframes glitch-r {
+            0%, 92%, 100% { transform: none; opacity: 0; }
+            93% { transform: translate(-3px, 1px); opacity: 0.8; }
+            95% { transform: translate(3px, -1px); opacity: 0.8; }
+            97% { opacity: 0; }
+        }
+
+        @keyframes glitch-b {
+            0%, 92%, 100% { transform: none; opacity: 0; }
+            94% { transform: translate(3px, 2px); opacity: 0.8; }
+            96% { transform: translate(-3px, -2px); opacity: 0.8; }
+            98% { opacity: 0; }
+        }
+
+        .terminal-line {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--red);
+            letter-spacing: 2px;
+        }
+
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--text-dim);
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            max-width: 400px;
+            line-height: 1.7;
+        }
+
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+            padding: 12px 28px;
+            background: transparent;
+            border: 1px solid rgba(255,0,0,0.4);
+            border-radius: 6px;
+            color: #fff;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: var(--red-dim);
+            border-color: var(--red);
+            box-shadow: 0 0 20px rgba(255,0,0,0.2);
+            transform: translateY(-2px);
+        }
+
+        .divider-line {
+            width: 40px;
+            height: 1px;
+            background: var(--red);
+            margin: 4px auto;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="bg-canvas"></canvas>
+
+<div class="container">
+    <div class="terminal-line">~/kieboard <span class="blink">▮</span></div>
+    <div class="glitch">404</div>
+    <div class="divider-line"></div>
+    <h2>Page Not Found</h2>
+    <p>Looks like this page got lost in the network. Maybe it was captured in a CTF.</p>
+    <a href="/" class="home-btn">
+        <i class="fa-solid fa-arrow-left"></i> Back to Base
+    </a>
+</div>
+
+<script>
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const pts = Array.from({ length: 60 }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+    }));
+
+    let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+    window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        pts.forEach(p => {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 1.2, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(255,255,255,0.5)';
+            ctx.fill();
+
+            pts.forEach(o => {
+                const dx = p.x - o.x, dy = p.y - o.y;
+                const dist = Math.sqrt(dx*dx + dy*dy);
+                if (dist > 140) return;
+                const mdx = mouse.x - p.x, mdy = mouse.y - p.y;
+                const mDist = Math.sqrt(mdx*mdx + mdy*mdy);
+                const boost = Math.max(0, 1 - mDist / 250) * 0.4;
+                const opacity = (1 - dist/140) * 0.4 + boost;
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(o.x, o.y);
+                ctx.strokeStyle = `rgba(255,0,0,${opacity})`;
+                ctx.lineWidth = 0.6;
+                ctx.stroke();
+            });
+        });
+        requestAnimationFrame(draw);
+    }
+    draw();
+</script>
+</body>
+</html>
