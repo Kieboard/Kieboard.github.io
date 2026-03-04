@@ -259,7 +259,6 @@ section h2:hover::after {
     border: 1px solid transparent;
     line-height: 1;
 }
-}
 
 .nav-link::after {
     display: none;
