@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kieboard | Cyber Security</title>
 
+    <!-- SEO -->
+    <meta name="description" content="Kieran Rorrison (Kieboard) — BSc Cyber Security student, IT Analyst at Ashurst, and CTF player. Specialising in networking, penetration testing and ethical hacking.">
+    <meta name="keywords" content="Kieboard, Kieran Rorrison, Cyber Security, CTF, TryHackMe, HackTheBox, IT Analyst, Penetration Testing, Portfolio">
+    <meta name="author" content="Kieran Rorrison">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kieboard | Cyber Security Portfolio">
+    <meta property="og:description" content="BSc Cyber Security student, IT Analyst and CTF player. Check out my writeups, projects and certifications.">
+    <meta property="og:image" content="img/favicon.png">
+    <meta property="og:url" content="https://kieboard.me">
+    <meta property="og:type" content="website">
+
     <!-- Favicon -->
     <link rel="icon" href="img/favicon.png" type="image/png">
 
@@ -109,30 +121,18 @@
             <div class="skills-section">
                 <h3 class="skills-heading">Skills</h3>
                 <div class="skills-grid">
-                    <div class="skill-item" data-tooltip="Python">
-                        <i class="fa-brands fa-python"></i>
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-item" data-tooltip="HTML5">
-                        <i class="fa-brands fa-html5"></i>
-                        <span>HTML5</span>
-                    </div>
-                    <div class="skill-item" data-tooltip="CSS3">
-                        <i class="fa-brands fa-css3-alt"></i>
-                        <span>CSS3</span>
-                    </div>
-                    <div class="skill-item" data-tooltip="Networking">
-                        <i class="fa-solid fa-network-wired"></i>
-                        <span>Networking</span>
-                    </div>
-                    <div class="skill-item" data-tooltip="Linux">
-                        <i class="fa-brands fa-linux"></i>
-                        <span>Linux</span>
-                    </div>
-                    <div class="skill-item" data-tooltip="Git">
-                        <i class="fa-brands fa-git-alt"></i>
-                        <span>Git</span>
-                    </div>
+                    <div class="skill-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                    <div class="skill-item"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-network-wired"></i><span>Networking</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-terminal"></i><span>Nmap</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-bug"></i><span>Burp Suite</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-wifi"></i><span>Wireshark</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-server"></i><span>Active Directory</span></div>
+                    <div class="skill-item"><i class="fa-brands fa-microsoft"></i><span>Azure / O365</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-shield-halved"></i><span>Cyber Essentials</span></div>
+                    <div class="skill-item"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+                    <div class="skill-item"><i class="fa-brands fa-html5"></i><span>HTML / CSS</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-book-skull"></i><span>ITIL 4</span></div>
                 </div>
             </div>
         </div>
@@ -349,8 +349,8 @@
             </div>
         </div>
 
-        <div class="contact-form-wrap" data-animate="fade-up" data-delay="200">
-            <form action="https://formspree.io/f/xvgzwwdz" method="POST" class="contact-form">
+        <div class="contact-form-wrap">
+            <form action="https://formspree.io/f/xvgzwwdz" method="POST" class="contact-form" id="contact-form">
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -363,10 +363,11 @@
                     <label for="message">Message</label>
                     <textarea id="message" name="message" placeholder="Hey Kieran, I'd love to chat about..." required></textarea>
                 </div>
-                <button type="submit" class="submit-btn">
+                <button type="submit" class="submit-btn" id="submit-btn">
                     <span>Send Message</span>
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
+                <div class="form-feedback" id="form-feedback"></div>
             </form>
         </div>
 
@@ -390,9 +391,7 @@
 </section>
 
 <!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<!-- Main Script -->
-<script src="script.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

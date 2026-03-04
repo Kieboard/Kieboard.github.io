@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* Hamburger Toggle           */
     /* ========================== */
     const hamburger = document.getElementById('hamburger');
+    const navbar    = document.getElementById('navbar');
 
     if (hamburger && navbar) {
         hamburger.addEventListener('click', () => {
@@ -120,6 +121,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ========================== */
+    /* Contact Form Submission    */
+    /* ========================== */
+    const contactForm = document.getElementById('contact-form');
+    const submitBtn   = document.getElementById('submit-btn');
+    const feedback    = document.getElementById('form-feedback');
+
+    if (contactForm && submitBtn && feedback) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.querySelector('span').textContent = 'Sending...';
+            submitBtn.querySelector('i').className = 'fa-solid fa-spinner fa-spin';
+            feedback.className = 'form-feedback';
+            feedback.textContent = '';
+
+            try {
+                const res = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    feedback.className = 'form-feedback success';
+                    feedback.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message sent! I\'ll get back to you soon.';
+                    contactForm.reset();
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch {
+                feedback.className = 'form-feedback error';
+                feedback.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Something went wrong. Try emailing me directly.';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.querySelector('span').textContent = 'Send Message';
+                submitBtn.querySelector('i').className = 'fa-solid fa-paper-plane';
+            }
+        });
+    }
+
+
+    /* ========================== */
     /* Scroll Snapping            */
     /* ========================== */
     const snapSections = Array.from(document.querySelectorAll('section[id]'));
@@ -182,10 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /* Canvas Background          */
     /* ========================== */
     const canvas = document.getElementById('background-canvas');
-    if (!canvas) return;
-
-    // Skip canvas on mobile to prevent layout issues
-    if (window.innerWidth < 600) return;
+    if (canvas && window.innerWidth >= 600) {
 
     const ctx = canvas.getContext('2d');
 
@@ -305,5 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     animate();
+
+    } // end canvas block
 
 });
