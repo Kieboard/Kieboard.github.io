@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kieboard | Portfolio</title>
+
+        <meta name="description" content="Kieboard — BSc Cyber Security student, IT Analyst transitioning into cybersecurity, CTF player. Specialising in networking, penetration testing and ethical hacking.">
+    <meta name="keywords" content="Kieboard, Cyber Security, CTF, TryHackMe, HackTheBox, IT Analyst, Penetration Testing, Portfolio">
+    <meta name="author" content="Kieboard">
+
+        <meta property="og:title" content="Kieboard | Cyber Security Portfolio">
+    <meta property="og:description" content="BSc Cyber Security student, IT Analyst and CTF player. Check out my writeups, projects and certifications.">
+    <meta property="og:image" content="img/favicon.png">
+    <meta property="og:url" content="https://kieboard.me">
+    <meta property="og:type" content="website">
+
+        <link rel="icon" href="img/favicon.png" type="image/png">
+
+        <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+
+        <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navigation                 -->
+<div class="nav-shell" id="nav-shell">
+        <button class="nav-toggle-btn" id="nav-toggle-btn" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+        <div class="nav-expanded" id="nav-expanded">
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="nav-close-btn" id="nav-close-btn" aria-label="Close navigation">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+</div>
+
+<!-- Landing Page               -->
+<section id="home">
+    <canvas id="background-canvas"></canvas>
+
+    <div class="home-content">
+        <div class="home-logo-wrap">
+            <img src="img/kieboard.png" alt="Kieboard Logo" class="home-logo">
+        </div>
+        <div class="home-text">
+            <div class="terminal-line" id="terminal-trigger" onclick="launchTerminal()" style="cursor:pointer" title="Launch terminal"><span class="terminal-prefix">root@kieOS:~$</span><span class="terminal-blink">▮</span></div>
+            <h1>Kieboard</h1>
+            <p class="home-subtitle" id="typing-subtitle"></p>
+        </div>
+
+    </div>
+
+    <div class="scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-arrow"></div>
+    </div>
+</section>
+
+<!-- About Me Section           -->
+<section id="about">
+    <div class="section-container about-grid">
+
+                <div class="about-bio">
+            <div class="section-label">01 / About<span class="label-cursor"></span></div>
+            <h2>About Me</h2>
+
+            <div class="profile-pic-wrap">
+                <img src="img/moi.jpg" alt="Kieboard" class="profile-pic">
+                <div class="profile-glow"></div>
+            </div>
+
+            <p>
+                Hey, I'm Kie — IT Service Desk Analyst by day, aspiring SOC analyst by night. I support thousands of users globally at an international law firm, handling everything from Entra ID and Intune to PowerShell scripting and phishing analysis. I've shipped automation tools that the whole service desk now uses daily.
+            </p>
+            <p>
+                Outside of work I'm studying a BSc (Hons) Cyber Security at the Open University, grinding toward CompTIA Security+, and actively doing CTFs on TryHackMe and HackTheBox — Top 8% globally on THM with 82 rooms down. All my writeups get auto-published through a pipeline I built myself: Notion → Python → Claude AI → GitHub Actions → GitBook. Because if you're going to document things, you may as well automate it.
+            </p>
+            <p>
+                Outside of breaking and fixing things, you'll find me on a golf course, in an airsoft skirmish, or racking up hours in Rust — the game, not the language. Though I'm working on that too.
+            </p>
+
+
+                        <div class="cv-actions">
+                <a href="#contact" class="cv-terminal-line">
+                    <span class="cv-terminal-prefix">root@kieOS:~$</span>
+                    <span class="cv-terminal-cmd">request_cv --via contact-form</span>
+                </a>
+            </div>
+
+                        <div class="skills-section">
+                <h3 class="skills-heading">Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-item"><i class="fa-solid fa-id-badge"></i><span>Entra ID / M365</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-server"></i><span>Active Directory</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-code"></i><span>PowerShell</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-laptop"></i><span>Intune / SCCM</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-network-wired"></i><span>Networking</span></div>
+                    <div class="skill-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-terminal"></i><span>CTF / Linux</span></div>
+                    <div class="skill-item"><i class="fa-solid fa-cloud"></i><span>Azure</span></div>
+                    <div class="skill-item"><i class="fa-brands fa-github"></i><span>Git / GitHub</span></div>
+                </div>
+            </div>
+        </div>
+
+                <div class="about-certs">
+            <div class="section-label">02 / Certs<span class="label-cursor"></span></div>
+            <h2>Certifications</h2>
+
+                        <div class="thm-widget" data-animate="fade-up">
+                <div class="thm-widget-header">
+                    <img src="img/project/thm-logo.webp" alt="TryHackMe" class="thm-logo">
+                    <div>
+                        <div class="thm-platform">TryHackMe</div>
+                        <div class="thm-handle">Kieboard</div>
+                    </div>
+                    <a href="https://tryhackme.com/p/Kieboard" target="_blank" rel="noopener" class="thm-link">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <div class="thm-stats">
+                    <div class="thm-stat">
+                        <div class="thm-stat-value" id="thm-rank">Top 8%</div>
+                        <div class="thm-stat-label">Global Rank</div>
+                    </div>
+                    <div class="thm-stat-divider"></div>
+                    <div class="thm-stat">
+                        <div class="thm-stat-value" id="thm-rooms">82</div>
+                        <div class="thm-stat-label">Rooms Done</div>
+                    </div>
+                    <div class="thm-stat-divider"></div>
+                    <div class="thm-stat">
+                        <div class="thm-stat-value" id="thm-badges">11</div>
+                        <div class="thm-stat-label">Badges</div>
+                    </div>
+                </div>
+                <div class="thm-badges">
+                    <span class="thm-badge">Advent of Cyber 2025</span>
+                    <span class="thm-badge">OSINT</span>
+                    <span class="thm-badge">Web Exploitation</span>
+                    <span class="thm-badge">Privilege Escalation</span>
+                </div>
+            </div>
+
+            <div class="swiper cert-swiper">
+                <div class="swiper-wrapper">
+
+                    <!-- ITIL4 -->
+                    <div class="swiper-slide">
+                        <div class="cert-card">
+                            <div class="cert-img-wrap">
+                                <img src="img/itil4new.jpg" alt="ITIL 4 Foundation">
+                            </div>
+                            <div class="cert-info">
+                                <h4>ITIL 4 Foundation</h4>
+                                <div class="cert-date"><i class="fa-regular fa-calendar"></i> In Progress — Q3 2026</div>
+                                <p>Service Management, Value Co-Creation, Service Value System, ITIL Practices, Incident Management, Change Enablement</p>
+                                <a href="https://www.credly.com/badges/example" target="_blank" rel="noopener" class="cert-btn">
+                                    <i class="fa-solid fa-award"></i> View Badge
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Git Foundations -->
+                    <div class="swiper-slide">
+                        <div class="cert-card">
+                            <div class="cert-img-wrap">
+                                <img src="img/git.png" alt="Git Foundations">
+                            </div>
+                            <div class="cert-info">
+                                <h4>Git Foundations</h4>
+                                <div class="cert-date"><i class="fa-regular fa-calendar"></i> In Progress — Q3 2026</div>
+                                <p>Version Control, Git, GitHub Actions, CI/CD, Repository Management, Workflow Automation</p>
+                                <a href="https://www.credly.com/badges/example2" target="_blank" rel="noopener" class="cert-btn">
+                                    <i class="fa-solid fa-award"></i> View Badge
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Security+ -->
+                    <div class="swiper-slide">
+                        <div class="cert-card">
+                            <div class="cert-img-wrap cert-img-sec">
+                                <img src="img/secplus.png" alt="CompTIA Security+">
+                            </div>
+                            <div class="cert-info">
+                                <h4>CompTIA Security+</h4>
+                                <div class="cert-date"><i class="fa-regular fa-calendar"></i> In Progress — Q3 2026</div>
+                                <p>Threats &amp; Vulnerabilities, Network Security, Identity Management, Cryptography, Incident Response, Risk &amp; Compliance — SY0-701</p>
+                                <a href="https://www.credly.com/badges/example3" target="_blank" rel="noopener" class="cert-btn">
+                                    <i class="fa-solid fa-award"></i> View Badge
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Experience Section         -->
+<section id="experience">
+    <canvas class="section-canvas" id="experience-canvas"></canvas>
+    <div class="section-container">
+        <div class="section-label" style="text-align:center;">03 / Experience<span class="label-cursor"></span></div>
+        <h2 data-animate="fade-up" style="text-align:center;">Experience</h2>
+
+        <div class="timeline-scroll-wrap">
+        <div class="timeline" data-animate="fade-up">
+
+                        <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Jan 2023 — Present</div>
+                <div class="timeline-card">
+                    <div class="timeline-role">IT Service Desk Analyst</div>
+                    <div class="timeline-company">
+                        <i class="fa-solid fa-building"></i> International Law Firm
+                        <span class="timeline-location"><i class="fa-solid fa-location-dot"></i> Glasgow</span>
+                    </div>
+                    <p class="timeline-desc">1st and 2nd line support to ~3,000 users globally across the UK, Europe, USA and Australia at a leading international law firm. Day-to-day work covers the full ticket lifecycle — access management, Exchange/Entra ID administration, Intune/SCCM, VPN, Netskope, BitLocker key retrieval, Mimecast phishing analysis, and full onboarding/offboarding including account creation and licence provisioning. One of two designated NextThink EUS Leaders on the service desk — involved in platform changes and the go-to for NextThink queries across the team. Developed PowerShell scripts adopted by the wider team: a network drive remapper, an Intapp rename script, and a Teams cache clearer. Contributed to the rollout of a self-service password reset portal. Resolving ~100 tickets per week in a fast-paced, regulated legal environment.</p>
+                    <div class="timeline-tags">
+                        <span class="tl-tag">Entra ID</span>
+                        <span class="tl-tag">Intune / SCCM</span>
+                        <span class="tl-tag">Exchange</span>
+                        <span class="tl-tag">PowerShell</span>
+                        <span class="tl-tag">NextThink</span>
+                        <span class="tl-tag">Mimecast</span>
+                        <span class="tl-tag">Netskope</span>
+                        <span class="tl-tag">ServiceNow</span>
+                        <span class="tl-tag">BitLocker</span>
+                        <span class="tl-tag">ITIL 4</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BSc -->
+            <div class="timeline-item">
+                <div class="timeline-dot timeline-dot--progress"></div>
+                <div class="timeline-date">Oct 2022 — Present</div>
+                <div class="timeline-card">
+                    <div class="timeline-role">BSc (Hons) Cyber Security</div>
+                    <div class="timeline-company">
+                        <i class="fa-solid fa-graduation-cap"></i> The Open University
+                        <span class="timeline-location"><i class="fa-solid fa-clock"></i> Year 2 of 3 (2026)</span>
+                    </div>
+                    <p class="timeline-desc">Part-time distance learning degree studied alongside full-time work. Completed Year 1 covering computing fundamentals, Python, Cisco networking, Linux/OS security, and mathematics. Currently in Year 2. CompTIA Security+ running in parallel.</p>
+
+                    <!-- Year accordion -->
+                    <div class="bsc-accordion">
+                        <button class="bsc-year-btn" data-year="year1">
+                            <i class="fa-solid fa-chevron-right bsc-chevron"></i>
+                            <span>Year 1 — Completed</span>
+                            <span class="bsc-year-badge">4 modules</span>
+                        </button>
+                        <div class="bsc-year-content hidden" id="year1">
+                            <div class="bsc-modules">
+                                <button class="bsc-module-btn" data-module="tm111">
+                                    <span class="bsc-module-code">TM111</span>
+                                    <span class="bsc-module-name">Intro to Computing & IT 1</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </button>
+                                <button class="bsc-module-btn" data-module="tm112">
+                                    <span class="bsc-module-code">TM112</span>
+                                    <span class="bsc-module-name">Intro to Computing & IT 2</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </button>
+                                <button class="bsc-module-btn" data-module="tm129">
+                                    <span class="bsc-module-code">TM129</span>
+                                    <span class="bsc-module-name">Technologies in Practice</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </button>
+                                <button class="bsc-module-btn" data-module="mu123">
+                                    <span class="bsc-module-code">MU123</span>
+                                    <span class="bsc-module-name">Discovering Mathematics</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button class="bsc-year-btn" data-year="year2">
+                            <i class="fa-solid fa-chevron-right bsc-chevron"></i>
+                            <span>Year 2 — In Progress</span>
+                            <span class="bsc-year-badge">TBC</span>
+                        </button>
+                        <div class="bsc-year-content hidden" id="year2">
+                            <p style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);padding:12px 0;">Modules to be confirmed — currently evaluating study options including potential university transfer.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-tags" style="margin-top:12px;">
+                        <span class="tl-tag">Python</span>
+                        <span class="tl-tag">Cisco / Networking</span>
+                        <span class="tl-tag">Linux</span>
+                        <span class="tl-tag">OS Security</span>
+                        <span class="tl-tag">Mathematics</span>
+                        <span class="tl-tag">In Progress</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTF / Self Study -->
+            <div class="timeline-item">
+                <div class="timeline-dot" style="background:#febc2e;box-shadow:0 0 10px rgba(254,188,46,0.5);"></div>
+                <div class="timeline-date">Oct 2021 — Present</div>
+                <div class="timeline-card">
+                    <div class="timeline-role">Self-Directed Cyber Security Research</div>
+                    <div class="timeline-company">
+                        <i class="fa-solid fa-terminal"></i> CTF Platforms &amp; Independent Study
+                        <span class="timeline-location"><i class="fa-solid fa-globe"></i> Remote</span>
+                    </div>
+                    <p class="timeline-desc">Active CTF player and independent security researcher across TryHackMe, HackTheBox, and VulnHub. Consistently practising offensive and defensive techniques outside of work and university — covering web exploitation, privilege escalation, OSINT, network attacks, log analysis with Splunk, and malware analysis. All writeups documented and auto-published via a custom Notion → GitHub Actions → GitBook pipeline. Top 8% globally on TryHackMe with 82 rooms completed and 11 badges earned.</p>
+                    <div class="timeline-tags">
+                        <span class="tl-tag">TryHackMe — Top 8%</span>
+                        <span class="tl-tag">HackTheBox</span>
+                        <span class="tl-tag">Web Exploitation</span>
+                        <span class="tl-tag">Privilege Escalation</span>
+                        <span class="tl-tag">OSINT</span>
+                        <span class="tl-tag">Splunk</span>
+                        <span class="tl-tag">CTF Writeups</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blackbaud -->
+            <div class="timeline-item">
+                <div class="timeline-dot timeline-dot--past"></div>
+                <div class="timeline-date">May 2021 — Nov 2022</div>
+                <div class="timeline-card">
+                    <div class="timeline-role">Customer Support Associate</div>
+                    <div class="timeline-company">
+                        <i class="fa-solid fa-building"></i> Blackbaud, Inc.
+                        <span class="timeline-location"><i class="fa-solid fa-location-dot"></i> Glasgow / Remote</span>
+                    </div>
+                    <p class="timeline-desc">B2B technical support for Blackbaud's SaaS suite including The Raiser's Edge CRM, delivered via Salesforce across chat, phone and web. Promoted to Subject Matter Expert — mentoring new hires, fielding escalations, and maintaining internal knowledge documentation. Built strong skills in structured troubleshooting, SLA management and communicating technical issues clearly to non-technical clients. Role ended due to company-wide redundancy.</p>
+                    <div class="timeline-tags">
+                        <span class="tl-tag">SaaS Support</span>
+                        <span class="tl-tag">Salesforce CRM</span>
+                        <span class="tl-tag">SLA Management</span>
+                        <span class="tl-tag">Troubleshooting</span>
+                        <span class="tl-tag">Mentoring</span>
+                        <span class="tl-tag">Documentation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HND/HNC -->
+            <div class="timeline-item">
+                <div class="timeline-dot timeline-dot--edu"></div>
+                <div class="timeline-date">2015 — 2018</div>
+                <div class="timeline-card">
+                    <div class="timeline-role">HND Networking · HNC Computing Technical Support · NC Computing</div>
+                    <div class="timeline-company">
+                        <i class="fa-solid fa-graduation-cap"></i> West College Scotland
+                        <span class="timeline-location"><i class="fa-solid fa-location-dot"></i> Scotland</span>
+                    </div>
+                    <p class="timeline-desc">Three qualifications across networking and computing support. Routing, switching, network infrastructure, hardware, OS fundamentals, and service desk foundations. The base everything else is built on.</p>
+                    <div class="timeline-tags">
+                        <span class="tl-tag">Networking</span>
+                        <span class="tl-tag">Hardware</span>
+                        <span class="tl-tag">IT Support</span>
+                        <span class="tl-tag">West College Scotland</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div><!-- end timeline-scroll-wrap -->
+    </div>
+</section>
+
+<!-- Projects & CTFs Section    -->
+<section id="projects">
+    <div class="section-container">
+        <div class="section-label">04 / Projects<span class="label-cursor"></span></div>
+        <h2 data-animate="fade-up">Projects / CTFs</h2>
+        <p class="section-desc" data-animate="fade-up">Select a category to explore my work across CTFs, university, and personal projects.</p>
+
+        <!-- Category Tabs -->
+        <div class="project-tabs" data-animate="fade-up">
+            <button class="tab-btn" data-target="tryhackme-projects">
+                <img src="img/project/thm-logo.webp" alt="TryHackMe">
+                <span>TryHackMe</span>
+            </button>
+            <button class="tab-btn" data-target="university-projects">
+                <img src="img/project/ou-logo.jpg" alt="Open University">
+                <span>University</span>
+            </button>
+            <button class="tab-btn" data-target="writeups-panel">
+                <img src="img/project/gitbook.webp" alt="GitBook" style="width:20px;height:20px;object-fit:contain;filter:invert(1) sepia(1) saturate(5) hue-rotate(320deg);">
+                <span>Writeups</span>
+            </button>
+            <button class="tab-btn" data-target="personal-projects">
+                <img src="img/project/favicon.png" alt="Personal">
+                <span>Personal</span>
+            </button>
+        </div>
+
+        <!-- Project Grids -->
+        <div class="project-panels">
+
+            <div id="tryhackme-projects" class="project-panel">
+                <div class="project-grid">
+
+                    <a href="https://github.com/Kieboard/CTF-Hub" target="_blank" rel="noopener" class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/thm-logo.webp" alt="CTF Hub" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fa-solid fa-skull-crossbones\'></i>'">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>CTF Hub</h4>
+                            <p>Live writeup repository for TryHackMe, HackTheBox and VulnHub. Covers web exploitation, privilege escalation, OSINT, and network attacks — each writeup documents the full methodology from recon to root.</p>
+                            <div class="project-tags">
+                                <span class="tag">CTF</span>
+                                <span class="tag">Writeups</span>
+                                <span class="tag">Markdown</span>
+                            </div>
+                            
+                        </div>
+                    </a>
+
+                    <a href="https://tryhackme.com/r/room/adventofcyber2025" target="_blank" rel="noopener" class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/thm-logo.webp" alt="Advent of Cyber" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fa-solid fa-tree\'></i>'">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>Advent of Cyber 2025</h4>
+                            <p>Completed all 24 days of TryHackMe's annual challenge. Topics spanned OPSEC, log analysis with Splunk, malware reverse engineering, web app attacks, and AI prompt injection — all writeups documented in CTF Hub.</p>
+                            <div class="project-tags">
+                                <span class="tag tag-easy">Easy</span>
+                                <span class="tag">Log Analysis</span>
+                                <span class="tag">OPSEC</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://tryhackme.com/r/room/rootme" target="_blank" rel="noopener" class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/thm-logo.webp" alt="RootMe" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fa-solid fa-terminal\'></i>'">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>RootMe</h4>
+                            <p>Bypassed file upload restrictions to deploy a PHP web shell, then escalated to root by exploiting a SUID binary. Classic web exploitation + privilege escalation chain — good fundamentals room.</p>
+                            <div class="project-tags">
+                                <span class="tag tag-easy">Easy</span>
+                                <span class="tag">Web Shell</span>
+                                <span class="tag">Priv Esc</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="https://tryhackme.com/r/room/cupidbot" target="_blank" rel="noopener" class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/thm-logo.webp" alt="CupidBot" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fa-solid fa-heart\'></i>'">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>CupidBot</h4>
+                            <p>Exploited an IDOR vulnerability to access other users' data, then chained it with privilege escalation through a misconfigured web app. Good example of business logic flaws in the real world.</p>
+                            <div class="project-tags">
+                                <span class="tag tag-medium">Medium</span>
+                                <span class="tag">IDOR</span>
+                                <span class="tag">Web App</span>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div id="university-projects" class="project-panel">
+                <div class="project-grid">
+
+                    <div class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/ou-logo.jpg" alt="Open University">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>Cisco Networking (CCNA Track)</h4>
+                            <p>Core networking module covering TCP/IP, subnetting, routing protocols (OSPF, EIGRP), VLANs, switching, and network security fundamentals. Cisco Packet Tracer labs throughout.</p>
+                            <div class="project-tags">
+                                <span class="tag">Cisco</span>
+                                <span class="tag">TCP/IP</span>
+                                <span class="tag">Routing</span>
+                                <span class="tag">VLANs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/ou-logo.jpg" alt="Open University">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>Cyber Security Fundamentals</h4>
+                            <p>Threat modelling, cryptography, authentication, access control, and incident response. Covers both theoretical frameworks (CIA Triad, STRIDE) and practical application in enterprise environments.</p>
+                            <div class="project-tags">
+                                <span class="tag">Threat Modelling</span>
+                                <span class="tag">Cryptography</span>
+                                <span class="tag">IAM</span>
+                                <span class="tag">IR</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/ou-logo.jpg" alt="Open University">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>Software Engineering & Architecture</h4>
+                            <p>Software design patterns, system architecture, distributed systems, and DevOps principles. Practical Python development with emphasis on writing maintainable, testable code.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Design Patterns</span>
+                                <span class="tag">DevOps</span>
+                                <span class="tag">Distributed Systems</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/ou-logo.jpg" alt="Open University">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>Web & Mobile Technologies</h4>
+                            <p>Full-stack web development, RESTful APIs, mobile application fundamentals, and secure coding practices. Covered HTTP security headers, OWASP Top 10, and input validation in depth.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML/CSS/JS</span>
+                                <span class="tag">REST APIs</span>
+                                <span class="tag">OWASP</span>
+                                <span class="tag">Secure Coding</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="personal-projects" class="project-panel">
+                <div class="project-grid">
+                    <a href="https://github.com/Kieboard" target="_blank" rel="noopener" class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/pwgen.png" alt="Password Generator">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>Password Generator</h4>
+                            <p>Python CLI tool that generates cryptographically random passwords with configurable length, character sets, and complexity rules. Built to understand entropy and secure randomness — not just another string shuffler.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">CLI</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://github.com/Kieboard/Kieboard.github.io" target="_blank" rel="noopener" class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/portfolio.png" alt="Portfolio">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>Portfolio Site</h4>
+                            <p>This site — a full terminal engine built in vanilla HTML/CSS/JS with no frameworks. Includes a virtual filesystem, 4 canvas games in floating windows, AI chat, guestbook, boot sequence, and 50+ terminal commands.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JS</span>
+                            </div>
+                            
+                        </div>
+                    </a>
+                    <a href="https://kieboard.gitbook.io/hub" target="_blank" rel="noopener" class="project-card">
+                        <div class="project-card-img">
+                            <img src="img/project/favicon.png" alt="CTF Auto-Publisher" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fa-solid fa-robot\'></i>'">
+                        </div>
+                        <div class="project-card-body">
+                            <h4>CTF Auto-Publisher</h4>
+                            <p>End-to-end automation pipeline: write rough notes in Notion → Python fetches and sends to Claude AI → formatted writeup committed to GitHub → GitHub Actions syncs to GitBook. Zero manual formatting, goes live in minutes.</p>
+                            <div class="project-tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">Claude API</span>
+                                <span class="tag">GitHub Actions</span>
+                                <span class="tag">GitBook</span>
+                            </div>
+                            
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Writeups Panel — populated from writeups.json via JS -->
+            <div id="writeups-panel" class="project-panel">
+                <div class="writeups-loading" id="writeups-loading">
+                    <i class="fa-solid fa-circle-notch fa-spin"></i>
+                    <span>Loading writeups...</span>
+                </div>
+                <div id="writeups-content" style="display:none;">
+                    <!-- Platform sub-tabs -->
+                    <div class="writeups-subtabs">
+                        <button class="subtab-btn active" data-platform="TryHackMe">
+                            <img src="img/project/thm-logo.webp" alt="TryHackMe">
+                            <span>TryHackMe</span>
+                        </button>
+                        <button class="subtab-btn" data-platform="HackTheBox">
+                            <i class="fa-solid fa-cube" style="color:#9fef00;font-size:1rem;"></i>
+                            <span>HackTheBox</span>
+                        </button>
+                        <button class="subtab-btn" data-platform="LetsDefend">
+                            <i class="fa-solid fa-shield-halved" style="color:#4a9eff;font-size:1rem;"></i>
+                            <span>LetsDefend</span>
+                        </button>
+                    </div>
+                    <div class="project-grid" id="writeups-grid"></div>
+                </div>
+                <div id="writeups-empty" style="display:none;color:var(--text-dim);text-align:center;padding:40px;font-family:var(--font-mono);font-size:0.85rem;">
+                    No writeups found for this platform yet.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section            -->
+<section id="contact">
+    <canvas class="section-canvas" id="contact-canvas"></canvas>
+    <div class="section-container">
+
+        <div class="contact-header">
+            <div class="section-label" style="text-align:center;">05 / Contact<span class="label-cursor"></span></div>
+            <h2 style="text-align:center;">Get In Touch</h2>
+            <p style="text-align:center;color:var(--text-dim);max-width:480px;margin:0 auto 48px;">Want to collaborate, ask a question, or just say hi? Fill out the form or find me on the platforms below.</p>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-info">
+
+                <!-- Profile card -->
+                <div class="contact-profile-card">
+                    <div class="contact-profile-top">
+                        <img src="img/moi.jpg" alt="Kieboard" class="contact-avatar">
+                        <div class="contact-profile-text">
+                            <div class="contact-handle">Kieboard</div>
+                            <div class="contact-role">IT Analyst → Cyber Security</div>
+                            <div class="contact-location"><i class="fa-solid fa-location-dot"></i> Scotland</div>
+                        </div>
+                    </div>
+                    <div class="contact-status">
+                        <span class="status-dot"></span>
+                        <span>Open to opportunities</span>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div class="contact-links">
+                    <a href="https://github.com/Kieboard" target="_blank" rel="noopener" class="contact-link">
+                        <i class="fa-brands fa-github contact-link-icon"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://tryhackme.com/p/Kieboard" target="_blank" rel="noopener" class="contact-link">
+                        <img src="img/project/thm-logo.webp" alt="TryHackMe" class="contact-link-img">
+                        <span>TryHackMe</span>
+                    </a>
+                    <a href="https://app.hackthebox.com/users/1030668" target="_blank" rel="noopener" class="contact-link">
+                        <img src="https://www.hackthebox.com/images/logo600.png" alt="HackTheBox" class="contact-link-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><i class="fa-solid fa-cube contact-link-icon" style="display:none;"></i>
+                        <span>HackTheBox</span>
+                    </a>
+                    <a href="https://kieboard.gitbook.io/hub" target="_blank" rel="noopener" class="contact-link">
+                        <img src="img/project/gitbook.webp" alt="GitBook" class="contact-link-img" style="filter:brightness(0) saturate(100%) invert(27%) sepia(96%) saturate(7469%) hue-rotate(0deg) brightness(100%);">
+                        <span>CTF Hub</span>
+                    </a>
+                </div>
+
+                <!-- Response time -->
+                <p class="contact-response">// avg. response &lt; 24hrs</p>
+
+            </div>
+
+            <div class="contact-form-wrap">
+                <form action="https://formspree.io/f/xvgzwwdz" method="POST" class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="// your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="// your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="// your message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submit-btn">
+                        <span>Send Message</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                    <div class="form-feedback" id="form-feedback"></div>
+                </form>
+            </div>
+
+        </div><!-- end contact-grid -->
+
+    </div><!-- end section-container -->
+
+    <footer class="footer" style="position:absolute;bottom:16px;left:0;width:100%;">
+        <div class="footer-inner">
+            <p class="footer-text"><span id="year"></span> &copy; Kieboard</p>
+        </div>
+    </footer>
+
+</section>
+
+<!-- Module Detail Windows -->
+<div class="module-backdrop" id="module-backdrop"></div>
+
+<div class="module-window" id="module-tm111">
+    <div class="module-titlebar">
+        <div class="term-dots">
+            <button class="term-dot term-dot-red" onclick="closeModuleWindow('tm111')"></button>
+            <button class="term-dot term-dot-yellow" onclick="minimiseModuleWindow('tm111')"></button>
+            <button class="term-dot term-dot-green" onclick="toggleMaximiseModuleWindow('tm111')"></button>
+        </div>
+        <span class="module-title-text">TM111 — Introduction to Computing &amp; IT 1</span>
+    </div>
+    <div class="module-body">
+        <div class="module-meta">
+            <span class="module-badge">30 Credits</span>
+            <span class="module-badge">SCQF Level 7</span>
+            <span class="module-badge completed">Passed — 72%</span>
+        </div>
+        <h3 class="module-section-heading">What it covered</h3>
+        <p>Three blocks: The Digital World (databases, webpages, digital formats, how computers and networks developed), Creating Solutions (programming and problem-solving using Scratch, testing and debugging), and Connecting People &amp; Things (internet structure, IoT, networking fundamentals). Also covered digital ethics and the social challenges of technology.</p>
+        <h3 class="module-section-heading">What I did</h3>
+        <p>Built interactive Scratch programs including animations and logic-based problem-solving applications. Created webpages, worked with relational databases, and produced audio recordings as part of assessed work. Developed a structured note-taking system using OneNote with daily backups — a habit that transferred directly into professional documentation work. Scored 80% on TMA02 covering the programming block. Explored database normalisation, digital footprints, and how public and private data is managed online.</p>
+        <h3 class="module-section-heading">Assessment scores</h3>
+        <p>TMA01: 71% &nbsp;|&nbsp; TMA02: 80% &nbsp;|&nbsp; TMA03: 61% &nbsp;|&nbsp; Overall: 72%</p>
+        <div class="module-tags">
+            <span class="tl-tag">Scratch Programming</span>
+            <span class="tl-tag">Databases</span>
+            <span class="tl-tag">HTML/Webpages</span>
+            <span class="tl-tag">Networking Basics</span>
+            <span class="tl-tag">Digital Ethics</span>
+        </div>
+    </div>
+</div>
+
+<div class="module-window" id="module-tm112">
+    <div class="module-titlebar">
+        <div class="term-dots">
+            <button class="term-dot term-dot-red" onclick="closeModuleWindow('tm112')"></button>
+            <button class="term-dot term-dot-yellow" onclick="minimiseModuleWindow('tm112')"></button>
+            <button class="term-dot term-dot-green" onclick="toggleMaximiseModuleWindow('tm112')"></button>
+        </div>
+        <span class="module-title-text">TM112 — Introduction to Computing &amp; IT 2</span>
+    </div>
+    <div class="module-body">
+        <div class="module-meta">
+            <span class="module-badge">30 Credits</span>
+            <span class="module-badge">SCQF Level 7</span>
+            <span class="module-badge completed">Passed — 52%</span>
+        </div>
+        <h3 class="module-section-heading">What it covered</h3>
+        <p>Three interleaved themes: Essential Information Technologies (binary, computer architecture, cloud and mobile computing, how files and memory work), Problem Solving with Python (real-world data analysis, programming projects), and Information Technologies in the Wild (cybersecurity threats, surveillance, data protection, digital freedom).</p>
+        <h3 class="module-section-heading">What I did</h3>
+        <p>Wrote Python programs from scratch — including a chemical element flashcard quiz using dictionaries and random selection, and turtle graphics programs. Analysed real-world ONS health data using Python. Solved problems involving binary representations, integer overflow (including the 2038 Unix timestamp problem), and floating-point precision. Worked through computer architecture concepts including how unsigned binary encoding works and the limitations of floating-point arithmetic. The cyber security theme covering hacking threats, surveillance, and digital rights ran in parallel with my active TryHackMe practice at the time — reinforcing both sides simultaneously. This was the most technically demanding module of Year 1 and passing it while working full-time was a solid foundation for everything that followed.</p>
+        <h3 class="module-section-heading">Assessment scores</h3>
+        <p>TMA01: 63% &nbsp;|&nbsp; TMA02: 44% &nbsp;|&nbsp; TMA03: 55% &nbsp;|&nbsp; Overall: 52%</p>
+        <div class="module-tags">
+            <span class="tl-tag">Python</span>
+            <span class="tl-tag">Binary / Architecture</span>
+            <span class="tl-tag">Data Analysis</span>
+            <span class="tl-tag">Cybersecurity Concepts</span>
+            <span class="tl-tag">Cloud Computing</span>
+        </div>
+    </div>
+</div>
+
+<div class="module-window" id="module-tm129">
+    <div class="module-titlebar">
+        <div class="term-dots">
+            <button class="term-dot term-dot-red" onclick="closeModuleWindow('tm129')"></button>
+            <button class="term-dot term-dot-yellow" onclick="minimiseModuleWindow('tm129')"></button>
+            <button class="term-dot term-dot-green" onclick="toggleMaximiseModuleWindow('tm129')"></button>
+        </div>
+        <span class="module-title-text">TM129 — Technologies in Practice</span>
+    </div>
+    <div class="module-body">
+        <div class="module-meta">
+            <span class="module-badge">30 Credits</span>
+            <span class="module-badge">SCQF Level 7</span>
+            <span class="module-badge completed">Passed — 79%</span>
+        </div>
+        <h3 class="module-section-heading">What it covered</h3>
+        <p>Three blocks: Networking Essentials (via Cisco Networking Academy — protocol models, IP addressing, subnetting, network design, Packet Tracer labs), Operating Systems &amp; Security (Linux, process and memory management, OS security hardening), and Robotics &amp; AI (robot programming, intelligent systems, ethics).</p>
+        <h3 class="module-section-heading">What I did</h3>
+        <p>This was the strongest and most directly relevant module of Year 1 — scoring 95% on TMA01. Completed multiple Cisco Packet Tracer labs covering network device deployment, cabling, end-device configuration, and building simple networks from scratch. Worked through IP addressing in depth: binary conversion, public vs private address classification, subnetting with subnet masks, and calculating network/host ranges — skills that directly complement my day-to-day work. The networking block built on and formalised knowledge from my HND background. Also studied Linux fundamentals, how operating systems manage processor scheduling and memory, and OS-level security practices. Scored consistently above 80% across all TMAs.</p>
+        <h3 class="module-section-heading">Assessment scores</h3>
+        <p>TMA01: 95% &nbsp;|&nbsp; TMA02: 80% &nbsp;|&nbsp; TMA03: 85% &nbsp;|&nbsp; Overall: 79%</p>
+        <div class="module-tags">
+            <span class="tl-tag">Cisco Networking</span>
+            <span class="tl-tag">Packet Tracer</span>
+            <span class="tl-tag">IP Addressing / Subnetting</span>
+            <span class="tl-tag">Linux</span>
+            <span class="tl-tag">OS Security</span>
+            <span class="tl-tag">Network Design</span>
+        </div>
+    </div>
+</div>
+
+<div class="module-window" id="module-mu123">
+    <div class="module-titlebar">
+        <div class="term-dots">
+            <button class="term-dot term-dot-red" onclick="closeModuleWindow('mu123')"></button>
+            <button class="term-dot term-dot-yellow" onclick="minimiseModuleWindow('mu123')"></button>
+            <button class="term-dot term-dot-green" onclick="toggleMaximiseModuleWindow('mu123')"></button>
+        </div>
+        <span class="module-title-text">MU123 — Discovering Mathematics</span>
+    </div>
+    <div class="module-body">
+        <div class="module-meta">
+            <span class="module-badge">30 Credits</span>
+            <span class="module-badge">SCQF Level 7</span>
+            <span class="module-badge completed">Passed — 56%</span>
+        </div>
+        <h3 class="module-section-heading">What it covered</h3>
+        <p>Statistics, algebra, trigonometry, graphs, percentages, fractions, and mathematical modelling. Heavy focus on interpreting and communicating mathematical reasoning in written form — not just getting the right answer, but explaining how and why. Assessed through four TMAs, five computer-marked assessments, and an end-of-module assessment.</p>
+        <h3 class="module-section-heading">What I did</h3>
+        <p>Completed nine assessments covering percentage and ratio calculations, algebraic problem-solving, statistical interpretation, and graph analysis. Scored 82% on TMA01 and maintained consistent performance across the CMAs. Passed this module despite having dyscalculia — a condition that makes number processing significantly harder. This is one of the achievements I'm most proud of on the degree: it required a lot more effort than it might look on paper, and getting through it alongside full-time work proved that structured persistence beats natural aptitude. The discipline of showing clear working and explaining reasoning in every answer directly improved how I write technical documentation and incident reports professionally.</p>
+        <h3 class="module-section-heading">Assessment scores</h3>
+        <p>TMA01: 82% &nbsp;|&nbsp; TMA02: 79% &nbsp;|&nbsp; TMA03: 62% &nbsp;|&nbsp; TMA04: 62% &nbsp;|&nbsp; Overall: 56%</p>
+        <div class="module-tags">
+            <span class="tl-tag">Algebra</span>
+            <span class="tl-tag">Statistics</span>
+            <span class="tl-tag">Mathematical Reasoning</span>
+            <span class="tl-tag">Problem Solving</span>
+            <span class="tl-tag">Dyscalculia</span>
+        </div>
+    </div>
+</div>
+
+<!-- Terminal Easter Egg -->
+<!-- Terminal Easter Egg -->
+
+
+<!-- Back to Top -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <i class="fa-solid fa-chevron-up"></i>
+</button>
+<!-- ═══════════════════════════════════════════════ -->
+<!-- Windowed Terminal                               -->
+<!-- ═══════════════════════════════════════════════ -->
+<div class="term-backdrop" id="term-backdrop"></div>
+<div class="term-tab" id="term-tab" onclick="launchTerminal()" title="Restore terminal">
+  <span class="term-tab-dots">
+    <span class="term-tab-dot red"></span>
+    <span class="term-tab-dot yellow"></span>
+    <span class="term-tab-dot green"></span>
+  </span>
+  <span class="term-tab-label">KieOS</span>
+</div>
+<div class="term-window" id="term-window">
+
+  <!-- Title bar -->
+  <div class="term-titlebar" id="term-titlebar">
+    <div class="term-dots">
+      <button class="term-dot term-dot-red"    id="term-close-btn" title="Close (Esc)"></button>
+      <button class="term-dot term-dot-yellow" id="term-min-btn"   title="Minimise"></button>
+      <button class="term-dot term-dot-green"  id="term-max-btn"   title="Maximise"></button>
+    </div>
+    <span class="term-title" id="term-title">KieOS</span>
+    <div class="term-menu-wrap">
+      <button class="term-menu-btn" id="term-menu-btn" title="Commands">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="term-dropdown" id="term-dropdown">
+        <div class="term-dropdown-section">Portfolio</div>
+        <button onclick="termInject('about')">about</button>
+        <button onclick="termInject('skills')">skills</button>
+        <button onclick="termInject('contact')">contact</button>
+        <button onclick="termInject('neofetch')">neofetch</button>
+        <button onclick="termInject('progress')">progress</button>
+        <div class="term-dropdown-section">Filesystem</div>
+        <button onclick="termInject('ls')">ls</button>
+        <button onclick="termInject('pwd')">pwd</button>
+        <button onclick="termInject('tree')">tree</button>
+        <div class="term-dropdown-section">Network</div>
+        <button onclick="termInject('nmap kieboard.me')">nmap kieboard.me</button>
+        <button onclick="termInject('ifconfig')">ifconfig</button>
+        <button onclick="termInject('ping kieboard.me')">ping kieboard.me</button>
+        <button onclick="termInject('nc kieboard.me 1337')">nc kieboard.me 1337</button>
+        <div class="term-dropdown-section">Tools</div>
+        <button onclick="termInject('whoami')">whoami</button>
+        <button onclick="termInject('date')">date</button>
+        <button onclick="termInject('fortune')">fortune</button>
+        <button onclick="termInject('theme red')">theme red</button>
+        <button onclick="termInject('theme green')">theme green</button>
+        <button onclick="termInject('theme amber')">theme amber</button>
+        <button onclick="termInject('theme cyan')">theme cyan (default)</button>
+        <div class="term-dropdown-section">Games</div>
+        <button onclick="termInject('play snake')">play snake</button>
+        <button onclick="termInject('play pacman')">play pacman</button>
+        <button onclick="termInject('play invaders')">play invaders</button>
+        <div class="term-dropdown-section">Social</div>
+        <button onclick="termInject('guestbook')">guestbook</button>
+        <button onclick="termInject('chat')">chat (AI)</button>
+        <div class="term-dropdown-section">Other</div>
+        <button onclick="termInject('help')">help</button>
+        <button onclick="termInject('clear')">clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terminal body — full engine loads here -->
+  <div class="term-body" id="term-body">
+    <div id="crt">
+      <div id="phase-boot" class="phase active">
+        <pre id="boot-text"></pre>
+        <span id="boot-cursor"></span>
+        <div id="boot-skip">click or press any key to skip</div>
+      </div>
+      <div id="phase-login" class="phase">
+        <pre id="login-ascii"></pre>
+        <div id="login-box">
+          <div id="login-label">// authenticate to proceed</div>
+          <div id="login-prompt-line">
+            <span id="login-prompt-sym">❯</span>
+            <input id="login-input" type="text" autocomplete="off" spellcheck="false" maxlength="32" placeholder="enter username">
+          </div>
+          <div id="login-hint">enter any username to continue</div>
+          <div id="login-error">&nbsp;</div>
+        </div>
+      </div>
+      <div id="phase-terminal" class="phase">
+        <div id="terminal-main"><div id="output"></div></div>
+        <div id="input-row">
+          <span id="prompt-display"></span>
+          <input id="cmd-input" type="text" autocomplete="off" spellcheck="false">
+        </div>
+        <div id="sidebar" style="display:none">
+          <div id="sidebar-panel"><div id="sidebar-scroll"></div><div id="sidebar-footer"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Terminal fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Terminal/style.css">
+<script src="Terminal/assets.js" defer></script>
+<script src="Terminal/main.js"></script>
+<script src="overlay.js"></script>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js" defer></script>
+<script src="script.js"></script>
+</body>
+</html>

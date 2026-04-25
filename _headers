@@ -1,0 +1,17 @@
+/*
+  Cache-Control: public, max-age=3600
+
+/Terminal/assets.js
+  Cache-Control: public, max-age=604800
+
+/Terminal/main.js
+  Cache-Control: public, max-age=86400
+
+/img/*
+  Cache-Control: public, max-age=604800
+
+/*.css
+  Cache-Control: public, max-age=86400
+
+/*.js
+  Cache-Control: public, max-age=86400
