@@ -88,7 +88,7 @@
                 Hey, I'm Kieran — IT Service Desk Analyst by day, aspiring Cyber Security Professional by night. I support thousands of users globally at an international law firm, handling everything from Entra ID and Intune to PowerShell scripting and phishing analysis. I've shipped automation tools that the whole service desk now uses daily.
             </p>
             <p>
-                Outside of work I'm studying a BSc (Hons) Cyber Security at the Open University, grinding toward CompTIA Security+, and actively doing CTFs on TryHackMe and HackTheBox — Top 8% globally on THM with 82 rooms down. All my writeups get auto-published through a pipeline I built myself: Notion → Python → Claude AI → GitHub Actions → GitBook. Because if you're going to document things, you may as well automate it.
+                Outside of work I'm studying a BSc (Hons) Cyber Security at The Open University, grinding toward CompTIA Security+, and actively doing CTFs on TryHackMe and HackTheBox — Top 8% globally on THM with 82 rooms down. All my writeups get auto-published through a pipeline I built myself: Notion → Python → Claude AI → GitHub Actions → GitBook. Because if you're going to document things, you may as well automate it.
             </p>
             <p>
                 Outside of breaking and fixing things, you'll find me on a golf course, in an airsoft skirmish, or racking up hours in Rust — the game, not the language. Though I'm working on that too.
@@ -148,12 +148,14 @@
                         <div class="thm-stat-value" id="thm-badges">14</div>
                         <div class="thm-stat-label">Badges</div>
                     </div>
+                    <div class="thm-stat-divider"></div>
+                    <div class="thm-stat">
+                        <div class="thm-stat-value" id="thm-streak">—</div>
+                        <div class="thm-stat-label">Day Streak</div>
+                    </div>
                 </div>
-                <div class="thm-badges">
-                    <span class="thm-badge">AoC 2024/2025</span>
-                    <span class="thm-badge">OSINT</span>
-                    <span class="thm-badge">Web Exploitation</span>
-                    <span class="thm-badge">Privilege Escalation</span>
+                <div class="thm-badges" id="thm-badges-container">
+                    <span class="thm-badge-loading">Loading badges...</span>
                 </div>
             </div>
 
@@ -424,66 +426,32 @@
             <div id="tryhackme-projects" class="project-panel">
                 <div class="project-grid">
 
-                    <a href="https://github.com/Kieboard/CTF-Hub" target="_blank" rel="noopener" class="project-card">
-                        <div class="project-card-img">
-                            <img src="img/project/thm-logo.webp" alt="CTF Hub" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fa-solid fa-skull-crossbones\'></i>'">
-                        </div>
-                        <div class="project-card-body">
-                            <h4>CTF Hub</h4>
-                            <p>Live writeup repository for TryHackMe, HackTheBox and VulnHub. Covers web exploitation, privilege escalation, OSINT, and network attacks — each writeup documents the full methodology from recon to root.</p>
-                            <div class="project-tags">
-                                <span class="tag">CTF</span>
-                                <span class="tag">Writeups</span>
-                                <span class="tag">Markdown</span>
-                            </div>
-                            
-                        </div>
-                    </a>
 
-                    <a href="https://tryhackme.com/r/room/adventofcyber2025" target="_blank" rel="noopener" class="project-card">
+                    <div class="project-card coming-soon">
                         <div class="project-card-img">
-                            <img src="img/project/thm-logo.webp" alt="Advent of Cyber" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fa-solid fa-tree\'></i>'">
+                            <i class="fa-solid fa-hourglass-end"></i>
                         </div>
                         <div class="project-card-body">
-                            <h4>Advent of Cyber 2025</h4>
-                            <p>Completed all 24 days of TryHackMe's annual challenge. Topics spanned OPSEC, log analysis with Splunk, malware reverse engineering, web app attacks, and AI prompt injection — all writeups documented in CTF Hub.</p>
+                            <h4>Coming Soon</h4>
+                            <p>More writeups and projects coming soon. Stay tuned for detailed walkthroughs and technical breakdowns.</p>
                             <div class="project-tags">
-                                <span class="tag tag-easy">Easy</span>
-                                <span class="tag">Log Analysis</span>
-                                <span class="tag">OPSEC</span>
+                                <span class="tag">In Progress</span>
                             </div>
                         </div>
-                    </a>
+                    </div>
 
-                    <a href="https://tryhackme.com/r/room/rootme" target="_blank" rel="noopener" class="project-card">
+                    <div class="project-card coming-soon">
                         <div class="project-card-img">
-                            <img src="img/project/thm-logo.webp" alt="RootMe" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fa-solid fa-terminal\'></i>'">
+                            <i class="fa-solid fa-hourglass-end"></i>
                         </div>
                         <div class="project-card-body">
-                            <h4>RootMe</h4>
-                            <p>Bypassed file upload restrictions to deploy a PHP web shell, then escalated to root by exploiting a SUID binary. Classic web exploitation + privilege escalation chain — good fundamentals room.</p>
+                            <h4>Coming Soon</h4>
+                            <p>More writeups and projects coming soon. Stay tuned for detailed walkthroughs and technical breakdowns.</p>
                             <div class="project-tags">
-                                <span class="tag tag-easy">Easy</span>
-                                <span class="tag">Web Shell</span>
-                                <span class="tag">Priv Esc</span>
+                                <span class="tag">In Progress</span>
                             </div>
                         </div>
-                    </a>
-
-                    <a href="https://tryhackme.com/r/room/cupidbot" target="_blank" rel="noopener" class="project-card">
-                        <div class="project-card-img">
-                            <img src="img/project/thm-logo.webp" alt="CupidBot" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fa-solid fa-heart\'></i>'">
-                        </div>
-                        <div class="project-card-body">
-                            <h4>CupidBot</h4>
-                            <p>Exploited an IDOR vulnerability to access other users' data, then chained it with privilege escalation through a misconfigured web app. Good example of business logic flaws in the real world.</p>
-                            <div class="project-tags">
-                                <span class="tag tag-medium">Medium</span>
-                                <span class="tag">IDOR</span>
-                                <span class="tag">Web App</span>
-                            </div>
-                        </div>
-                    </a>
+                    </div>
 
                 </div>
             </div>
@@ -491,66 +459,16 @@
             <div id="university-projects" class="project-panel">
                 <div class="project-grid">
 
-                    <div class="project-card">
+                    <div class="project-card coming-soon">
                         <div class="project-card-img">
-                            <img src="img/project/ou-logo.jpg" alt="Open University">
+                            <i class="fa-solid fa-graduation-cap"></i>
                         </div>
                         <div class="project-card-body">
-                            <h4>Cisco Networking (CCNA Track)</h4>
-                            <p>Core networking module covering TCP/IP, subnetting, routing protocols (OSPF, EIGRP), VLANs, switching, and network security fundamentals. Cisco Packet Tracer labs throughout.</p>
+                            <h4>University Studies</h4>
+                            <p>Currently updating this with Year 1 content from The Open University. Once starting Year 2 at Edinburgh Napier University, will upload further content and detailed module breakdowns.</p>
                             <div class="project-tags">
-                                <span class="tag">Cisco</span>
-                                <span class="tag">TCP/IP</span>
-                                <span class="tag">Routing</span>
-                                <span class="tag">VLANs</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-card-img">
-                            <img src="img/project/ou-logo.jpg" alt="Open University">
-                        </div>
-                        <div class="project-card-body">
-                            <h4>Cyber Security Fundamentals</h4>
-                            <p>Threat modelling, cryptography, authentication, access control, and incident response. Covers both theoretical frameworks (CIA Triad, STRIDE) and practical application in enterprise environments.</p>
-                            <div class="project-tags">
-                                <span class="tag">Threat Modelling</span>
-                                <span class="tag">Cryptography</span>
-                                <span class="tag">IAM</span>
-                                <span class="tag">IR</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-card-img">
-                            <img src="img/project/ou-logo.jpg" alt="Open University">
-                        </div>
-                        <div class="project-card-body">
-                            <h4>Software Engineering & Architecture</h4>
-                            <p>Software design patterns, system architecture, distributed systems, and DevOps principles. Practical Python development with emphasis on writing maintainable, testable code.</p>
-                            <div class="project-tags">
-                                <span class="tag">Python</span>
-                                <span class="tag">Design Patterns</span>
-                                <span class="tag">DevOps</span>
-                                <span class="tag">Distributed Systems</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-card-img">
-                            <img src="img/project/ou-logo.jpg" alt="Open University">
-                        </div>
-                        <div class="project-card-body">
-                            <h4>Web & Mobile Technologies</h4>
-                            <p>Full-stack web development, RESTful APIs, mobile application fundamentals, and secure coding practices. Covered HTTP security headers, OWASP Top 10, and input validation in depth.</p>
-                            <div class="project-tags">
-                                <span class="tag">HTML/CSS/JS</span>
-                                <span class="tag">REST APIs</span>
-                                <span class="tag">OWASP</span>
-                                <span class="tag">Secure Coding</span>
+                                <span class="tag">BSc Cyber Security</span>
+                                <span class="tag">OU → ENU</span>
                             </div>
                         </div>
                     </div>
@@ -879,39 +797,38 @@
         <span></span><span></span><span></span>
       </button>
       <div class="term-dropdown" id="term-dropdown">
-        <div class="term-dropdown-section">Portfolio</div>
-        <button onclick="termInject('about')">about</button>
-        <button onclick="termInject('skills')">skills</button>
-        <button onclick="termInject('contact')">contact</button>
-        <button onclick="termInject('neofetch')">neofetch</button>
-        <button onclick="termInject('progress')">progress</button>
-        <div class="term-dropdown-section">Filesystem</div>
-        <button onclick="termInject('ls')">ls</button>
-        <button onclick="termInject('pwd')">pwd</button>
-        <button onclick="termInject('tree')">tree</button>
-        <div class="term-dropdown-section">Network</div>
-        <button onclick="termInject('nmap kieboard.me')">nmap kieboard.me</button>
-        <button onclick="termInject('ifconfig')">ifconfig</button>
-        <button onclick="termInject('ping kieboard.me')">ping kieboard.me</button>
-        <button onclick="termInject('nc kieboard.me 1337')">nc kieboard.me 1337</button>
-        <div class="term-dropdown-section">Tools</div>
-        <button onclick="termInject('whoami')">whoami</button>
-        <button onclick="termInject('date')">date</button>
-        <button onclick="termInject('fortune')">fortune</button>
-        <button onclick="termInject('theme red')">theme red</button>
-        <button onclick="termInject('theme green')">theme green</button>
-        <button onclick="termInject('theme amber')">theme amber</button>
-        <button onclick="termInject('theme cyan')">theme cyan (default)</button>
-        <div class="term-dropdown-section">Games</div>
-        <button onclick="termInject('play snake')">play snake</button>
-        <button onclick="termInject('play pacman')">play pacman</button>
-        <button onclick="termInject('play invaders')">play invaders</button>
-        <div class="term-dropdown-section">Social</div>
-        <button onclick="termInject('guestbook')">guestbook</button>
-        <button onclick="termInject('chat')">chat (AI)</button>
-        <div class="term-dropdown-section">Other</div>
-        <button onclick="termInject('help')">help</button>
-        <button onclick="termInject('clear')">clear</button>
+        <div class="term-dropdown-header">──────────────────────</div>
+        <div class="term-dropdown-label">Portfolio</div>
+        <button class="term-dropdown-btn" onclick="termInject('about')">  about</button>
+        <button class="term-dropdown-btn" onclick="termInject('skills')">  skills</button>
+        <button class="term-dropdown-btn" onclick="termInject('contact')">  contact</button>
+        <button class="term-dropdown-btn" onclick="termInject('neofetch')">  neofetch</button>
+        <button class="term-dropdown-btn" onclick="termInject('progress')">  progress</button>
+        <div class="term-dropdown-divider">──────────────────────</div>
+        <div class="term-dropdown-label">System</div>
+        <button class="term-dropdown-btn" onclick="termInject('whoami')">  whoami</button>
+        <button class="term-dropdown-btn" onclick="termInject('ls')">  ls</button>
+        <button class="term-dropdown-btn" onclick="termInject('pwd')">  pwd</button>
+        <button class="term-dropdown-btn" onclick="termInject('date')">  date</button>
+        <button class="term-dropdown-btn" onclick="termInject('tree')">  tree</button>
+        <div class="term-dropdown-divider">──────────────────────</div>
+        <div class="term-dropdown-label">Network</div>
+        <button class="term-dropdown-btn" onclick="termInject('ifconfig')">  ifconfig</button>
+        <button class="term-dropdown-btn" onclick="termInject('ping kieboard.me')">  ping kieboard.me</button>
+        <div class="term-dropdown-divider">──────────────────────</div>
+        <div class="term-dropdown-label">Display</div>
+        <button class="term-dropdown-btn" onclick="termInject('theme red')">  theme red</button>
+        <button class="term-dropdown-btn" onclick="termInject('theme green')">  theme green</button>
+        <button class="term-dropdown-btn" onclick="termInject('theme amber')">  theme amber</button>
+        <button class="term-dropdown-btn" onclick="termInject('theme cyan')">  theme cyan</button>
+        <div class="term-dropdown-divider">──────────────────────</div>
+        <div class="term-dropdown-label">Other</div>
+        <button class="term-dropdown-btn" onclick="termInject('fortune')">  fortune</button>
+        <button class="term-dropdown-btn" onclick="termInject('guestbook')">  guestbook</button>
+        <button class="term-dropdown-btn" onclick="termInject('chat')">  chat (AI)</button>
+        <button class="term-dropdown-btn" onclick="termInject('help')">  help</button>
+        <button class="term-dropdown-btn" onclick="termInject('clear')">  clear</button>
+        <div class="term-dropdown-footer">──────────────────────</div>
       </div>
     </div>
   </div>

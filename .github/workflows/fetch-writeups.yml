@@ -2,7 +2,7 @@ name: Fetch GitBook Writeups
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # runs nightly at 3am UTC
+    - cron: '0 0 * * *'   # runs nightly at midnight UTC
   workflow_dispatch:        # allows manual trigger from GitHub Actions tab
 
 jobs:
@@ -214,6 +214,7 @@ jobs:
               rooms     = data.get('completedRooms', data.get('rooms', 0))
               badges    = data.get('badges', [])
               badge_count = len(badges) if isinstance(badges, list) else badges
+              streak    = data.get('dailyStreak', data.get('streak', None))
 
               # Format rank as "Top X%"
               if isinstance(rank_str, (int, float)) and rank_str > 0:
@@ -227,6 +228,7 @@ jobs:
                   'rank':   rank_display,
                   'rooms':  rooms if rooms else None,
                   'badges': badge_count if badge_count else None,
+                  'streak': streak if streak is not None else None,
               }
 
               # Remove None values so fallback to hardcoded values works
@@ -240,10 +242,102 @@ jobs:
               # Don't fail the workflow — just skip
           PYEOF
 
+      - name: Fetch TryHackMe badges
+        run: |
+          python3 - <<'PYEOF'
+          import urllib.request
+          import json
+          import re
+          from html.parser import HTMLParser
+
+          class BadgeParser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.badges = []
+                  self.in_badge = False
+                  self.current_badge = {}
+                  self.tag_stack = []
+
+              def handle_starttag(self, tag, attrs):
+                  self.tag_stack.append(tag)
+                  attrs_dict = dict(attrs)
+
+                  if tag == 'div' and 'data-badge-name' in attrs_dict:
+                      self.in_badge = True
+                      self.current_badge = {
+                          'name': attrs_dict.get('data-badge-name', ''),
+                          'image': attrs_dict.get('data-badge-img', '')
+                      }
+                  elif self.in_badge and tag == 'p' and 'data-badge-desc' in attrs_dict:
+                      self.current_badge['description'] = attrs_dict.get('data-badge-desc', '')
+                  elif self.in_badge and tag == 'span' and 'data-badge-date' in attrs_dict:
+                      self.current_badge['earned'] = attrs_dict.get('data-badge-date', '')
+
+              def handle_endtag(self, tag):
+                  if self.tag_stack and self.tag_stack[-1] == tag:
+                      self.tag_stack.pop()
+                  if tag == 'div' and self.in_badge and self.current_badge.get('name'):
+                      self.badges.append(self.current_badge)
+                      self.in_badge = False
+                      self.current_badge = {}
+
+          try:
+              url = 'https://tryhackme.com/p/Kieboard?tab=badges'
+              req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+              with urllib.request.urlopen(req, timeout=10) as r:
+                  html = r.read().decode('utf-8')
+
+              # Fallback: extract badge data using regex patterns
+              # Looking for badge img src and data attributes
+              badges = []
+
+              # Pattern: find badge containers with image URLs and metadata
+              badge_img_pattern = r'src="(https://assets\.tryhackme\.com/img/badges/[^"]+)"'
+              badge_name_pattern = r'alt="([^"]+)"'
+
+              images = re.findall(badge_img_pattern, html)
+
+              # For each badge image found, try to extract name from nearby alt text
+              for match in re.finditer(r'<img[^>]*src="(https://assets\.tryhackme\.com/img/badges/[^"]+)"[^>]*alt="([^"]+)"', html):
+                  image_url = match.group(1)
+                  alt_text = match.group(2)
+
+                  # Extract badge slug from URL (e.g., "linux" from "...badges/linux.png")
+                  slug = image_url.split('/')[-1].replace('.png', '')
+
+                  badges.append({
+                      'name': alt_text,
+                      'image': image_url,
+                      'slug': slug,
+                      'earned': None  # Will try to extract from nearby text
+                  })
+
+              # Remove duplicates by slug
+              unique_badges = {}
+              for badge in badges:
+                  if badge['slug'] not in unique_badges:
+                      unique_badges[badge['slug']] = badge
+
+              badges = list(unique_badges.values())
+
+              print(f"Found {len(badges)} badges")
+              for b in badges:
+                  print(f"  {b['name']} — {b['image']}")
+
+              with open('thm-badges.json', 'w') as f:
+                  json.dump(badges, f, indent=2)
+
+          except Exception as e:
+              print(f"Warning: could not fetch badges: {e}")
+              # Create empty badges file
+              with open('thm-badges.json', 'w') as f:
+                  json.dump([], f)
+          PYEOF
+
       - name: Commit data files
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add writeups.json thm-stats.json
-          git diff --staged --quiet || git commit -m "chore: update writeups and THM stats [skip ci]"
+          git add writeups.json thm-stats.json thm-badges.json
+          git diff --staged --quiet || git commit -m "chore: update writeups, THM stats, and badges [skip ci]"
           git push
