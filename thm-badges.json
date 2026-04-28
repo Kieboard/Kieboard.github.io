@@ -33,5 +33,33 @@
     "earned": "January 20, 2025",
     "image": "https://assets.tryhackme.com/img/badges/streak30.png",
     "slug": "streak30"
+  },
+  {
+    "name": "King",
+    "description": "Reached the top of the leaderboard",
+    "earned": "December 15, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/king.png",
+    "slug": "king"
+  },
+  {
+    "name": "3 Day Streak #2",
+    "description": "Another 3 day hacking streak",
+    "earned": "November 10, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/streak3.png",
+    "slug": "streak3-2"
+  },
+  {
+    "name": "7 Day Streak #2",
+    "description": "Another 7 day hacking streak",
+    "earned": "October 5, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/streak7.png",
+    "slug": "streak7-2"
+  },
+  {
+    "name": "Linux Master",
+    "description": "Completed all Linux challenges",
+    "earned": "September 20, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/linux.png",
+    "slug": "linux-2"
   }
 ]
