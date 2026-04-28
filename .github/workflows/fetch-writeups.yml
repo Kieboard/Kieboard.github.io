@@ -76,6 +76,15 @@ jobs:
                   date = date_match.group(1).strip()
               return tags, date
 
+          def extract_images(markdown):
+              """Extract and preserve image URLs from markdown/HTML content."""
+              import re
+              images = []
+              # Find img tags with src attributes (including Gyazo, GitHub, etc.)
+              img_pattern = r'<img[^>]*src=["\']([^"\']+)["\'][^>]*>'
+              images = re.findall(img_pattern, markdown)
+              return images
+
           def walk_pages(pages, platform='TryHackMe', difficulty='medium', writeups=None):
               if writeups is None:
                   writeups = []
@@ -138,6 +147,7 @@ jobs:
                       print(f'  Fetching: {title} ({git_path})')
                       markdown      = fetch_markdown(git_path) if git_path else ''
                       md_tags, date = parse_markdown_meta(markdown)
+                      images        = extract_images(markdown)
 
                       # Cover image — PNG stored alongside the markdown in CTF-Hub repo
                       # The PNG filename may differ from the MD filename, so fetch the dir listing
@@ -172,6 +182,7 @@ jobs:
                           'date':       date,
                           'cover':      cover_url,
                           'markdown':   markdown,
+                          'images':     images,
                           'htb_type':   htb_type,
                       })
 
