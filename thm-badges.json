@@ -61,5 +61,40 @@
     "earned": "September 20, 2024",
     "image": "https://assets.tryhackme.com/img/badges/linux.png",
     "slug": "linux-2"
+  },
+  {
+    "name": "Cyber Explorer",
+    "description": "Completed Advent of Cyber challenge",
+    "earned": "August 15, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/aoc5.png",
+    "slug": "aoc5-2"
+  },
+  {
+    "name": "30 Day Champion",
+    "description": "Another 30 day streak achievement",
+    "earned": "July 10, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/streak30.png",
+    "slug": "streak30-2"
+  },
+  {
+    "name": "King of the Leaderboard",
+    "description": "Top ranked player",
+    "earned": "June 5, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/king.png",
+    "slug": "king-2"
+  },
+  {
+    "name": "Linux Expert",
+    "description": "Linux fundamentals complete",
+    "earned": "May 1, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/linux.png",
+    "slug": "linux-3"
+  },
+  {
+    "name": "Streak Master",
+    "description": "Multiple long streaks completed",
+    "earned": "April 20, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/streak7.png",
+    "slug": "streak7-3"
   }
 ]
