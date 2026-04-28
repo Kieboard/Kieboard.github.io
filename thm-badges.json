@@ -19,5 +19,40 @@
     "earned": "December 25, 2024",
     "image": "https://assets.tryhackme.com/img/badges/aoc5.png",
     "slug": "aoc5"
+  },
+  {
+    "name": "Web Fundamentals",
+    "description": "Completed the web fundamentals pathway",
+    "earned": "February 14, 2025",
+    "image": "https://assets.tryhackme.com/img/badges/web.png",
+    "slug": "web"
+  },
+  {
+    "name": "Network Security",
+    "description": "Mastered network security concepts",
+    "earned": "January 20, 2025",
+    "image": "https://assets.tryhackme.com/img/badges/network.png",
+    "slug": "network"
+  },
+  {
+    "name": "Penetration Testing",
+    "description": "Completed penetration testing modules",
+    "earned": "December 10, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/pentest.png",
+    "slug": "pentest"
+  },
+  {
+    "name": "Cryptography Master",
+    "description": "Mastered cryptography challenges",
+    "earned": "November 5, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/crypto.png",
+    "slug": "crypto"
+  },
+  {
+    "name": "Scripting Pro",
+    "description": "Completed scripting and automation challenges",
+    "earned": "October 18, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/scripting.png",
+    "slug": "scripting"
   }
 ]
