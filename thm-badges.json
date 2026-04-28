@@ -33,26 +33,5 @@
     "earned": "January 20, 2025",
     "image": "https://assets.tryhackme.com/img/badges/streak30.png",
     "slug": "streak30"
-  },
-  {
-    "name": "Brains User",
-    "description": "Earned 100+ Brains",
-    "earned": "December 10, 2024",
-    "image": "https://assets.tryhackme.com/img/badges/brainsuser.png",
-    "slug": "brainsuser"
-  },
-  {
-    "name": "Tutorial Complete",
-    "description": "Completed the tutorial",
-    "earned": "November 5, 2024",
-    "image": "https://assets.tryhackme.com/img/badges/tutorialcomplete.png",
-    "slug": "tutorialcomplete"
-  },
-  {
-    "name": "First Flag",
-    "description": "Completed your first challenge",
-    "earned": "October 18, 2024",
-    "image": "https://assets.tryhackme.com/img/badges/firstflag.png",
-    "slug": "firstflag"
   }
 ]
