@@ -51,8 +51,8 @@
     "name": "Cyber Ready",
     "description": "Understanding impact of training on teams",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/cyberready.png",
-    "slug": "cyberready",
+    "image": "https://assets.tryhackme.com/img/badges/careerready.png",
+    "slug": "careerready",
     "rarity": "Rare: 7.7%"
   },
   {
@@ -91,8 +91,8 @@
     "name": "First alert closed",
     "description": "Closing your first alert",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/incidentresponse.png",
-    "slug": "incidentresponse",
+    "image": "https://assets.tryhackme.com/img/badges/soc-sim-first-alert-closed.png",
+    "slug": "soc-sim-first-alert-closed",
     "rarity": "Rare: 6.8%"
   },
   {
