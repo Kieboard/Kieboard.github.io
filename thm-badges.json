@@ -19,16 +19,16 @@
     "name": "Webbed",
     "description": "Understands how the world wide web works",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/webfundamentals.png",
-    "slug": "webfundamentals",
+    "image": "https://assets.tryhackme.com/img/badges/webbed.png",
+    "slug": "webbed",
     "rarity": "Common: 23.9%"
   },
   {
     "name": "World Wide Web",
     "description": "Completing the 'How The Web Works' module",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/webworks.png",
-    "slug": "webworks",
+    "image": "https://assets.tryhackme.com/img/badges/howthewebworks.png",
+    "slug": "howthewebworks",
     "rarity": "Common: 21.2%"
   },
   {
@@ -51,8 +51,8 @@
     "name": "Cyber Ready",
     "description": "Understanding impact of training on teams",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/cybertraining.png",
-    "slug": "cybertraining",
+    "image": "https://assets.tryhackme.com/img/badges/cyberready.png",
+    "slug": "cyberready",
     "rarity": "Rare: 7.7%"
   },
   {
@@ -67,8 +67,8 @@
     "name": "Introduction to Security Engineering",
     "description": "Completed the Security Engineer Intro room!",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/securityengineer.png",
-    "slug": "securityengineer",
+    "image": "https://assets.tryhackme.com/img/badges/introtosecurityengineering.png",
+    "slug": "introtosecurityengineering",
     "rarity": "Rare: 5.7%"
   },
   {
@@ -83,8 +83,8 @@
     "name": "Advent of Cyber 2025",
     "description": "Completing Advent of Cyber 2025!",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/aoc6.png",
-    "slug": "aoc6",
+    "image": "https://assets.tryhackme.com/img/badges/advent-of-cyber-2025.png",
+    "slug": "advent-of-cyber-2025",
     "rarity": "Rare: 4.1%"
   },
   {
@@ -99,16 +99,16 @@
     "name": "First scenario completed",
     "description": "Completing your first scenario",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/dfir.png",
-    "slug": "dfir",
+    "image": "https://assets.tryhackme.com/img/badges/soc-sim-first-scenario-completed.png",
+    "slug": "soc-sim-first-scenario-completed",
     "rarity": "Rare: 5.4%"
   },
   {
     "name": "100% true positive rate",
     "description": "Achieving 100% true positive rate in a scenario",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/accuracy.png",
-    "slug": "accuracy",
+    "image": "https://assets.tryhackme.com/img/badges/soc-sim-100-percent-true-positive-rate.png",
+    "slug": "soc-sim-100-percent-true-positive-rate",
     "rarity": "Rare: 4.4%"
   }
 ]
