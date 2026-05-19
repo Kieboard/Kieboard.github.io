@@ -340,9 +340,11 @@ jobs:
 
           except Exception as e:
               print(f"Warning: could not fetch badges: {e}")
-              # Create empty badges file
-              with open('thm-badges.json', 'w') as f:
-                  json.dump([], f)
+              # Don't overwrite if fetch fails — preserve existing badges
+              import os
+              if not os.path.exists('thm-badges.json'):
+                  with open('thm-badges.json', 'w') as f:
+                      json.dump([], f)
           PYEOF
 
       - name: Commit data files
