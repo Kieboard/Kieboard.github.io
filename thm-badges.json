@@ -11,24 +11,24 @@
     "name": "Networking Nerd",
     "description": "Completing the 'Network Fundamentals' module",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/networking.png",
-    "slug": "networking",
+    "image": "https://assets.tryhackme.com/img/badges/networkfundamentals.png",
+    "slug": "networkfundamentals",
     "rarity": "Common: 17.8%"
   },
   {
     "name": "Webbed",
     "description": "Understands how the world wide web works",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/web.png",
-    "slug": "web",
+    "image": "https://assets.tryhackme.com/img/badges/webfundamentals.png",
+    "slug": "webfundamentals",
     "rarity": "Common: 23.9%"
   },
   {
     "name": "World Wide Web",
     "description": "Completing the 'How The Web Works' module",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/hotweb.png",
-    "slug": "hotweb",
+    "image": "https://assets.tryhackme.com/img/badges/webworks.png",
+    "slug": "webworks",
     "rarity": "Common: 21.2%"
   },
   {
@@ -51,8 +51,8 @@
     "name": "Cyber Ready",
     "description": "Understanding impact of training on teams",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/cyberready.png",
-    "slug": "cyberready",
+    "image": "https://assets.tryhackme.com/img/badges/cybertraining.png",
+    "slug": "cybertraining",
     "rarity": "Rare: 7.7%"
   },
   {
@@ -67,16 +67,16 @@
     "name": "Introduction to Security Engineering",
     "description": "Completed the Security Engineer Intro room!",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/intro.png",
-    "slug": "intro",
+    "image": "https://assets.tryhackme.com/img/badges/securityengineer.png",
+    "slug": "securityengineer",
     "rarity": "Rare: 5.7%"
   },
   {
     "name": "Raffle Royalty",
     "description": "Participating in Hack2Win 2025!",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/raffle.png",
-    "slug": "raffle",
+    "image": "https://assets.tryhackme.com/img/badges/hack2win.png",
+    "slug": "hack2win",
     "rarity": "Rare: 5.1%"
   },
   {
@@ -91,16 +91,16 @@
     "name": "First alert closed",
     "description": "Closing your first alert",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/alert.png",
-    "slug": "alert",
+    "image": "https://assets.tryhackme.com/img/badges/incidentresponse.png",
+    "slug": "incidentresponse",
     "rarity": "Rare: 6.8%"
   },
   {
     "name": "First scenario completed",
     "description": "Completing your first scenario",
     "earned": "2025",
-    "image": "https://assets.tryhackme.com/img/badges/scenario.png",
-    "slug": "scenario",
+    "image": "https://assets.tryhackme.com/img/badges/dfir.png",
+    "slug": "dfir",
     "rarity": "Rare: 5.4%"
   },
   {
