@@ -1,44 +1,114 @@
 [
   {
-    "name": "3 Day Streak",
-    "description": "Achieving a 3 day hacking streak",
-    "earned": "September 6, 2025",
-    "image": "https://assets.tryhackme.com/img/badges/streak3.png",
-    "slug": "streak3"
-  },
-  {
-    "name": "Cat Linux.txt",
-    "description": "Completed the Linux fundamentals pathway",
+    "name": "cat linux.txt",
+    "description": "Being competent in Linux",
     "earned": "March 15, 2025",
     "image": "https://assets.tryhackme.com/img/badges/linux.png",
-    "slug": "linux"
+    "slug": "linux",
+    "rarity": "Common: 29.8%"
+  },
+  {
+    "name": "Networking Nerd",
+    "description": "Completing the 'Network Fundamentals' module",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/networkingnerd.png",
+    "slug": "networkingnerd",
+    "rarity": "Common: 17.8%"
+  },
+  {
+    "name": "Webbed",
+    "description": "Understands how the world wide web works",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/webbed.png",
+    "slug": "webbed",
+    "rarity": "Common: 23.9%"
+  },
+  {
+    "name": "World Wide Web",
+    "description": "Completing the 'How The Web Works' module",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/www.png",
+    "slug": "www",
+    "rarity": "Common: 21.2%"
   },
   {
     "name": "Advent of Cyber 2024",
-    "description": "Completed Advent of Cyber 2024 challenge",
+    "description": "Completing Advent of Cyber 2024!",
     "earned": "December 25, 2024",
     "image": "https://assets.tryhackme.com/img/badges/aoc5.png",
-    "slug": "aoc5"
+    "slug": "aoc5",
+    "rarity": "Rare: 1.6%"
   },
   {
     "name": "7 Day Streak",
     "description": "Achieving a 7 day hacking streak",
     "earned": "February 14, 2025",
     "image": "https://assets.tryhackme.com/img/badges/streak7.png",
-    "slug": "streak7"
+    "slug": "streak7",
+    "rarity": "Common: 21.6%"
   },
   {
-    "name": "30 Day Streak",
-    "description": "Achieving a 30 day hacking streak",
-    "earned": "January 20, 2025",
-    "image": "https://assets.tryhackme.com/img/badges/streak30.png",
-    "slug": "streak30"
+    "name": "Cyber Ready",
+    "description": "Understanding impact of training on teams",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/cyberready.png",
+    "slug": "cyberready",
+    "rarity": "Rare: 7.7%"
   },
   {
-    "name": "King",
-    "description": "Reached the top of the leaderboard",
-    "earned": "December 15, 2024",
-    "image": "https://assets.tryhackme.com/img/badges/king.png",
-    "slug": "king"
+    "name": "3 Day Streak",
+    "description": "Achieving a 3 day hacking streak",
+    "earned": "September 6, 2025",
+    "image": "https://assets.tryhackme.com/img/badges/streak3.png",
+    "slug": "streak3",
+    "rarity": "Common: 33.5%"
+  },
+  {
+    "name": "Introduction to Security Engineering",
+    "description": "Completed the Security Engineer Intro room!",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/securityengineer.png",
+    "slug": "securityengineer",
+    "rarity": "Rare: 5.7%"
+  },
+  {
+    "name": "Raffle Royalty",
+    "description": "Participating in Hack2Win 2025!",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/raffleroyalty.png",
+    "slug": "raffleroyalty",
+    "rarity": "Rare: 5.1%"
+  },
+  {
+    "name": "Advent of Cyber 2025",
+    "description": "Completing Advent of Cyber 2025!",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/aoc6.png",
+    "slug": "aoc6",
+    "rarity": "Rare: 4.1%"
+  },
+  {
+    "name": "First alert closed",
+    "description": "Closing your first alert",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/firstalert.png",
+    "slug": "firstalert",
+    "rarity": "Rare: 6.8%"
+  },
+  {
+    "name": "First scenario completed",
+    "description": "Completing your first scenario",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/firstscenario.png",
+    "slug": "firstscenario",
+    "rarity": "Rare: 5.4%"
+  },
+  {
+    "name": "100% true positive rate",
+    "description": "Achieving 100% true positive rate in a scenario",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/tpr100.png",
+    "slug": "tpr100",
+    "rarity": "Rare: 4.4%"
   }
 ]
