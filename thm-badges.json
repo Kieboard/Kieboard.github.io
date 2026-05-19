@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "name": "3 Day Streak",
+    "description": "Achieving a 3 day hacking streak",
+    "earned": "September 6, 2025",
+    "image": "https://assets.tryhackme.com/img/badges/streak3.png",
+    "slug": "streak3"
+  },
+  {
+    "name": "Cat Linux.txt",
+    "description": "Completed the Linux fundamentals pathway",
+    "earned": "March 15, 2025",
+    "image": "https://assets.tryhackme.com/img/badges/linux.png",
+    "slug": "linux"
+  },
+  {
+    "name": "Advent of Cyber 2024",
+    "description": "Completed Advent of Cyber 2024 challenge",
+    "earned": "December 25, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/aoc5.png",
+    "slug": "aoc5"
+  },
+  {
+    "name": "7 Day Streak",
+    "description": "Achieving a 7 day hacking streak",
+    "earned": "February 14, 2025",
+    "image": "https://assets.tryhackme.com/img/badges/streak7.png",
+    "slug": "streak7"
+  },
+  {
+    "name": "30 Day Streak",
+    "description": "Achieving a 30 day hacking streak",
+    "earned": "January 20, 2025",
+    "image": "https://assets.tryhackme.com/img/badges/streak30.png",
+    "slug": "streak30"
+  },
+  {
+    "name": "King",
+    "description": "Reached the top of the leaderboard",
+    "earned": "December 15, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/king.png",
+    "slug": "king"
+  }
+]
