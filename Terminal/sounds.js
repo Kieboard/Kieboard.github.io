@@ -1,16 +1,17 @@
 // Terminal Audio Manager
-// Handles boot sounds and keyboard click sounds
+// CRT hum ambient sound + keyboard click feedback
 
 const TerminalAudio = {
   enabled: true,
-  bootSound: null,
+  ambientSound: null,
   keyClickSounds: [],
   currentKeyClickIndex: 0,
 
   init() {
-    // Load boot sound
-    this.bootSound = new Audio('Terminal/sounds/system/boot-up.mp3');
-    this.bootSound.volume = 0.8;
+    // Load continuous CRT hum sound
+    this.ambientSound = new Audio('Terminal/sounds/ambient/crt-hum-loop.mp3');
+    this.ambientSound.volume = 0.3;
+    this.ambientSound.loop = true;
 
     // Load keyboard click sounds
     const keyClickFiles = [
@@ -31,15 +32,24 @@ const TerminalAudio = {
 
     // Set up keyboard input listener
     this.setupKeyboardListener();
+
+    // Set up terminal open/close handlers
+    this.setupTerminalHandlers();
   },
 
-  playBootSound() {
-    if (this.enabled && this.bootSound) {
-      // Reset and play
-      this.bootSound.currentTime = 0;
-      this.bootSound.play().catch(err => {
-        console.log('Boot sound play failed:', err.message);
+  startAmbientSound() {
+    if (this.enabled && this.ambientSound) {
+      this.ambientSound.currentTime = 0;
+      this.ambientSound.play().catch(err => {
+        console.log('Ambient sound play failed:', err.message);
       });
+    }
+  },
+
+  stopAmbientSound() {
+    if (this.ambientSound) {
+      this.ambientSound.pause();
+      this.ambientSound.currentTime = 0;
     }
   },
 
@@ -54,6 +64,24 @@ const TerminalAudio = {
         // Silently fail if audio can't play
       });
     }
+  },
+
+  setupTerminalHandlers() {
+    // Start ambient sound when terminal opens
+    const originalLaunchTerminal = window.launchTerminal;
+    if (originalLaunchTerminal) {
+      window.launchTerminal = () => {
+        this.startAmbientSound();
+        return originalLaunchTerminal.apply(this, arguments);
+      };
+    }
+
+    // Stop ambient sound when terminal closes
+    document.addEventListener('click', (e) => {
+      if (e.target?.id === 'term-close-btn' || e.target?.closest('#term-close-btn')) {
+        this.stopAmbientSound();
+      }
+    }, true);
   },
 
   setupKeyboardListener() {
@@ -73,6 +101,9 @@ const TerminalAudio = {
     window.addEventListener('terminalMute', () => {
       this.enabled = !this.enabled;
       this.updateMuteButton();
+      if (!this.enabled) {
+        this.stopAmbientSound();
+      }
     });
 
     // Set up mute button - retry if not found immediately
@@ -95,6 +126,9 @@ const TerminalAudio = {
   toggleMute() {
     this.enabled = !this.enabled;
     this.updateMuteButton();
+    if (!this.enabled) {
+      this.stopAmbientSound();
+    }
     return this.enabled ? 'Sound enabled' : 'Sound disabled';
   },
 
@@ -127,12 +161,3 @@ if (document.readyState === 'loading') {
   TerminalAudio.init();
   TerminalAudio.updateMuteButton();
 }
-
-// Play boot sound when Terminal window opens
-window.addEventListener('load', () => {
-  const launchTerminal = window.launchTerminal;
-  window.launchTerminal = function() {
-    TerminalAudio.playBootSound();
-    return launchTerminal.apply(this, arguments);
-  };
-});
