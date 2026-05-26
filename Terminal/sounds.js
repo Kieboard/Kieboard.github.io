@@ -1,18 +1,12 @@
 // Terminal Audio Manager
-// CRT hum ambient sound + keyboard click feedback
+// Keyboard click sounds only
 
 const TerminalAudio = {
   enabled: true,
-  ambientSound: null,
   keyClickSounds: [],
   currentKeyClickIndex: 0,
 
   init() {
-    // Load continuous CRT hum sound
-    this.ambientSound = new Audio('Terminal/sounds/ambient/crt-hum-loop.mp3');
-    this.ambientSound.volume = 0.3;
-    this.ambientSound.loop = true;
-
     // Load keyboard click sounds
     const keyClickFiles = [
       'Terminal/sounds/keyboard/key-1.mp3',
@@ -27,30 +21,11 @@ const TerminalAudio = {
       this.keyClickSounds.push(audio);
     });
 
-    // Set up mute toggle
-    this.setupMuteToggle();
-
     // Set up keyboard input listener
     this.setupKeyboardListener();
 
-    // Set up terminal open/close handlers
-    this.setupTerminalHandlers();
-  },
-
-  startAmbientSound() {
-    if (this.enabled && this.ambientSound) {
-      this.ambientSound.currentTime = 0;
-      this.ambientSound.play().catch(err => {
-        console.log('Ambient sound play failed:', err.message);
-      });
-    }
-  },
-
-  stopAmbientSound() {
-    if (this.ambientSound) {
-      this.ambientSound.pause();
-      this.ambientSound.currentTime = 0;
-    }
+    // Set up mute toggle
+    this.setupMuteToggle();
   },
 
   playKeyClick() {
@@ -66,24 +41,6 @@ const TerminalAudio = {
     }
   },
 
-  setupTerminalHandlers() {
-    // Start ambient sound when terminal opens
-    const originalLaunchTerminal = window.launchTerminal;
-    if (originalLaunchTerminal) {
-      window.launchTerminal = () => {
-        this.startAmbientSound();
-        return originalLaunchTerminal.apply(this, arguments);
-      };
-    }
-
-    // Stop ambient sound when terminal closes
-    document.addEventListener('click', (e) => {
-      if (e.target?.id === 'term-close-btn' || e.target?.closest('#term-close-btn')) {
-        this.stopAmbientSound();
-      }
-    }, true);
-  },
-
   setupKeyboardListener() {
     const cmdInput = document.getElementById('cmd-input');
     if (cmdInput) {
@@ -97,15 +54,6 @@ const TerminalAudio = {
   },
 
   setupMuteToggle() {
-    // Listen for mute command from Terminal
-    window.addEventListener('terminalMute', () => {
-      this.enabled = !this.enabled;
-      this.updateMuteButton();
-      if (!this.enabled) {
-        this.stopAmbientSound();
-      }
-    });
-
     // Set up mute button - retry if not found immediately
     const setupButton = () => {
       const muteBtn = document.getElementById('term-mute-btn');
@@ -126,9 +74,6 @@ const TerminalAudio = {
   toggleMute() {
     this.enabled = !this.enabled;
     this.updateMuteButton();
-    if (!this.enabled) {
-      this.stopAmbientSound();
-    }
     return this.enabled ? 'Sound enabled' : 'Sound disabled';
   },
 
