@@ -72,22 +72,60 @@ const TerminalAudio = {
     // Listen for mute command from Terminal
     window.addEventListener('terminalMute', () => {
       this.enabled = !this.enabled;
+      this.updateMuteButton();
     });
+
+    // Set up mute button - retry if not found immediately
+    const setupButton = () => {
+      const muteBtn = document.getElementById('term-mute-btn');
+      if (muteBtn) {
+        muteBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          this.toggleMute();
+        });
+      } else {
+        // Retry in 100ms if button not found
+        setTimeout(setupButton, 100);
+      }
+    };
+    setupButton();
   },
 
   toggleMute() {
     this.enabled = !this.enabled;
+    this.updateMuteButton();
     return this.enabled ? 'Sound enabled' : 'Sound disabled';
+  },
+
+  updateMuteButton() {
+    const muteBtn = document.getElementById('term-mute-btn');
+    if (muteBtn) {
+      if (this.enabled) {
+        muteBtn.classList.remove('muted');
+        muteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+        muteBtn.title = 'Mute sound';
+      } else {
+        muteBtn.classList.add('muted');
+        muteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+        muteBtn.title = 'Unmute sound';
+      }
+    }
   }
 };
+
+// Expose TerminalAudio globally for onclick handlers
+window.TerminalAudio = TerminalAudio;
 
 // Initialize audio when page loads
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', () => {
     TerminalAudio.init();
+    TerminalAudio.updateMuteButton();
   });
 } else {
   TerminalAudio.init();
+  TerminalAudio.updateMuteButton();
 }
 
 // Play boot sound when Terminal window opens
