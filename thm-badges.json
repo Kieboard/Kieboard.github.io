@@ -1,1 +1,114 @@
-[]
+[
+  {
+    "name": "cat linux.txt",
+    "description": "Being competent in Linux",
+    "earned": "March 15, 2025",
+    "image": "https://assets.tryhackme.com/img/badges/linux.png",
+    "slug": "linux",
+    "rarity": "Common: 29.8%"
+  },
+  {
+    "name": "Networking Nerd",
+    "description": "Completing the 'Network Fundamentals' module",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/networkfundamentals.png",
+    "slug": "networkfundamentals",
+    "rarity": "Common: 17.8%"
+  },
+  {
+    "name": "Webbed",
+    "description": "Understands how the world wide web works",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/webbed.png",
+    "slug": "webbed",
+    "rarity": "Common: 23.9%"
+  },
+  {
+    "name": "World Wide Web",
+    "description": "Completing the 'How The Web Works' module",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/howthewebworks.png",
+    "slug": "howthewebworks",
+    "rarity": "Common: 21.2%"
+  },
+  {
+    "name": "Advent of Cyber 2024",
+    "description": "Completing Advent of Cyber 2024!",
+    "earned": "December 25, 2024",
+    "image": "https://assets.tryhackme.com/img/badges/aoc5.png",
+    "slug": "aoc5",
+    "rarity": "Rare: 1.6%"
+  },
+  {
+    "name": "7 Day Streak",
+    "description": "Achieving a 7 day hacking streak",
+    "earned": "February 14, 2025",
+    "image": "https://assets.tryhackme.com/img/badges/streak7.png",
+    "slug": "streak7",
+    "rarity": "Common: 21.6%"
+  },
+  {
+    "name": "Cyber Ready",
+    "description": "Understanding impact of training on teams",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/careerready.png",
+    "slug": "careerready",
+    "rarity": "Rare: 7.7%"
+  },
+  {
+    "name": "3 Day Streak",
+    "description": "Achieving a 3 day hacking streak",
+    "earned": "September 6, 2025",
+    "image": "https://assets.tryhackme.com/img/badges/streak3.png",
+    "slug": "streak3",
+    "rarity": "Common: 33.5%"
+  },
+  {
+    "name": "Introduction to Security Engineering",
+    "description": "Completed the Security Engineer Intro room!",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/introtosecurityengineering.png",
+    "slug": "introtosecurityengineering",
+    "rarity": "Rare: 5.7%"
+  },
+  {
+    "name": "Raffle Royalty",
+    "description": "Participating in Hack2Win 2025!",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/hack2win.png",
+    "slug": "hack2win",
+    "rarity": "Rare: 5.1%"
+  },
+  {
+    "name": "Advent of Cyber 2025",
+    "description": "Completing Advent of Cyber 2025!",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/advent-of-cyber-2025.png",
+    "slug": "advent-of-cyber-2025",
+    "rarity": "Rare: 4.1%"
+  },
+  {
+    "name": "First alert closed",
+    "description": "Closing your first alert",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/soc-sim-first-alert-closed.png",
+    "slug": "soc-sim-first-alert-closed",
+    "rarity": "Rare: 6.8%"
+  },
+  {
+    "name": "First scenario completed",
+    "description": "Completing your first scenario",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/soc-sim-first-scenario-completed.png",
+    "slug": "soc-sim-first-scenario-completed",
+    "rarity": "Rare: 5.4%"
+  },
+  {
+    "name": "100% true positive rate",
+    "description": "Achieving 100% true positive rate in a scenario",
+    "earned": "2025",
+    "image": "https://assets.tryhackme.com/img/badges/soc-sim-100-percent-true-positive-rate.png",
+    "slug": "soc-sim-100-percent-true-positive-rate",
+    "rarity": "Rare: 4.4%"
+  }
+]
