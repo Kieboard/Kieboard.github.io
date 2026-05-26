@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:8000)",
+      "Bash(pkill -f \"python.*http.server\")",
+      "Bash(python -m http.server 8000)",
+      "Bash(curl -s http://localhost:8000/styles.css)",
+      "Bash(grep -i \"nav-shell\\\\|nav-toggle\\\\|style\\\\\\\\.left\\\\|style\\\\\\\\.right\\\\|offsetLeft\\\\|offsetWidth\" \"C:\\\\Users\\\\moder\\\\Documents\\\\GitHub\\\\kieboard.github.io LIVE\\\\.claude\\\\worktrees\\\\festive-saha-2e40cf\\\\script.js\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(netstat -ano)",
+      "Bash(\\\\.css)",
+      "Bash(\\\\.js\")",
+      "Bash(python -m http.server 8001)",
+      "Read(//tmp/**)",
+      "Bash(curl -s http://localhost:8001)",
+      "Bash(python3)",
+      "Bash(curl -s http://localhost:8001/styles.css)",
+      "Bash(curl -s http://localhost:8002/styles.css)"
+    ]
+  }
+}
