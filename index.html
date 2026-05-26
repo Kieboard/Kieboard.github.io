@@ -908,5 +908,71 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js" defer></script>
 <script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const feedback = document.getElementById('form-feedback');
+
+  if (form && submitBtn && feedback) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.querySelector('span').textContent = 'Sending...';
+      submitBtn.querySelector('i').className = 'fa-solid fa-spinner fa-spin';
+      feedback.className = 'form-feedback';
+      feedback.textContent = '';
+
+      try {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Submit to Formspree
+        const formspreeRes = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+
+        if (!formspreeRes.ok) throw new Error('Formspree submission failed');
+
+        // Submit to Supabase
+        const supabaseUrl = 'https://xhgtgdqmqmwexnxetdrd.supabase.co';
+        const anonKey = 'sb_publishable_INzzx_0MaJE-L76kNxlTeQ_WWRdGjgQ';
+
+        await fetch(`${supabaseUrl}/rest/v1/contact_submissions`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${anonKey}`,
+            'Content-Type': 'application/json',
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message,
+            submitted_at: new Date().toISOString()
+          })
+        });
+
+        // Success
+        feedback.className = 'form-feedback success';
+        feedback.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message sent! I\'ll get back to you soon.';
+        form.reset();
+
+      } catch (error) {
+        feedback.className = 'form-feedback error';
+        feedback.innerHTML = '<i class="fa-solid fa-circle-xmark"></i> Something went wrong. Try emailing me directly.';
+        console.error('Contact form error:', error);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.querySelector('span').textContent = 'Send Message';
+        submitBtn.querySelector('i').className = 'fa-solid fa-paper-plane';
+      }
+    });
+  }
+});
+</script>
 </body>
 </html>
