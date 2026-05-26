@@ -16,7 +16,7 @@ const KeyboardSounds = {
 
     files.forEach(file => {
       const audio = new Audio(file);
-      audio.volume = 0.15;
+      audio.volume = 0.08;
       this.sounds.push(audio);
     });
 
