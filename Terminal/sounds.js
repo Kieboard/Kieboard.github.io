@@ -10,7 +10,7 @@ const TerminalAudio = {
   init() {
     // Load boot sound
     this.bootSound = new Audio('Terminal/sounds/system/boot-up.mp3');
-    this.bootSound.volume = 0.3;
+    this.bootSound.volume = 0.8;
 
     // Load keyboard click sounds
     const keyClickFiles = [
@@ -22,7 +22,7 @@ const TerminalAudio = {
 
     keyClickFiles.forEach(file => {
       const audio = new Audio(file);
-      audio.volume = 0.15;
+      audio.volume = 0.5;
       this.keyClickSounds.push(audio);
     });
 
