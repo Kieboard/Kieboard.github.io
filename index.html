@@ -941,7 +941,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const supabaseUrl = 'https://xhgtgdqmqmwexnxetdrd.supabase.co';
         const anonKey = 'sb_publishable_INzzx_0MaJE-L76kNxlTeQ_WWRdGjgQ';
 
-        await fetch(`${supabaseUrl}/rest/v1/contact_submissions`, {
+        const supabaseRes = await fetch(`${supabaseUrl}/rest/v1/contact_submissions`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${anonKey}`,
@@ -955,6 +955,12 @@ document.addEventListener('DOMContentLoaded', () => {
             submitted_at: new Date().toISOString()
           })
         });
+
+        if (!supabaseRes.ok) {
+          const errorText = await supabaseRes.text();
+          console.error('Supabase error:', supabaseRes.status, errorText);
+          throw new Error(`Supabase error: ${supabaseRes.status}`);
+        }
 
         // Success
         feedback.className = 'form-feedback success';
